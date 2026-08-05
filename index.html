@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO & META -->
+    <!-- REPLACE WITH YOUR META DETAILS -->
+    <title>Probuild Construction | Commercial General Contractor</title>
+    <meta name="description" content="Commercial Spaces, Designed and Built With Precision. We handle your drawings, permits, engineering, and construction from start to finish.">
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONTAWESOME FOR ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',    /* Slate 900 */
+                            primary: '#1d4ed8', /* Blue 700 */
+                            accent: '#f97316',  /* Orange 500 */
+                            light: '#f8fafc',   /* Slate 50 */
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CUSTOM ANIMATIONS & TRANSITIONS */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Tab Transitions */
+        .tabcontent {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tabcontent.active-tab {
+            display: flex;
+            opacity: 1;
+        }
+
+        /* Image Zoom Hover effect */
+        .img-zoom-container {
+            overflow: hidden;
+        }
+        .img-zoom-container img {
+            transition: transform 0.5s ease;
+        }
+        .img-zoom-container:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-600 bg-white antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- TOP COMPLIANCE / INFO BAR -->
+    <div class="bg-brand-dark text-white text-xs md:text-sm py-2 px-4 flex justify-between items-center z-50 relative">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p class="mb-1 md:mb-0"><i class="fa-solid fa-hard-hat text-brand-accent mr-2"></i> Tacoma's Premier Commercial General Contractor</p>
+            <div class="flex space-x-6">
+                <!-- PHONE NUMBER HERE -->
+                <a href="tel:4254951933" class="hover:text-brand-accent transition"><i class="fa-solid fa-phone mr-1"></i> (425) 495-1933</a>
+                <!-- EMAIL HERE -->
+                <a href="mailto:alex@probuildwa.com" class="hover:text-brand-accent transition hidden sm:inline-block"><i class="fa-solid fa-envelope mr-1"></i> alex@probuildwa.com</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="bg-white sticky top-0 z-40 shadow-sm transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 lg:px-8 h-24 flex items-center justify-between">
+            
+            <!-- LOGO SLOT -->
+            <a href="#" class="flex items-center">
+                <!-- REPLACE WITH YOUR LOGO -->
+                <span class="font-heading font-bold text-3xl tracking-tight text-brand-dark uppercase">
+                    PRO<span class="text-brand-primary">BUILD</span>
+                </span>
+            </a>
+
+            <!-- DESKTOP NAVIGATION -->
+            <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm tracking-wide text-brand-dark">
+                <a href="#" class="hover:text-brand-primary transition duration-200">HOME</a>
+                
+                <!-- DROPDOWN -->
+                <div class="relative group cursor-pointer py-6">
+                    <span class="hover:text-brand-primary transition duration-200 flex items-center">
+                        SERVICES <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+                    </span>
+                    <div class="absolute top-[70px] left-0 bg-white shadow-xl border-t-2 border-brand-primary w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 flex flex-col z-50">
+                        <a href="#" class="px-4 py-3 border-b border-gray-50 hover:bg-brand-light hover:text-brand-primary transition">Restaurants & Cafes</a>
+                        <a href="#" class="px-4 py-3 border-b border-gray-50 hover:bg-brand-light hover:text-brand-primary transition">Fitness & Wellness</a>
+                        <a href="#" class="px-4 py-3 border-b border-gray-50 hover:bg-brand-light hover:text-brand-primary transition">Office & Retail</a>
+                        <a href="#" class="px-4 py-3 border-b border-gray-50 hover:bg-brand-light hover:text-brand-primary transition">Medical & Dental</a>
+                    </div>
+                </div>
+
+                <a href="#projects" class="hover:text-brand-primary transition duration-200">PROJECTS</a>
+                <a href="#" class="hover:text-brand-primary transition duration-200">LOCATIONS</a>
+                <a href="#" class="hover:text-brand-primary transition duration-200">ABOUT</a>
+            </nav>
+
+            <!-- DESKTOP CTA -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#contact" class="bg-brand-primary text-white px-6 py-3 rounded text-sm font-semibold hover:bg-blue-800 transition shadow-lg shadow-blue-500/30">
+                    GET IN TOUCH
+                </a>
+            </div>
+
+            <!-- MOBILE MENU TOGGLE -->
+            <button id="mobile-menu-btn" class="lg:hidden text-brand-dark focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- MOBILE MENU OVERLAY -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full shadow-xl">
+            <div class="flex flex-col px-4 py-6 space-y-4 font-medium text-brand-dark">
+                <a href="#" class="hover:text-brand-primary">HOME</a>
+                <a href="#" class="hover:text-brand-primary">SERVICES</a>
+                <a href="#projects" class="hover:text-brand-primary">PROJECTS</a>
+                <a href="#" class="hover:text-brand-primary">LOCATIONS</a>
+                <a href="#" class="hover:text-brand-primary">ABOUT</a>
+                <a href="#contact" class="bg-brand-primary text-white px-4 py-3 rounded text-center font-semibold mt-4">GET IN TOUCH</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative h-[85vh] min-h-[600px] flex items-center">
+        <!-- REPLACE WITH YOUR HERO BACKGROUND IMAGE -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541888086225-ee531b74a3f5?q=80&w=2574&auto=format&fit=crop" alt="Commercial Construction Build Out" class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
+        </div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 text-white fade-in-up">
+            <div class="max-w-3xl">
+                <div class="inline-block bg-brand-accent text-white font-bold text-xs px-3 py-1 uppercase tracking-wider mb-4 rounded">
+                    Commercial General Contractor
+                </div>
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 shadow-sm">
+                    Commercial Spaces, <br/> Designed and Built <span class="text-brand-primary">With Precision</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl leading-relaxed">
+                    We handle your drawings, permits, engineering, and construction from start to finish.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-brand-primary hover:bg-blue-800 text-white text-center px-8 py-4 rounded font-semibold transition duration-300 shadow-lg shadow-blue-500/40">
+                        GET STARTED
+                    </a>
+                    <a href="#video" class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white text-center px-8 py-4 rounded font-semibold transition duration-300 flex items-center justify-center">
+                        <i class="fa-solid fa-play mr-2"></i> View Build Video
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS / WHY US METRICS -->
+    <section class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-4">A clear path from concept to completion.</h2>
+                <p class="text-lg text-slate-500">Probuild guides you through the entire commercial build-out process.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-soft hover:-translate-y-2 transition duration-300 border border-slate-100 fade-in-up">
+                    <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-6 text-brand-primary text-2xl">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-brand-dark mb-3">PRECONSTRUCTION & FEASIBILITY</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Understanding your space, requirements, budget, and timeline before design begins.</p>
+                    <a href="#" class="text-brand-primary font-semibold text-sm hover:text-brand-dark transition uppercase tracking-wide">Read More &rarr;</a>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-soft hover:-translate-y-2 transition duration-300 border border-slate-100 fade-in-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-6 text-brand-primary text-2xl">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-brand-dark mb-3">ARCHITECTURE & PERMITTING</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Complete permit management — architectural, MEP, and health department approvals included.</p>
+                    <a href="#" class="text-brand-primary font-semibold text-sm hover:text-brand-dark transition uppercase tracking-wide">Read More &rarr;</a>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-soft hover:-translate-y-2 transition duration-300 border border-slate-100 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-6 text-brand-primary text-2xl">
+                        <i class="fa-solid fa-helmet-safety"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-brand-dark mb-3">CONSTRUCTION & BUILD-OUT</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Quality-driven commercial construction with consistent communication and schedule control.</p>
+                    <a href="#" class="text-brand-primary font-semibold text-sm hover:text-brand-dark transition uppercase tracking-wide">Read More &rarr;</a>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-soft hover:-translate-y-2 transition duration-300 border border-slate-100 fade-in-up" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center mb-6 text-brand-primary text-2xl">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-brand-dark mb-3">CLOSEOUT & SUPPORT</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">Final inspections, punchlist, documentation, and support through opening day.</p>
+                    <a href="#" class="text-brand-primary font-semibold text-sm hover:text-brand-dark transition uppercase tracking-wide">Read More &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PORTFOLIO & CAPABILITIES (TABS) -->
+    <section id="projects" class="py-24 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-12 fade-in-up">
+                <div class="max-w-2xl">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-4">See Our Projects by Industry</h2>
+                    <p class="text-lg text-slate-500">We combine decades of commercial construction expertise with a passion for craftsmanship.</p>
+                </div>
+            </div>
+
+            <!-- TAB NAVIGATION -->
+            <div class="border-b border-gray-200 mb-10 overflow-x-auto fade-in-up">
+                <ul class="flex space-x-8 whitespace-nowrap" id="portfolio-tabs">
+                    <li>
+                        <button onclick="openPortfolioTab(event, 'tab-restaurants')" class="tablinks active-tab-btn pb-4 font-semibold text-brand-primary border-b-2 border-brand-primary uppercase tracking-wide text-sm transition">Restaurants & Cafes</button>
+                    </li>
+                    <li>
+                        <button onclick="openPortfolioTab(event, 'tab-fitness')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Fitness & Wellness</button>
+                    </li>
+                    <li>
+                        <button onclick="openPortfolioTab(event, 'tab-medical')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Medical & Dental</button>
+                    </li>
+                    <li>
+                        <button onclick="openPortfolioTab(event, 'tab-office')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Office & Retail</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- TAB CONTENT: RESTAURANTS -->
+            <div id="tab-restaurants" class="tabcontent active-tab flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Spaces That Serve With Style</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">We build restaurants and cafes that function as well as they look, with durable finishes, smart layouts, and fully coordinated MEP systems to support high-volume operations.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Full Kitchen Hood & Grease Trap Installs</li>
+                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Custom Millwork & Bar Construction</li>
+                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Health Department Code Compliance</li>
+                    </ul>
+                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Discuss Your Concept</a>
+                </div>
+                <!-- REPLACE WITH YOUR ASSET -->
+                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2574&auto=format&fit=crop" alt="Restaurant Build Out" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: FITNESS -->
+            <div id="tab-fitness" class="tabcontent flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Facilities That Move With You</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Our fitness and wellness builds are engineered for energy, safety, and strength. We design efficient layouts, durable finishes, and inspiring spaces that enhance the member experience.</p>
+                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Start Your Gym Build</a>
+                </div>
+                <!-- REPLACE WITH YOUR ASSET -->
+                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop" alt="Gym Construction" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: MEDICAL -->
+            <div id="tab-medical" class="tabcontent flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Built for Care and Compliance</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">We deliver clean, compliant, and precisely built medical and dental environments. Each project meets healthcare construction standards while optimizing patient flow, comfort, and efficiency.</p>
+                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Plan Your Clinic</a>
+                </div>
+                <!-- REPLACE WITH YOUR ASSET -->
+                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2653&auto=format&fit=crop" alt="Medical Build Out" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- TAB CONTENT: OFFICE -->
+            <div id="tab-office" class="tabcontent flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2">
+                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Professional Spaces that Enhance Productivity</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">We combine functionality and design to create modern office and retail environments that align with your operational needs and brand identity.</p>
+                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Upgrade Your Office</a>
+                </div>
+                <!-- REPLACE WITH YOUR ASSET -->
+                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" alt="Office Construction" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS & FEEDBACK -->
+    <section class="py-20 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-primary rounded-full opacity-10 blur-3xl"></div>
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center">
+            <h2 class="font-heading text-4xl font-bold mb-2">Client Feedback</h2>
+            <p class="text-brand-accent uppercase tracking-widest text-sm font-semibold mb-12">Real experiences. Real results.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <!-- REPLACE TEXT WITH REAL REVIEWS -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"Probuild completely transformed our restaurant space. Their handling of the permitting and kitchen build-out saved us months of headaches. Highly recommend."</p>
+                    <div>
+                        <p class="font-bold text-white">Sarah Jenkins</p>
+                        <p class="text-xs text-brand-primary">Restaurant Owner, Tacoma</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"From the feasibility study to handing over the keys, the communication was stellar. Our dental clinic was finished on time and on budget."</p>
+                    <div>
+                        <p class="font-bold text-white">Dr. Mark Lin</p>
+                        <p class="text-xs text-brand-primary">Dental Practitioner</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-left">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-slate-300 mb-6">"The cleanest commercial jobsite I've ever seen. The Probuild team executed our multi-family lobby renovation flawlessly."</p>
+                    <div>
+                        <p class="font-bold text-white">James Peterson</p>
+                        <p class="text-xs text-brand-primary">Property Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KNOWLEDGE CENTER / BLOG -->
+    <section class="py-24 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-heading text-4xl font-bold text-brand-dark mb-2">Knowledge Center</h2>
+                    <p class="text-slate-500">Insights for Business Owners, Developers, and Design Teams</p>
+                </div>
+                <a href="#" class="hidden md:inline-block text-brand-primary font-semibold hover:text-brand-dark transition">VIEW ALL NEWS &rarr;</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <!-- REPLACE ASSET -->
+                        <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Job site">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-brand-accent font-bold uppercase mb-2">Restaurant Remodeling • Nov 25</p>
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-3 hover:text-brand-primary transition cursor-pointer">Benefits of Hiring a Commercial Contractor to Renovate Your Restaurant</h3>
+                        <a href="#" class="text-sm font-semibold text-brand-primary">READ MORE</a>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <!-- REPLACE ASSET -->
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2669&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Reception Desk">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-brand-accent font-bold uppercase mb-2">Design • Nov 25</p>
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-3 hover:text-brand-primary transition cursor-pointer">10 Cool and Unique Reception Area Ideas for Your Business</h3>
+                        <a href="#" class="text-sm font-semibold text-brand-primary">READ MORE</a>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <!-- REPLACE ASSET -->
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2671&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Construction Management">
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-brand-accent font-bold uppercase mb-2">Tenant Improvements • Nov 25</p>
+                        <h3 class="font-heading text-xl font-bold text-brand-dark mb-3 hover:text-brand-primary transition cursor-pointer">6 Tips to Keep a Clean Commercial Jobsite</h3>
+                        <a href="#" class="text-sm font-semibold text-brand-primary">READ MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FORM SECTION -->
+    <section id="contact" class="py-24 bg-white relative">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 bg-white">
+                
+                <!-- Contact Info Left Side -->
+                <div class="w-full lg:w-5/12 fade-in-up">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-4">Contact Us</h2>
+                    <h3 class="text-xl text-brand-primary font-semibold mb-6">Your First Step Toward a Successful Build-Out</h3>
+                    <p class="text-slate-600 mb-10 leading-relaxed">
+                        We're here to answer questions, review your plans, and guide you through the full commercial build-out process from early feasibility to final construction.
+                    </p>
+
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-primary text-xl shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark text-lg">Call Us</h4>
+                                <!-- PHONE PLACEHOLDER -->
+                                <a href="tel:4254951933" class="text-slate-500 hover:text-brand-primary transition">425-495-1933</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-primary text-xl shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark text-lg">Email</h4>
+                                <!-- EMAIL PLACEHOLDER -->
+                                <a href="mailto:alex@probuildwa.com" class="text-slate-500 hover:text-brand-primary transition">alex@probuildwa.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-brand-light rounded-full flex items-center justify-center text-brand-primary text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-bold text-brand-dark text-lg">Office</h4>
+                                <!-- ADDRESS PLACEHOLDER -->
+                                <p class="text-slate-500">11102 25th Ave E, Suite C<br>Tacoma, WA 98445</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Right Side -->
+                <div class="w-full lg:w-7/12 bg-brand-light p-8 md:p-12 rounded-2xl shadow-soft fade-in-up" style="transition-delay: 200ms;">
+                    <h3 class="font-heading text-2xl font-bold text-brand-dark mb-6 border-b border-gray-200 pb-4">Tell Us A Little About Your Project</h3>
+                    
+                    <!-- FORM ENDPOINT HERE -->
+                    <form action="#" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-brand-dark mb-2">First Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-brand-dark mb-2">Last Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-brand-dark mb-2">Business Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition">
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-brand-dark mb-2">Email *</label>
+                                <input type="email" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-brand-dark mb-2">Phone *</label>
+                                <input type="tel" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-brand-dark mb-2">Tell us about your project, location, timeline, or any questions you have. *</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded border border-gray-300 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary transition"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-primary hover:bg-blue-800 text-white font-bold py-4 rounded transition duration-300 shadow-lg shadow-blue-500/30">
+                            Submit Project Details
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark text-slate-300 pt-20 pb-10 border-t-4 border-brand-primary">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand Col -->
+                <div>
+                    <!-- LOGO PLACEHOLDER -->
+                    <a href="#" class="inline-block font-heading font-bold text-3xl tracking-tight text-white uppercase mb-6">
+                        PRO<span class="text-brand-primary">BUILD</span>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-6">Your trusted commercial general contractor in Tacoma, specializing in high-quality build-outs, from concept to completion.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-brand-primary hover:text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-brand-primary hover:text-white transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded bg-white/10 flex items-center justify-center hover:bg-brand-primary hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Services Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-xl mb-6">Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-brand-primary transition">Commercial Construction</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Restaurants</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Gyms & Fitness</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Multi-Family</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Senior Living</a></li>
+                    </ul>
+                </div>
+
+                <!-- Locations Links -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-xl mb-6">Locations</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-brand-primary transition">Bellevue</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Tacoma</a></li>
+                        <li><a href="#" class="hover:text-brand-primary transition">Seattle</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <h4 class="font-heading font-bold text-white text-xl mb-6">Contacts</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-location-dot mt-1 mr-3 text-brand-primary"></i>
+                            <!-- ADDRESS PLACEHOLDER -->
+                            <span>11102 25th Ave E, Suite C<br>Tacoma, WA 98445</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-phone mr-3 text-brand-primary"></i>
+                            <!-- PHONE PLACEHOLDER -->
+                            <a href="tel:4254951933" class="hover:text-brand-primary transition">425-495-1933</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa-solid fa-envelope mr-3 text-brand-primary"></i>
+                            <!-- EMAIL PLACEHOLDER -->
+                            <a href="mailto:alex@probuildwa.com" class="hover:text-brand-primary transition">alex@probuildwa.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Copyright Footer -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <!-- YEAR AND BUSINESS NAME HERE -->
+                <p>&copy; <span id="year"></span> Probuild Construction. All Rights Reserved.</p>
+                <p class="mt-2 md:mt-0">Built using modern HTML, Tailwind CSS & JS.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // --- Dynamic Year for Footer ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // --- Sticky Header Shadow on Scroll ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // --- Interactive Portfolio Tabs ---
+        function openPortfolioTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active-tab");
+            }
+            
+            // Deactivate all tab links styles
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("text-brand-primary", "border-brand-primary");
+                tablinks[i].classList.add("text-slate-500", "border-transparent");
+            }
+            
+            // Show current tab & activate current button style
+            document.getElementById(tabName).classList.add("active-tab");
+            evt.currentTarget.classList.remove("text-slate-500", "border-transparent");
+            evt.currentTarget.classList.add("text-brand-primary", "border-brand-primary");
+        }
+
+        // --- Scroll Animation Observer (Fade In Up) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
