@@ -54,17 +54,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Tab Transitions */
-        .tabcontent {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-        .tabcontent.active-tab {
-            display: flex;
-            opacity: 1;
-        }
 
         /* Image Zoom Hover effect */
         .img-zoom-container {
@@ -138,7 +127,7 @@
         </div>
 
         <!-- MOBILE MENU OVERLAY -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full shadow-xl">
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t absolute w-full shadow-xl z-50">
             <div class="flex flex-col px-4 py-6 space-y-4 font-medium text-brand-dark">
                 <a href="#" class="hover:text-brand-primary">HOME</a>
                 <a href="#" class="hover:text-brand-primary">SERVICES</a>
@@ -152,9 +141,9 @@
 
     <!-- HERO SECTION -->
     <section class="relative h-[85vh] min-h-[600px] flex items-center">
-        <!-- REPLACE WITH YOUR HERO BACKGROUND IMAGE -->
+        <!-- BACKGROUND IMAGE -->
         <div class="absolute inset-0 z-0">
-            <img src="logo.png" alt="Commercial Construction Build Out" class="w-full h-full object-cover">
+            <img src="main.png" alt="Commercial Construction Build Out" class="w-full h-full object-cover">
             <!-- Overlay -->
             <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-900/60"></div>
         </div>
@@ -236,91 +225,125 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE PORTFOLIO & CAPABILITIES (TABS) -->
-    <section id="projects" class="py-24 bg-white">
+    <!-- NEW ACCORDION PORTFOLIO SECTION -->
+    <section id="projects" class="py-20 lg:py-32 bg-[#151515]">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col lg:flex-row justify-between items-end mb-12 fade-in-up">
-                <div class="max-w-2xl">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-brand-dark mb-4">See Our Projects by Industry</h2>
-                    <p class="text-lg text-slate-500">We combine decades of commercial construction expertise with a passion for craftsmanship.</p>
-                </div>
+            <div class="mb-12 fade-in-up max-w-5xl">
+                <!-- RED SUB-HEADER -->
+                <p class="text-red-600 font-bold text-xs md:text-sm tracking-widest uppercase mb-4">See Our Projects by Industry</p>
+                <!-- WHITE HEADER -->
+                <h2 class="font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-white uppercase leading-tight mb-8">
+                    We combine decades of commercial construction expertise with a passion for craftsmanship.
+                </h2>
             </div>
 
-            <!-- TAB NAVIGATION -->
-            <div class="border-b border-gray-200 mb-10 overflow-x-auto fade-in-up">
-                <ul class="flex space-x-8 whitespace-nowrap" id="portfolio-tabs">
-                    <li>
-                        <button onclick="openPortfolioTab(event, 'tab-restaurants')" class="tablinks active-tab-btn pb-4 font-semibold text-brand-primary border-b-2 border-brand-primary uppercase tracking-wide text-sm transition">Restaurants & Cafes</button>
-                    </li>
-                    <li>
-                        <button onclick="openPortfolioTab(event, 'tab-fitness')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Fitness & Wellness</button>
-                    </li>
-                    <li>
-                        <button onclick="openPortfolioTab(event, 'tab-medical')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Medical & Dental</button>
-                    </li>
-                    <li>
-                        <button onclick="openPortfolioTab(event, 'tab-office')" class="tablinks pb-4 font-semibold text-slate-500 hover:text-brand-dark border-b-2 border-transparent hover:border-gray-300 uppercase tracking-wide text-sm transition">Office & Retail</button>
-                    </li>
-                </ul>
-            </div>
+            <!-- ACCORDION CONTAINER -->
+            <div class="flex flex-col lg:flex-row h-[800px] lg:h-[600px] w-full border border-black/50 fade-in-up bg-black">
+                
+                <!-- PANEL 1: Restaurants -->
+                <div class="group relative flex-1 lg:hover:flex-[4] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer border-b lg:border-b-0 lg:border-r border-black/80 last:border-0 min-h-[100px] lg:min-h-0">
+                    <!-- Background Asset -->
+                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2574&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-100 transition-opacity duration-700"></div>
+                    
+                    <!-- Vertical/Horizontal Title (Hidden on expanded state) -->
+                    <div class="absolute inset-0 flex items-center lg:items-end justify-center lg:pb-12 opacity-100 lg:group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 class="text-white font-heading text-2xl lg:text-4xl font-bold tracking-wide whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 drop-shadow-md">
+                            Restaurants & Cafes
+                        </h3>
+                    </div>
 
-            <!-- TAB CONTENT: RESTAURANTS -->
-            <div id="tab-restaurants" class="tabcontent active-tab flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2">
-                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Spaces That Serve With Style</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">We build restaurants and cafes that function as well as they look, with durable finishes, smart layouts, and fully coordinated MEP systems to support high-volume operations.</p>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Full Kitchen Hood & Grease Trap Installs</li>
-                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Custom Millwork & Bar Construction</li>
-                        <li class="flex items-center text-brand-dark"><i class="fa-solid fa-check text-brand-accent mr-3"></i> Health Department Code Compliance</li>
-                    </ul>
-                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Discuss Your Concept</a>
+                    <!-- Expanded Content (Shows on hover) -->
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 pointer-events-none lg:pointer-events-auto">
+                        <div class="hidden lg:block">
+                            <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4 uppercase leading-none drop-shadow-md">Spaces That<br/>Serve With Style</h3>
+                            <p class="text-slate-200 text-sm md:text-base max-w-md mb-6 leading-relaxed drop-shadow">We build restaurants and cafes that function as well as they look, with durable finishes, smart layouts, and fully coordinated MEP systems to support operations.</p>
+                            <a href="#contact" class="text-white hover:text-brand-accent transition inline-flex items-center"><i class="fa-solid fa-arrow-right text-2xl"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <!-- REPLACE WITH YOUR ASSET -->
-                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2574&auto=format&fit=crop" alt="Restaurant Build Out" class="w-full h-full object-cover">
-                </div>
-            </div>
 
-            <!-- TAB CONTENT: FITNESS -->
-            <div id="tab-fitness" class="tabcontent flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2">
-                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Facilities That Move With You</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">Our fitness and wellness builds are engineered for energy, safety, and strength. We design efficient layouts, durable finishes, and inspiring spaces that enhance the member experience.</p>
-                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Start Your Gym Build</a>
-                </div>
-                <!-- REPLACE WITH YOUR ASSET -->
-                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop" alt="Gym Construction" class="w-full h-full object-cover">
-                </div>
-            </div>
+                <!-- PANEL 2: Fitness -->
+                <div class="group relative flex-1 lg:hover:flex-[4] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer border-b lg:border-b-0 lg:border-r border-black/80 last:border-0 min-h-[100px] lg:min-h-0">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="absolute inset-0 flex items-center lg:items-end justify-center lg:pb-12 opacity-100 lg:group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 class="text-white font-heading text-2xl lg:text-4xl font-bold tracking-wide whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 drop-shadow-md">
+                            Fitness & Wellness
+                        </h3>
+                    </div>
 
-            <!-- TAB CONTENT: MEDICAL -->
-            <div id="tab-medical" class="tabcontent flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2">
-                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Built for Care and Compliance</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">We deliver clean, compliant, and precisely built medical and dental environments. Each project meets healthcare construction standards while optimizing patient flow, comfort, and efficiency.</p>
-                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Plan Your Clinic</a>
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 pointer-events-none lg:pointer-events-auto">
+                        <div class="hidden lg:block">
+                            <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4 uppercase leading-none drop-shadow-md">Facilities That<br/>Move With You</h3>
+                            <p class="text-slate-200 text-sm md:text-base max-w-md mb-6 leading-relaxed drop-shadow">Our fitness and wellness builds are engineered for energy, safety, and strength. We design efficient layouts, durable finishes, and inspiring spaces.</p>
+                            <a href="#contact" class="text-white hover:text-brand-accent transition inline-flex items-center"><i class="fa-solid fa-arrow-right text-2xl"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <!-- REPLACE WITH YOUR ASSET -->
-                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2653&auto=format&fit=crop" alt="Medical Build Out" class="w-full h-full object-cover">
-                </div>
-            </div>
 
-            <!-- TAB CONTENT: OFFICE -->
-            <div id="tab-office" class="tabcontent flex-col lg:flex-row gap-12 items-center">
-                <div class="w-full lg:w-1/2">
-                    <h3 class="font-heading text-3xl font-bold text-brand-dark mb-4">Professional Spaces that Enhance Productivity</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">We combine functionality and design to create modern office and retail environments that align with your operational needs and brand identity.</p>
-                    <a href="#contact" class="bg-brand-dark text-white px-6 py-3 rounded text-sm font-semibold hover:bg-black transition">Upgrade Your Office</a>
-                </div>
-                <!-- REPLACE WITH YOUR ASSET -->
-                <div class="w-full lg:w-1/2 img-zoom-container rounded-2xl overflow-hidden shadow-xl h-[400px]">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" alt="Office Construction" class="w-full h-full object-cover">
-                </div>
-            </div>
+                <!-- PANEL 3: Medical & Dental (Matches Screenshot exactly) -->
+                <div class="group relative flex-1 lg:hover:flex-[4] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer border-b lg:border-b-0 lg:border-r border-black/80 last:border-0 min-h-[100px] lg:min-h-0">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2653&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="absolute inset-0 flex items-center lg:items-end justify-center lg:pb-12 opacity-100 lg:group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 class="text-white font-heading text-2xl lg:text-4xl font-bold tracking-wide whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 drop-shadow-md">
+                            Medical & Dental
+                        </h3>
+                    </div>
 
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 pointer-events-none lg:pointer-events-auto">
+                        <div class="hidden lg:block">
+                            <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4 uppercase leading-tight drop-shadow-md">BUILT FOR CARE AND<br/>COMPLIANCE</h3>
+                            <p class="text-slate-200 text-sm md:text-base max-w-md mb-6 leading-relaxed drop-shadow">We deliver clean, compliant, and precisely built medical and dental environments. Each project meets healthcare construction standards while optimizing patient flow, comfort, and operational efficiency.</p>
+                            <a href="#contact" class="text-white hover:text-brand-accent transition inline-flex items-center"><i class="fa-solid fa-arrow-right text-2xl font-light"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 4: Office & Retail -->
+                <div class="group relative flex-1 lg:hover:flex-[4] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer border-b lg:border-b-0 lg:border-r border-black/80 last:border-0 min-h-[100px] lg:min-h-0">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="absolute inset-0 flex items-center lg:items-end justify-center lg:pb-12 opacity-100 lg:group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 class="text-white font-heading text-2xl lg:text-4xl font-bold tracking-wide whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 drop-shadow-md">
+                            Office & Retail Spaces
+                        </h3>
+                    </div>
+
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 pointer-events-none lg:pointer-events-auto">
+                        <div class="hidden lg:block">
+                            <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4 uppercase leading-none drop-shadow-md">Professional Spaces That<br/>Enhance Productivity</h3>
+                            <p class="text-slate-200 text-sm md:text-base max-w-md mb-6 leading-relaxed drop-shadow">We combine functionality and design to create modern office and retail environments that align with your operational needs and brand identity.</p>
+                            <a href="#contact" class="text-white hover:text-brand-accent transition inline-flex items-center"><i class="fa-solid fa-arrow-right text-2xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANEL 5: Specialty & Hospitality -->
+                <div class="group relative flex-1 lg:hover:flex-[4] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer min-h-[100px] lg:min-h-0">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2500&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-50 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-100 transition-opacity duration-700"></div>
+                    
+                    <div class="absolute inset-0 flex items-center lg:items-end justify-center lg:pb-12 opacity-100 lg:group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 class="text-white font-heading text-2xl lg:text-4xl font-bold tracking-wide whitespace-nowrap lg:[writing-mode:vertical-rl] lg:rotate-180 drop-shadow-md">
+                            Specialty & Hospitality
+                        </h3>
+                    </div>
+
+                    <div class="absolute inset-0 flex flex-col justify-end p-6 lg:p-10 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-700 delay-100 pointer-events-none lg:pointer-events-auto">
+                        <div class="hidden lg:block">
+                            <h3 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4 uppercase leading-none drop-shadow-md">Custom Environments With<br/>Technical Precision</h3>
+                            <p class="text-slate-200 text-sm md:text-base max-w-md mb-6 leading-relaxed drop-shadow">Boutique concepts, custom commercial spaces, and hospitality-driven interiors blending creativity with construction expertise.</p>
+                            <a href="#contact" class="text-white hover:text-brand-accent transition inline-flex items-center"><i class="fa-solid fa-arrow-right text-2xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -333,7 +356,6 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial 1 -->
-                <!-- REPLACE TEXT WITH REAL REVIEWS -->
                 <div class="bg-white/10 backdrop-blur-md p-8 rounded-xl border border-white/20 text-left">
                     <div class="flex text-yellow-400 mb-4 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -387,7 +409,6 @@
                 <!-- Blog 1 -->
                 <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <!-- REPLACE ASSET -->
                         <img src="https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=2574&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Job site">
                     </div>
                     <div class="p-6">
@@ -400,7 +421,6 @@
                 <!-- Blog 2 -->
                 <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <!-- REPLACE ASSET -->
                         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2669&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Reception Desk">
                     </div>
                     <div class="p-6">
@@ -413,7 +433,6 @@
                 <!-- Blog 3 -->
                 <div class="bg-white rounded-xl shadow-soft overflow-hidden group">
                     <div class="h-48 overflow-hidden">
-                        <!-- REPLACE ASSET -->
                         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2671&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" alt="Construction Management">
                     </div>
                     <div class="p-6">
@@ -615,29 +634,6 @@
                 navbar.classList.remove('shadow-md');
             }
         });
-
-        // --- Interactive Portfolio Tabs ---
-        function openPortfolioTab(evt, tabName) {
-            let i, tabcontent, tablinks;
-            
-            // Hide all tab content
-            tabcontent = document.getElementsByClassName("tabcontent");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active-tab");
-            }
-            
-            // Deactivate all tab links styles
-            tablinks = document.getElementsByClassName("tablinks");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("text-brand-primary", "border-brand-primary");
-                tablinks[i].classList.add("text-slate-500", "border-transparent");
-            }
-            
-            // Show current tab & activate current button style
-            document.getElementById(tabName).classList.add("active-tab");
-            evt.currentTarget.classList.remove("text-slate-500", "border-transparent");
-            evt.currentTarget.classList.add("text-brand-primary", "border-brand-primary");
-        }
 
         // --- Scroll Animation Observer (Fade In Up) ---
         const observerOptions = {
