@@ -96,30 +96,8 @@
         #navbar.is-scrolled .header-inner {
             height: 6.5rem;
         }
-
-        /* LOGO SPOTLIGHT — soft glowing halo behind the logo, always on */
-        .logo-spotlight {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-        }
-        .logo-spotlight::before {
-            content: '';
-            position: absolute;
-            inset: -18px -28px;
-            background: radial-gradient(ellipse at center, rgba(224,159,62,0.30) 0%, rgba(224,159,62,0.12) 45%, rgba(224,159,62,0) 75%);
-            filter: blur(6px);
-            z-index: 0;
-            pointer-events: none;
-            transition: inset 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
-        }
-        #navbar.is-scrolled .logo-spotlight::before {
-            inset: -12px -20px;
-        }
-        #brand-logo {
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 6px 16px rgba(11, 37, 69, 0.28));
+#brand-logo {
+            filter: drop-shadow(0 4px 10px rgba(11, 37, 69, 0.20));
         }
 
         /* FLOATING LABELS — frictionless form UI */
@@ -188,7 +166,7 @@
         <div class="container mx-auto px-4 lg:px-8 h-32 md:h-36 header-inner flex items-center justify-between">
             
             <!-- LOGO SLOT — enlarged and spotlighted so it stays prominent even when the header condenses -->
-            <a href="#" class="flex items-center logo-spotlight">
+            <a href="#" class="flex items-center ">
                 <img id="brand-logo" src="SMPC-logo.webp" alt="Seattle MasterFix Logo" class="h-24 md:h-28 w-auto object-contain transition-all duration-300">
             </a>
 
@@ -696,7 +674,7 @@
                 
                 <!-- Brand Col -->
                 <div>
-                    <a href="#" class="inline-block mb-6 logo-spotlight">
+                    <a href="#" class="inline-block mb-6 ">
                         <img src="SMPC-logo%20white.webp" alt="MasterFix Logo" loading="lazy" class="h-24 md:h-28 w-auto object-contain">
                     </a>
                     <p class="text-sm leading-relaxed mb-6 text-slate-300">MasterFix. Your trusted commercial general contractor in Seattle, specializing in high-quality build-outs, from concept to completion.</p>
