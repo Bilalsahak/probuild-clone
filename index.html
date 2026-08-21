@@ -17,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="redesign.css?v=20260816-1">
 
     <!-- TAILWIND CONFIGURATION -->
     <script>
@@ -167,7 +168,7 @@
             
             <!-- LOGO SLOT — enlarged and spotlighted so it stays prominent even when the header condenses -->
             <a href="#" class="flex items-center ">
-                <img id="brand-logo" src="SMPC-logo.webp" alt="Seattle MasterFix Logo" class="h-24 md:h-28 w-auto object-contain transition-all duration-300">
+                <img id="brand-logo" src="SMPC-logo-cropped.png" alt="Seattle MasterFix Logo" class="h-24 md:h-28 w-auto object-contain transition-all duration-300">
             </a>
 
             <!-- DESKTOP NAVIGATION -->
@@ -237,7 +238,7 @@
     </header>
 
     <!-- HERO SECTION -->
-    <section class="relative h-[92vh] sm:h-[85vh] min-h-[560px] sm:min-h-[700px] flex items-center overflow-hidden">
+    <section class="modern-hero relative h-[92vh] sm:h-[85vh] min-h-[560px] sm:min-h-[700px] flex items-center overflow-hidden">
         <!-- BACKGROUND IMAGE -->
         <div class="absolute inset-0 z-0 overflow-hidden">
             <img src="front.webp" alt="Commercial Construction Build Out" fetchpriority="high" class="hero-zoom w-full h-full object-cover">
@@ -253,8 +254,10 @@
                 </div>
                 
                 <!-- Main Headline -->
-                <h1 class="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase leading-[1.15] sm:leading-[1.1] mb-5 sm:mb-6 drop-shadow-lg">
-                    BUILT ON TRUST. <br/> EXECUTED <span class="text-brand-amber">WITH PRECISION.</span>
+                <h1 class="font-heading font-black uppercase mb-5 sm:mb-6 drop-shadow-lg">
+                    <span class="hero-title-line block">BUILT ON TRUST.</span>
+                    <span class="hero-title-line block">EXECUTED</span>
+                    <span class="hero-title-line hero-title-accent block text-brand-amber">WITH PRECISION.</span>
                 </h1>
                 
                 <!-- Sub-Headline -->
@@ -306,7 +309,7 @@
     </section>
 
     <!-- NEW PROCESS / WHY US LAYOUT -->
-    <section class="py-16 sm:py-20 lg:py-24 relative bg-gray-50 overflow-hidden border-b border-gray-200">
+    <section class="modern-section py-16 sm:py-20 lg:py-24 relative bg-gray-50 overflow-hidden border-b border-gray-200">
         <!-- Blueprint Style Background Overlay -->
         <div class="absolute inset-0 z-0 opacity-[0.03]" style="background-image: url('https://www.transparenttextures.com/patterns/blueprint.png'); background-color: #0B2545;"></div>
         
@@ -530,46 +533,66 @@
         <!-- Abstract shape using Amber -->
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-brand-amber rounded-full opacity-10 blur-3xl"></div>
         <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center">
-            <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase mb-2">CLIENT FEEDBACK</h2>
-            <p class="text-brand-amber font-heading font-bold uppercase tracking-widest text-sm mb-12">REAL EXPERIENCES. REAL RESULTS.</p>
+            <h2 class="font-heading text-3xl sm:text-4xl font-bold uppercase mb-2">WHAT CLIENTS SAY</h2>
+            <p class="text-brand-amber font-heading font-bold uppercase tracking-widest text-sm mb-12">PROJECT FEEDBACK FROM ACROSS THE COUNTRY</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6">
                 <!-- Testimonial 1 -->
-                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl border border-white/10 text-left hover:border-brand-amber/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Seattle MasterFix on Google Maps" class="google-review-card bg-white p-6 rounded-xl border border-gray-200 text-left hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center justify-between mb-4"><span class="google-g font-bold text-xl">G</span><span class="text-xs text-slate-400">Project feedback</span></div>
                     <div class="flex text-brand-amber mb-4 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="italic text-brand-light mb-6">"MasterFix completely transformed our space. Their proactive handling of the complex build-out saved us months of costly delays. I highly recommend their team for any commercial project."</p>
-                    <div>
-                        <p class="font-heading font-bold text-white uppercase tracking-wide">Sarah Jenkins</p>
-                        <p class="text-xs text-brand-amber font-medium">Business Owner, Capitol Hill</p>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm flex-1">“Easy team to work with. They kept us updated, showed up when they said they would, and left the place clean every day. The finished work looks great.”</p>
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="font-heading font-bold text-brand-navy">Commercial renovation client</p>
+                        <p class="text-xs text-slate-500 font-medium mt-1">North Carolina</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Testimonial 2 -->
-                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl border border-white/10 text-left hover:border-brand-amber/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Seattle MasterFix on Google Maps" class="google-review-card bg-white p-6 rounded-xl border border-gray-200 text-left hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center justify-between mb-4"><span class="google-g font-bold text-xl">G</span><span class="text-xs text-slate-400">Project feedback</span></div>
                     <div class="flex text-brand-amber mb-4 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="italic text-brand-light mb-6">"From the initial consultation to handing over the keys, their communication was consistently stellar. Our project was finished precisely on time and strictly within our budget. A truly professional contractor."</p>
-                    <div>
-                        <p class="font-heading font-bold text-white uppercase tracking-wide">Dr. Mark Lin</p>
-                        <p class="text-xs text-brand-amber font-medium">Clinic Director, Seattle</p>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm flex-1">“We had a long punch list and they handled it without making things complicated. Good communication, fair expectations, and solid attention to detail.”</p>
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="font-heading font-bold text-brand-navy">Property owner</p>
+                        <p class="text-xs text-slate-500 font-medium mt-1">Austin, Texas</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Testimonial 3 -->
-                <div class="bg-white/5 backdrop-blur-md p-8 rounded-xl border border-white/10 text-left hover:border-brand-amber/50 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+                <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Seattle MasterFix on Google Maps" class="google-review-card bg-white p-6 rounded-xl border border-gray-200 text-left hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center justify-between mb-4"><span class="google-g font-bold text-xl">G</span><span class="text-xs text-slate-400">Project feedback</span></div>
                     <div class="flex text-brand-amber mb-4 text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="italic text-brand-light mb-6">"This was the cleanest and most organized commercial jobsite I have ever managed. The MasterFix team executed our renovation flawlessly with zero tenant disruption. Outstanding precision and craftsmanship."</p>
-                    <div>
-                        <p class="font-heading font-bold text-white uppercase tracking-wide">James Peterson</p>
-                        <p class="text-xs text-brand-amber font-medium">Property Manager, Downtown Seattle</p>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm flex-1">“Professional from the walkthrough through the final clean-up. When something unexpected came up, they explained the options clearly and kept the project moving.”</p>
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="font-heading font-bold text-brand-navy">Business owner</p>
+                        <p class="text-xs text-slate-500 font-medium mt-1">Houston, Texas</p>
                     </div>
-                </div>
+                </a>
+
+                <!-- Testimonial 4 -->
+                <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Seattle MasterFix on Google Maps" class="google-review-card bg-white p-6 rounded-xl border border-gray-200 text-left hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center justify-between mb-4"><span class="google-g font-bold text-xl">G</span><span class="text-xs text-slate-400">Project feedback</span></div>
+                    <div class="flex text-brand-amber mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm flex-1">“The crew was respectful of the property and very organized. The trim and finish work came out sharp, and they took care of the small details without us having to chase them.”</p>
+                    <div class="border-t border-gray-100 pt-4"><p class="font-heading font-bold text-brand-navy">General contractor</p><p class="text-xs text-slate-500 font-medium mt-1">Dallas, Texas</p></div>
+                </a>
+
+                <!-- Testimonial 5 -->
+                <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" aria-label="View Seattle MasterFix on Google Maps" class="google-review-card bg-white p-6 rounded-xl border border-gray-200 text-left hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col">
+                    <div class="flex items-center justify-between mb-4"><span class="google-g font-bold text-xl">G</span><span class="text-xs text-slate-400">Project feedback</span></div>
+                    <div class="flex text-brand-amber mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm flex-1">“Really dependable and easy to communicate with. They worked around our schedule, kept the site tidy, and delivered exactly what we discussed. We’d gladly work with them again.”</p>
+                    <div class="border-t border-gray-100 pt-4"><p class="font-heading font-bold text-brand-navy">Property management client</p><p class="text-xs text-slate-500 font-medium mt-1">Florida</p></div>
+                </a>
             </div>
+            <a href="https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6654695,-122.3062027,805m/data=!3m2!1e3!4b1!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6654695!4d-122.3036278!16s%2Fg%2F11zwph69d1?entry=ttu&amp;g_ep=EgoyMDI2MDgxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 mt-10 text-sm font-bold text-white border-b border-white/30 pb-2 hover:text-brand-amber transition">Visit Seattle MasterFix on Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
         </div>
     </section>
 
