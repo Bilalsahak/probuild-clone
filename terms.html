@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Seattle MasterFix Precision Craftsmanship</title>
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0B2545',
+                            amber: '#E09F3E',
+                            slate: '#1F2937',
+                            light: '#F8F9FA',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-700 bg-brand-light antialiased selection:bg-brand-amber selection:text-brand-navy">
+
+    <!-- MINIMAL HEADER -->
+    <header class="bg-brand-navy shadow-md py-6">
+        <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="SMPC-logo%20white.webp" alt="Seattle MasterFix Logo" class="h-12 md:h-16 w-auto object-contain">
+            </a>
+            <a href="index.html" class="text-white hover:text-brand-amber text-sm font-heading font-bold tracking-widest uppercase transition">
+                &larr; Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- TERMS CONTENT -->
+    <main class="container mx-auto px-4 lg:px-8 py-16 max-w-4xl">
+        <div class="bg-white p-8 md:p-16 rounded-xl shadow-sm border border-gray-200">
+            <h1 class="font-heading text-3xl md:text-5xl font-black uppercase text-brand-navy mb-4">Terms of Service</h1>
+            <p class="text-sm text-slate-500 mb-12">Last Updated: August 2026</p>
+
+            <div class="space-y-8 text-slate-600 leading-relaxed">
+                
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">1. Introduction</h2>
+                    <p>Welcome to the official website of Seattle MasterFix Precision Craftsmanship. By accessing and using this website, you agree to comply with and be bound by the following Terms of Service. If you do not agree with these terms, please refrain from using our website.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">2. Use of Website and Content</h2>
+                    <p>All materials, including but not limited to text, photographs, project galleries, branding, and layouts displayed on this website, are the intellectual property of Seattle MasterFix Precision Craftsmanship. Users may not copy, reproduce, distribute, or misrepresent our project photography or brand assets without explicit, prior written consent.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">3. Estimates, Timelines, and Scopes</h2>
+                    <p>Any estimates, project timelines, or service scopes discussed or generated via website contact forms, emails, or preliminary phone calls are strictly informational and non-binding. Formal commercial or residential project commencement requires a mutually executed, physical contract and the approval of all necessary municipal, architectural, and health department permits. We reserve the right to alter preliminary estimates following comprehensive on-site feasibility studies.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">4. Warranties and Limitation of Liability</h2>
+                    <p>While we execute every project with uncompromising craftsmanship and strict adherence to code, the digital content on this website is provided on an "as is" and "as available" basis without any digital warranties of any kind.</p>
+                    <p class="mt-2">Specific physical construction warranties, bonding protections, and commercial general liability terms are strictly governed by your individual project contract, not the contents of this website. Seattle MasterFix Precision Craftsmanship shall not be held liable for any direct, indirect, incidental, or consequential damages arising from the use of, or inability to use, this website.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">5. Governing Law and Jurisdiction</h2>
+                    <p>These terms, as well as any resulting business agreements, are governed exclusively by and construed in accordance with the laws of the State of Washington, without regard to its conflict of law principles.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">6. Company Information</h2>
+                    <p><strong>Seattle MasterFix Precision Craftsmanship</strong><br>
+                    State of Washington UBI: 605904953<br>
+                    5011 Ravenna Ave NE Suite #1<br>
+                    Seattle, WA 98105</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SIMPLE FOOTER -->
+    <footer class="bg-brand-navy text-center py-8 border-t-4 border-brand-amber">
+        <p class="text-xs text-slate-400 font-medium">&copy; <span id="year"></span> Seattle MasterFix Precision Craftsmanship. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
