@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Seattle MasterFix Precision Craftsmanship</title>
+    
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- TAILWIND CONFIGURATION -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0B2545',
+                            amber: '#E09F3E',
+                            slate: '#1F2937',
+                            light: '#F8F9FA',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-slate-700 bg-brand-light antialiased selection:bg-brand-amber selection:text-brand-navy">
+
+    <!-- MINIMAL HEADER -->
+    <header class="bg-brand-navy shadow-md py-6">
+        <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center">
+                <img src="SMPC-logo%20white.webp" alt="Seattle MasterFix Logo" class="h-12 md:h-16 w-auto object-contain">
+            </a>
+            <a href="index.html" class="text-white hover:text-brand-amber text-sm font-heading font-bold tracking-widest uppercase transition">
+                &larr; Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- PRIVACY CONTENT -->
+    <main class="container mx-auto px-4 lg:px-8 py-16 max-w-4xl">
+        <div class="bg-white p-8 md:p-16 rounded-xl shadow-sm border border-gray-200">
+            <h1 class="font-heading text-3xl md:text-5xl font-black uppercase text-brand-navy mb-4">Privacy Policy</h1>
+            <p class="text-sm text-slate-500 mb-12">Last Updated: August 2026</p>
+
+            <div class="space-y-8 text-slate-600 leading-relaxed">
+                
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">1. Introduction</h2>
+                    <p>At Seattle MasterFix Precision Craftsmanship, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website or contact us for commercial contracting services.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">2. Information We Collect</h2>
+                    <p>We only collect information that is necessary to provide you with our services. When you use our website, we may collect the following:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li><strong>Voluntary Information:</strong> Information you provide directly through our contact form, including your First and Last Name, Business Name, Email Address, Phone Number, and specific Project Details.</li>
+                        <li><strong>Automated Information:</strong> Basic, non-identifying technical data (such as browser type or IP address) collected standardly by web hosting platforms to ensure our website functions correctly.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">3. How We Use Your Information</h2>
+                    <p>The information we collect is strictly used for business and communication purposes, specifically to:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li>Respond to your inquiries and provide accurate project estimates.</li>
+                        <li>Communicate with you regarding project scheduling, feasibility, and execution.</li>
+                        <li>Maintain internal administrative and financial records.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">4. Information Sharing and Disclosure</h2>
+                    <p><strong>We do not sell, rent, or trade your personal data to third parties.</strong></p>
+                    <p class="mt-2">We may only share your information in the following limited circumstances:</p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1">
+                        <li><strong>Project Execution:</strong> With verified subcontractors, municipal permit offices, or structural engineers solely for the purpose of executing your requested build-out.</li>
+                        <li><strong>Legal Requirements:</strong> If required by Washington State law, court order, or to protect the rights and safety of Seattle MasterFix Precision Craftsmanship.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">5. Data Security</h2>
+                    <p>We implement industry-standard security measures to protect your personal information from unauthorized access, alteration, or disclosure. However, please be aware that no method of digital transmission over the Internet is 100% secure.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-heading text-xl font-bold uppercase text-brand-navy mb-3">6. Contact Us</h2>
+                    <p>If you have any questions or concerns regarding this Privacy Policy or how your data is handled, please contact us at:</p>
+                    <p class="mt-2"><strong>Seattle MasterFix Precision Craftsmanship</strong><br>
+                    Email: info@seattlemasterfix.com<br>
+                    Phone: (206) 550-4576<br>
+                    5011 Ravenna Ave NE Suite #1<br>
+                    Seattle, WA 98105</p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- SIMPLE FOOTER -->
+    <footer class="bg-brand-navy text-center py-8 border-t-4 border-brand-amber">
+        <p class="text-xs text-slate-400 font-medium">&copy; <span id="year"></span> Seattle MasterFix Precision Craftsmanship. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
