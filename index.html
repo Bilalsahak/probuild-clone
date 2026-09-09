@@ -12,12 +12,13 @@
     
     <!-- FONTAWESOME FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
     <!-- GOOGLE FONTS (Montserrat for Headers, Inter for Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="redesign.css?v=20260816-1">
+    <link rel="stylesheet" href="redesign.css?v=20260909-1">
 
     <!-- TAILWIND CONFIGURATION -->
     <script>
@@ -280,8 +281,8 @@
                     <a href="#contact" class="bg-brand-amber hover:opacity-90 hover:-translate-y-1 hover:shadow-2xl text-brand-navy text-center px-8 py-4 rounded-sm font-heading font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-amber/20">
                         GET A SCOPE ESTIMATE
                     </a>
-                    <a href="#projects" class="bg-white/10 hover:bg-white/20 hover:-translate-y-1 backdrop-blur-sm border border-white/30 text-white text-center px-8 py-4 rounded-sm font-heading font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center">
-                        EXPLORE OUR WORK
+                    <a href="mailto:info@seattlemasterfix.com?subject=Schedule%20a%20project%20consultation" class="js-calendly bg-white/10 hover:bg-white/20 hover:-translate-y-1 backdrop-blur-sm border border-white/30 text-white text-center px-8 py-4 rounded-sm font-heading font-bold tracking-widest uppercase transition-all duration-300 flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i> BOOK A PROJECT CALL
                     </a>
                 </div>
 
@@ -322,8 +323,8 @@
                     <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] font-black uppercase text-brand-navy mb-8 leading-[1.15]">
                         MASTERFIX GUIDES YOU THROUGH THE ENTIRE BUILD-OUT PROCESS.
                     </h2>
-                    <a href="#contact" class="inline-block bg-brand-amber hover:opacity-90 hover:-translate-y-1 hover:shadow-2xl text-brand-navy px-8 py-4 rounded-sm font-heading font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-amber/20">
-                        Schedule a Consultation
+                    <a href="mailto:info@seattlemasterfix.com?subject=Schedule%20a%20project%20consultation" class="js-calendly inline-flex items-center gap-3 bg-brand-amber hover:opacity-90 hover:-translate-y-1 hover:shadow-2xl text-brand-navy px-8 py-4 rounded-sm font-heading font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-amber/20">
+                        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Schedule a Consultation
                     </a>
                 </div>
 
@@ -596,99 +597,234 @@
         </div>
     </section>
 
-    <!-- CONTACT & FORM SECTION -->
+    <!-- CONTACT, FORMSPREE INTAKE & CALENDLY SCHEDULING -->
     <section id="contact" class="py-16 sm:py-20 lg:py-24 bg-white relative">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="flex flex-col lg:flex-row gap-10 lg:gap-16 bg-white">
-                
-                <!-- Contact Info Left Side -->
-                <div class="w-full lg:w-5/12 fade-in-up">
-                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase text-brand-navy mb-4">READY TO START BUILDING?</h2>
-                    <h3 class="text-lg text-brand-amber font-heading font-bold tracking-widest uppercase mb-6">YOUR FIRST STEP TOWARD A SUCCESSFUL BUILD-OUT.</h3>
-                    <p class="text-slate-600 mb-10 leading-relaxed">
-                        Whether you just have a rough concept or fully finalized architectural blueprints, we are ready to discuss your vision. Contact us today to secure your precise estimate.
-                    </p>
+            <div class="contact-intro fade-in-up">
+                <p class="contact-eyebrow">START THE CONVERSATION</p>
+                <h2>Choose the easiest next step.</h2>
+                <p>Share your project details for a focused estimate, or choose a time for a quick consultation. Either way, you will hear from a real member of our team.</p>
+            </div>
 
-                    <div class="space-y-8">
-                        <div class="flex items-start group">
-                            <div class="w-12 h-12 bg-brand-light border border-gray-100 rounded-full flex items-center justify-center text-brand-amber text-xl shrink-0 group-hover:bg-brand-navy group-hover:border-brand-navy transition duration-300">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-heading font-bold uppercase tracking-wide text-brand-navy text-lg">Call Us</h4>
-                                <a href="tel:2065504576" class="text-slate-600 hover:text-brand-amber transition">(206) 550-4576</a>
-                            </div>
+            <div class="contact-route-grid fade-in-up" style="transition-delay: 100ms;">
+                <a href="#project-intake" class="contact-route-card contact-route-card--estimate">
+                    <span class="contact-route-icon"><i class="fa-solid fa-file-signature" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="contact-route-kicker">BEST FOR PRICING &amp; SCOPE</span>
+                        <strong>Request a project estimate</strong>
+                        <small>Tell us the service, budget, location, and timeline.</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-right contact-route-arrow" aria-hidden="true"></i>
+                </a>
+
+                <a href="mailto:info@seattlemasterfix.com?subject=Schedule%20a%20project%20consultation" class="js-calendly contact-route-card contact-route-card--schedule">
+                    <span class="contact-route-icon"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></span>
+                    <span>
+                        <span class="contact-route-kicker">FASTEST WAY TO CONNECT</span>
+                        <strong>Book a project consultation</strong>
+                        <small>Choose a day and time that works for you.</small>
+                    </span>
+                    <i class="fa-solid fa-arrow-up-right-from-square contact-route-arrow" aria-hidden="true"></i>
+                </a>
+            </div>
+
+            <div id="project-intake" class="intake-shell">
+                <aside class="intake-aside fade-in-up">
+                    <div>
+                        <span class="intake-step">PROJECT INTAKE</span>
+                        <h3>Give us the details once. We’ll take it from there.</h3>
+                        <p>A structured request helps our team review your job faster and respond with the right next step.</p>
+                    </div>
+
+                    <ol class="intake-process" aria-label="What happens after submitting">
+                        <li><span>1</span><div><strong>We review your scope</strong><small>Service, site, timing, and budget.</small></div></li>
+                        <li><span>2</span><div><strong>We confirm the fit</strong><small>A real team member follows up.</small></div></li>
+                        <li><span>3</span><div><strong>We plan the next step</strong><small>Site visit, call, or estimate.</small></div></li>
+                    </ol>
+
+                    <div class="intake-contact-box">
+                        <p><i class="fa-solid fa-phone" aria-hidden="true"></i> Prefer to talk now?</p>
+                        <a href="tel:2065504576">(206) 550-4576</a>
+                        <small>Licensed, bonded, and fully insured<br>WA License # SEATTMP744NL</small>
+                    </div>
+                </aside>
+
+                <div class="intake-form-card fade-in-up" style="transition-delay: 150ms;">
+                    <div class="intake-form-heading">
+                        <div>
+                            <span>SECURE PROJECT REQUEST</span>
+                            <h3>Tell us about your project</h3>
                         </div>
+                        <div class="intake-time"><i class="fa-regular fa-clock" aria-hidden="true"></i> About 2 minutes</div>
+                    </div>
 
-                        <div class="flex items-start group">
-                            <div class="w-12 h-12 bg-brand-light border border-gray-100 rounded-full flex items-center justify-center text-brand-amber text-xl shrink-0 group-hover:bg-brand-navy group-hover:border-brand-navy transition duration-300">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-heading font-bold uppercase tracking-wide text-brand-navy text-lg">Email</h4>
-                                <a href="mailto:info@seattlemasterfix.com" class="text-slate-600 hover:text-brand-amber transition">info@seattlemasterfix.com</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start group">
-                            <div class="w-12 h-12 bg-brand-light border border-gray-100 rounded-full flex items-center justify-center text-brand-amber text-xl shrink-0 group-hover:bg-brand-navy group-hover:border-brand-navy transition duration-300">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-heading font-bold uppercase tracking-wide text-brand-navy text-lg">Location</h4>
-                                <p class="text-slate-600">5415 6th Ave NW<br>Seattle, WA 98107</p>
-                            </div>
+                    <div class="form-success" data-fs-success role="status" aria-live="polite">
+                        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                        <div>
+                            <strong>Your project request has been received.</strong>
+                            <p>Thank you. Our team will review the details and follow up shortly.</p>
+                            <a href="mailto:info@seattlemasterfix.com?subject=Schedule%20a%20project%20consultation" class="js-calendly form-success-calendar"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i> Book a consultation now</a>
                         </div>
                     </div>
-                </div>
+                    <div class="form-error" data-fs-error role="alert" aria-live="assertive"></div>
 
-                <!-- Form Right Side -->
-                <div class="w-full lg:w-7/12 bg-brand-light p-6 sm:p-8 md:p-12 rounded-xl shadow-soft border border-gray-100 fade-in-up" style="transition-delay: 200ms;">
-                    <h3 class="font-heading text-2xl font-bold uppercase text-brand-navy mb-6 border-b border-gray-200 pb-4">TELL US A LITTLE ABOUT YOUR PROJECT</h3>
-                    
-                    <!-- FORM ENDPOINT -->
-                    <form action="https://formspree.io/f/xnjeedlb" method="POST" class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="relative">
-                                <input type="text" name="firstName" id="firstName" required placeholder=" " class="float-input peer w-full px-4 pt-5 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white">
-                                <label for="firstName" class="float-label">First Name *</label>
+                    <form id="project-intake-form" action="https://formspree.io/f/xnjeedlb" method="POST">
+                        <input type="hidden" name="subject" id="form-subject" value="New website project request — {{ firstName }} {{ lastName }}">
+                        <input type="hidden" name="tags" id="form-tags" value="website,project-request">
+                        <input type="hidden" name="source" value="Seattle MasterFix website">
+                        <div class="form-honeypot" aria-hidden="true">
+                            <label for="company-website">Leave this field empty</label>
+                            <input type="text" name="_gotcha" id="company-website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <fieldset class="form-section">
+                            <legend>What can we help with? <span>*</span></legend>
+                            <div class="request-type-grid">
+                                <label class="request-type-option">
+                                    <input type="radio" name="requestType" value="Project estimate" checked required>
+                                    <span><i class="fa-solid fa-house-chimney" aria-hidden="true"></i><strong>Project estimate</strong><small>Remodel or trade work</small></span>
+                                </label>
+                                <label class="request-type-option">
+                                    <input type="radio" name="requestType" value="Contractor partnership">
+                                    <span><i class="fa-solid fa-handshake" aria-hidden="true"></i><strong>Contractor support</strong><small>Scope or overflow work</small></span>
+                                </label>
+                                <label class="request-type-option">
+                                    <input type="radio" name="requestType" value="Property management">
+                                    <span><i class="fa-solid fa-building" aria-hidden="true"></i><strong>Property management</strong><small>Turnover or repairs</small></span>
+                                </label>
                             </div>
-                            <div class="relative">
-                                <input type="text" name="lastName" id="lastName" required placeholder=" " class="float-input peer w-full px-4 pt-5 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white">
-                                <label for="lastName" class="float-label">Last Name *</label>
+                        </fieldset>
+
+                        <div class="form-grid form-grid--two">
+                            <div class="form-field">
+                                <label for="service">Project type <span>*</span></label>
+                                <select name="service" id="service" required data-fs-field>
+                                    <option value="" selected disabled>Select project type</option>
+                                    <option>Full remodel</option>
+                                    <option>Drywall</option>
+                                    <option>Painting</option>
+                                    <option>Tile</option>
+                                    <option>Laminate flooring</option>
+                                    <option>Siding</option>
+                                    <option>Fencing</option>
+                                    <option>Punch list / finish work</option>
+                                    <option>Multiple trades</option>
+                                    <option>Other / not sure yet</option>
+                                </select>
+                                <span class="field-error" data-fs-error="service"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="propertyType">Property type <span>*</span></label>
+                                <select name="propertyType" id="propertyType" required data-fs-field>
+                                    <option value="" selected disabled>Select property type</option>
+                                    <option>Residential</option>
+                                    <option>Commercial</option>
+                                    <option>Multi-family</option>
+                                    <option>Not sure</option>
+                                </select>
+                                <span class="field-error" data-fs-error="propertyType"></span>
                             </div>
                         </div>
 
-                        <div class="relative">
-                            <input type="text" name="businessName" id="businessName" placeholder=" " class="float-input peer w-full px-4 pt-5 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white">
-                            <label for="businessName" class="float-label">Business Name</label>
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="relative">
-                                <input type="email" name="email" id="email" required placeholder=" " class="float-input peer w-full px-4 pt-5 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white">
-                                <label for="email" class="float-label">Email *</label>
+                        <div class="form-grid form-grid--two">
+                            <div class="form-field">
+                                <label for="budget">Estimated budget</label>
+                                <select name="budget" id="budget" data-fs-field>
+                                    <option value="" selected>Select budget range</option>
+                                    <option>Under $5,000</option>
+                                    <option>$5,000–$15,000</option>
+                                    <option>$15,000–$50,000</option>
+                                    <option>$50,000–$100,000</option>
+                                    <option>$100,000+</option>
+                                    <option>Need guidance</option>
+                                </select>
                             </div>
-                            <div class="relative">
-                                <input type="tel" name="phone" id="phone" required placeholder=" " class="float-input peer w-full px-4 pt-5 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white">
-                                <label for="phone" class="float-label">Phone *</label>
+                            <div class="form-field">
+                                <label for="timeline">Desired start</label>
+                                <select name="timeline" id="timeline" data-fs-field>
+                                    <option value="" selected>Select timeline</option>
+                                    <option>As soon as possible</option>
+                                    <option>Within 30 days</option>
+                                    <option>1–3 months</option>
+                                    <option>3–6 months</option>
+                                    <option>Planning ahead</option>
+                                </select>
                             </div>
                         </div>
 
-                        <div class="relative">
-                            <textarea name="projectDetails" id="projectDetails" rows="4" placeholder=" " required class="float-input float-textarea peer w-full px-4 pt-6 pb-2 rounded-sm border border-gray-300 focus:outline-none focus:border-brand-amber focus:ring-1 focus:ring-brand-amber transition bg-white"></textarea>
-                            <label for="projectDetails" class="float-label">Project Details * — timeline, location, questions</label>
+                        <div class="form-field">
+                            <label for="address">Project location <span>*</span></label>
+                            <input type="text" name="address" id="address" required autocomplete="street-address" placeholder="Street address or neighborhood and city" data-fs-field>
+                            <span class="field-error" data-fs-error="address"></span>
                         </div>
 
-                        <button type="submit" class="w-full bg-brand-amber hover:opacity-90 hover:-translate-y-1 hover:shadow-2xl text-brand-navy font-heading font-bold uppercase tracking-widest py-4 rounded-sm transition-all duration-300 shadow-lg shadow-brand-amber/20">
-                            SUBMIT PROJECT DETAILS
+                        <div class="form-grid form-grid--two">
+                            <div class="form-field">
+                                <label for="firstName">First name <span>*</span></label>
+                                <input type="text" name="firstName" id="firstName" required autocomplete="given-name" placeholder="First name" data-fs-field>
+                                <span class="field-error" data-fs-error="firstName"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="lastName">Last name <span>*</span></label>
+                                <input type="text" name="lastName" id="lastName" required autocomplete="family-name" placeholder="Last name" data-fs-field>
+                                <span class="field-error" data-fs-error="lastName"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="company">Company name <small>(optional)</small></label>
+                            <input type="text" name="company" id="company" autocomplete="organization" placeholder="Business, GC, or property company" data-fs-field>
+                        </div>
+
+                        <div class="form-grid form-grid--two">
+                            <div class="form-field">
+                                <label for="email">Email <span>*</span></label>
+                                <input type="email" name="email" id="email" required autocomplete="email" placeholder="you@company.com" data-fs-field>
+                                <span class="field-error" data-fs-error="email"></span>
+                            </div>
+                            <div class="form-field">
+                                <label for="phone">Phone <span>*</span></label>
+                                <input type="tel" name="phone" id="phone" required autocomplete="tel" inputmode="tel" placeholder="(206) 555-0123" data-fs-field>
+                                <span class="field-error" data-fs-error="phone"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="meetingPreference">Preferred next step</label>
+                            <select name="meetingPreference" id="meetingPreference" data-fs-field>
+                                <option>Review my request and contact me</option>
+                                <option>I will book a time on the calendar</option>
+                                <option>Please suggest a few meeting times</option>
+                                <option>Call me first</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="message">Project details <span>*</span></label>
+                            <textarea name="message" id="message" rows="5" required placeholder="Describe the work, current condition, measurements, plans, deadlines, and any questions." data-fs-field></textarea>
+                            <span class="field-error" data-fs-error="message"></span>
+                        </div>
+
+                        <label class="consent-check">
+                            <input type="checkbox" name="contactConsent" value="Yes" required data-fs-field>
+                            <span>I agree that Seattle MasterFix may contact me about this request by phone, text, or email. <a href="privacy.html">Privacy Policy</a>.</span>
+                        </label>
+
+                        <button type="submit" class="intake-submit" data-fs-submit-btn>
+                            <span>Send project request</span>
+                            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                         </button>
+                        <p class="form-security"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Your details are sent securely through Formspree. No spam. No mailing list.</p>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
+
+    <a href="mailto:info@seattlemasterfix.com?subject=Schedule%20a%20project%20consultation" class="js-calendly scheduler-fab" id="scheduler-fab" hidden>
+        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+        <span>Book a project call</span>
+    </a>
 
     <!-- FOOTER -->
     <footer class="bg-brand-navy text-brand-light pt-16 sm:pt-20 pb-10 border-t-4 border-brand-amber">
@@ -808,6 +944,41 @@
         document.querySelectorAll('.fade-in-up').forEach((el) => {
             observer.observe(el);
         });
+
+        // --- Request metadata: makes Formspree notifications easier to triage ---
+        const requestTypeInputs = document.querySelectorAll('input[name="requestType"]');
+        const formSubject = document.getElementById('form-subject');
+        const formTags = document.getElementById('form-tags');
+
+        const syncRequestMetadata = () => {
+            const selected = document.querySelector('input[name="requestType"]:checked');
+            if (!selected || !formSubject || !formTags) return;
+
+            const requestType = selected.value;
+            formSubject.value = `New ${requestType.toLowerCase()} request — {{ firstName }} {{ lastName }}`;
+            formTags.value = `website,${requestType.toLowerCase().replace(/\s+/g, '-')}`;
+        };
+
+        requestTypeInputs.forEach((input) => input.addEventListener('change', syncRequestMetadata));
+        syncRequestMetadata();
+
+        // --- Formspree AJAX: validation, loading, errors, success, and lead-source data ---
+        window.formspree = window.formspree || function () {
+            (window.formspree.q = window.formspree.q || []).push(arguments);
+        };
+
+        window.formspree('initForm', {
+            formElement: '#project-intake-form',
+            formId: 'xnjeedlb',
+            data: {
+                pageUrl: () => window.location.href,
+                referrer: () => document.referrer || undefined,
+                submittedAt: () => new Date().toISOString()
+            }
+        });
     </script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
+    <script src="booking.js" defer></script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
