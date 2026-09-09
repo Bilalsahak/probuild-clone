@@ -12,12 +12,13 @@
 
     <!-- FONTAWESOME FOR ICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="redesign.css?v=20260816-1">
+    <link rel="stylesheet" href="redesign.css?v=20260909-1">
 
     <!-- TAILWIND CONFIGURATION -->
     <script>
@@ -481,6 +482,8 @@
         </div>
     </footer>
 
+    <a href="index.html#contact" class="js-calendly scheduler-fab" id="scheduler-fab" hidden><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>Book a project call</span></a>
+
     <!-- INTERACTIVE SCRIPTS -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -531,5 +534,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
     </script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" defer></script>
+    <script src="booking.js" defer></script>
 </body>
 </html>
