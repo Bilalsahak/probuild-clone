@@ -76,6 +76,16 @@ export const photos: Photo[] = [
   p("laminate", "laminate11.webp", 960, 1280, "Hallway looking into a kitchen and dining space with continuous laminate flooring, white cabinets and dark countertops.", "Flooring continuous from hall to kitchen"),
   p("laminate", "laminate12.webp", 598, 1280, "Entry hallway toward a glass-paneled door with laminate in place and a vacuum cleaner and debris on the floor.", "Hallway with cleanup still under way"),
 
+  // Paint gallery: general project photos (owner request). They are NOT necessarily paint work,
+  // and no location, date or "completed" claim is made. Provenance is still OWNER TO CONFIRM.
+  p("paint", "project-1.webp", 2752, 1536, "Bathroom with a freestanding white tub, glass shower enclosure, double vanity with round mirrors, and dark large-format floor tile.", "Project photo"),
+  p("paint", "project-2.webp", 1250, 584, "Wide view of a house with blue lap siding and a wood deck with outdoor furniture and potted plants.", "Project photo"),
+  p("paint", "project-3.webp", 667, 889, "Bathtub alcove with white marble-pattern tile on the walls and a shower curtain pulled aside.", "Project photo"),
+  p("paint", "project-4.webp", 598, 1280, "People laying large paving stones for a patio beside a swimming pool.", "Project photo"),
+  p("paint", "project-5.webp", 1280, 960, "Kitchen with a white island, white countertop and wood-look flooring beside white cabinets and a stainless refrigerator.", "Project photo"),
+  p("paint", "project-6.webp", 389, 833, "Overhead view of a gray wood-grain deck beside a house with light yellow siding, a white railing and planters.", "Project photo"),
+  p("paint", "project-7.webp", 1280, 960, "Wood deck at night with a white railing, black balusters and lit post caps.", "Project photo"),
+
   // Drywall
   p("drywall", "drywall.webp", 831, 1600, "Room with drywall taped and mudded, floor covered in protective paper with blue tape, and a trowel on the floor.", "Taped and mudded walls"),
   p("drywall", "drywall1.webp", 721, 1280, "View through a rough wooden doorway into a small room with partly drywalled, mudded walls and a bucket and wood scraps on a concrete floor.", "Small room being drywalled"),

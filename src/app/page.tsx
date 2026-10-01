@@ -25,11 +25,11 @@ export default function HomePage() {
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-55"
+              className="object-cover opacity-80"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
         </div>
 
         <Container className="relative flex min-h-[100svh] flex-col justify-end pb-20 pt-32 md:justify-center md:pb-28 lg:pt-40">
@@ -127,11 +127,10 @@ export default function HomePage() {
       </section>
 
       {/* Trades */}
-      <section className="bg-ink py-20 text-parchment md:py-28">
+      <section className="bg-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
-              light
               eyebrow="Trades"
               title="What we do"
               body="Each trade page covers typical timelines, what drives cost, common mistakes, and photos from job sites."
@@ -157,7 +156,7 @@ export default function HomePage() {
                           sizes="(max-width:768px) 100vw, 33vw"
                           className="object-cover transition duration-700 ease-out group-hover:scale-[1.05]"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent opacity-90" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-ink-soft via-ink-soft/20 to-transparent opacity-90" />
                       </div>
                     ) : (
                       <div
@@ -187,7 +186,7 @@ export default function HomePage() {
       </section>
 
       {/* Photo strip */}
-      <section className="bg-parchment-deep py-16 md:py-20">
+      <section className="bg-paper py-16 md:py-20">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <Reveal>

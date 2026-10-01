@@ -262,6 +262,7 @@ export const services: Service[] = [
     summary: "Interior and exterior painting with careful prep, matched primers, and exterior work planned around the weather.",
     intro:
       "A paint job is only as good as the prep under it. We clean, sand, patch and prime to suit the surface, then cut in the edges by hand. Exterior work is scheduled around Seattle's dry spells so coatings can cure.",
+    heroFile: "project-6.webp",
     timeline: "Typically 2–7 days, depending on the number of rooms or exterior walls and the weather. Your written contract sets the actual schedule.",
     costDrivers: [
       "Interior square footage versus exterior walls",
@@ -299,4 +300,4 @@ export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
-export const servicesWithPhotos = services.filter((s) => s.slug !== "paint");
+export const servicesWithPhotos = services;

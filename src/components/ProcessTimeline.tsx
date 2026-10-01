@@ -43,7 +43,7 @@ export function ProcessTimeline({
                 className={`${left ? "md:col-start-1 md:pr-10 md:text-right" : "md:col-start-2 md:pl-10"} pl-10 md:pl-0`}
                 delay={0.05}
               >
-                <span className="font-display text-4xl text-bronze/90 md:text-5xl">
+                <span className="font-display text-4xl text-bronze-deep md:text-5xl">
                   {step.step}
                 </span>
                 <h3 className="mt-3 font-display text-2xl text-ink md:text-3xl">

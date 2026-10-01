@@ -18,13 +18,11 @@ export const site = {
   url: "https://seattlemasterfix.com",
 
   /**
-   * EXACT name as registered with WA Dept. of Labor & Industries.
-   * L&I/BuildZoom appear to list it in abbreviated form
-   * ("Seattle Masterfix Prcsn Crftsm"), so the owner must confirm the exact
-   * string (including any "LLC"). Edit ONLY this constant; it is used in the
+   * EXACT name as registered with WA Dept. of Labor & Industries (confirmed by the
+   * owner, Oct 1, 2026). Edit ONLY this constant; it is used in the header strip,
    * footer, contact page, privacy policy, terms and the license line.
    */
-  registeredName: "[Exact L&I-registered name — OWNER TO CONFIRM]",
+  registeredName: "SEATTLE MASTERFIX PRCSN CRFTSM",
 
   /** WA contractor registration number (RCW 18.27.100 requires it in advertising). */
   registrationNo: "SEATTMP744NL",
@@ -38,9 +36,9 @@ export const site = {
   estimatesEmail: "estimates@seattlemasterfix.com",
 
   /**
-   * Address shown on the production site. The L&I record may still list a
-   * different address (5011 Ravenna Ave NE, Seattle 98105 per BuildZoom, Sept 2026).
-   * OWNER TO CONFIRM that this matches the L&I registration, or update L&I.
+   * Current business address (confirmed by the owner, Oct 1, 2026).
+   * NOTE: the L&I public record still lists 5011 Ravenna Ave NE, Seattle, WA 98105;
+   * the owner should update the address with L&I so the record matches the website.
    */
   address: {
     street: "5415 6th Ave NW",
@@ -49,8 +47,8 @@ export const site = {
     zip: "98107",
     full: "5415 6th Ave NW, Seattle, WA 98107",
   },
-  /** Set to true only after the address matches the L&I record. Gates the address in JSON-LD. */
-  addressConfirmed: false,
+  /** Owner confirmed this is the current address. Gates the address in JSON-LD. */
+  addressConfirmed: true,
 
   /** Service area as shown on production. OWNER TO CONFIRM. Gates `areaServed` in JSON-LD. */
   serviceArea: "Seattle and King County, WA",

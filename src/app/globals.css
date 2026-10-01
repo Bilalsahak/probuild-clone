@@ -2,20 +2,20 @@
 
 @theme inline {
   /* Ink / bronze / parchment — editorial PNW craft */
-  --color-ink: #071525;
-  --color-ink-soft: #0e2136;
-  --color-ink-mid: #16304a;
-  --color-bronze: #c4893a;
-  --color-bronze-light: #e0b06a;
-  --color-bronze-deep: #7d5420;
-  --color-parchment: #f3eee6;
-  --color-parchment-deep: #e7dfd2;
+  --color-ink: #14293f;
+  --color-ink-soft: #1d3b58;
+  --color-ink-mid: #28496b;
+  --color-bronze: #d79a43;
+  --color-bronze-light: #f0c785;
+  --color-bronze-deep: #835514;
+  --color-parchment: #f7f0e3;
+  --color-parchment-deep: #eee3d0;
   --color-stone: #c8bba8;
   --color-stone-warm: #b5a48c;
   --color-charcoal: #1c242e;
   --color-mist: #dfe6ec;
-  --color-paper: #faf8f4;
-  --color-rule: color-mix(in srgb, #071525 12%, transparent);
+  --color-paper: #fdfaf3;
+  --color-rule: color-mix(in srgb, #14293f 12%, transparent);
 
   /* Back-compat aliases used across components */
   --color-brand-navy: var(--color-ink);

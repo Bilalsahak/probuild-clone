@@ -78,7 +78,7 @@ export function ServicePageView({ service }: { service: Service }) {
           </Reveal>
 
           <Reveal className="lg:col-span-5" delay={0.1}>
-            <aside className="h-full rounded-[2px] border border-ink/10 bg-ink p-7 text-parchment md:p-8">
+            <aside className="h-full rounded-[2px] border border-ink/10 bg-ink-soft p-7 text-parchment md:p-8">
               <h2 className="font-display text-2xl">Cost drivers</h2>
               <p className="mt-2 text-sm text-parchment/80">
                 What typically moves the price. We talk through these early, before work starts.
@@ -134,9 +134,6 @@ export function ServicePageView({ service }: { service: Service }) {
           <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {service.process.map((p, i) => (
               <li key={p.title} className="relative h-full overflow-hidden rounded-[2px] bg-parchment p-6">
-                <span aria-hidden className="absolute -right-2 -top-4 font-display text-7xl text-ink/[0.06]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
                 <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
                   Step {String(i + 1).padStart(2, "0")}
                 </span>
@@ -153,8 +150,18 @@ export function ServicePageView({ service }: { service: Service }) {
           <Reveal>
             <SectionHeading
               eyebrow="Photos"
-              title={`${service.shortName}: photos from job sites`}
-              body={gallery.length > 0 ? PHOTO_NOTE : undefined}
+              title={
+                service.slug === "paint"
+                  ? "Project photos"
+                  : `${service.shortName}: photos from job sites`
+              }
+              body={
+                gallery.length > 0
+                  ? service.slug === "paint"
+                    ? `${PHOTO_NOTE} These are general project photos and are not all paint work.`
+                    : PHOTO_NOTE
+                  : undefined
+              }
             />
           </Reveal>
           <div className="mt-10">
@@ -170,7 +177,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-ink py-16 text-parchment md:py-20">
+      <section className="bg-ink-soft py-16 text-parchment md:py-20">
         <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <h2 className="font-display text-3xl md:text-4xl">

@@ -10,7 +10,7 @@ export function TradeMarquee({ items }: { items: string[] }) {
   const row = animate || !reduce ? [...items, ...items] : items;
 
   return (
-    <div className="relative overflow-hidden border-y border-white/10 bg-ink text-parchment">
+    <div className="relative overflow-hidden border-y border-bronze-deep/20 bg-bronze-light text-ink">
       <ul
         className={`flex gap-0 whitespace-nowrap py-4 ${reduce ? "" : "marquee-track"}`}
         style={animate ? undefined : { animationPlayState: "paused" }}
@@ -22,9 +22,9 @@ export function TradeMarquee({ items }: { items: string[] }) {
             <li
               key={`${item}-${i}`}
               aria-hidden={dup || undefined}
-              className="inline-flex items-center gap-8 px-8 text-[11px] font-semibold uppercase tracking-[0.28em] text-parchment/85"
+              className="inline-flex items-center gap-8 px-8 text-[11px] font-semibold uppercase tracking-[0.28em] text-ink"
             >
-              <span aria-hidden className="text-bronze">◆</span>
+              <span aria-hidden className="text-bronze-deep">◆</span>
               {item}
             </li>
           );
@@ -35,7 +35,7 @@ export function TradeMarquee({ items }: { items: string[] }) {
           type="button"
           onClick={() => setPaused((p) => !p)}
           aria-pressed={paused}
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-[2px] border border-white/40 bg-ink px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-parchment hover:bg-ink-soft"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-[2px] border border-ink/60 bg-parchment px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink hover:bg-white"
         >
           {paused ? "Play scrolling text" : "Pause scrolling text"}
         </button>
