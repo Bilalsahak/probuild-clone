@@ -41,15 +41,15 @@ export default function ContactPage() {
                 <h2 className="font-display text-2xl text-ink">Talk to us directly</h2>
                 <ul className="mt-5 space-y-3 text-sm text-charcoal/90">
                   <li>
-                    <a className="font-semibold text-ink underline" href={site.phoneHref}>
+                    <a className="inline-block py-2.5 font-semibold text-ink underline" href={site.phoneHref}>
                       {site.phone}
                     </a>
                   </li>
                   <li>
-                    <a className="underline" href={`mailto:${site.email}`}>{site.email}</a>
+                    <a className="inline-block py-2.5 underline" href={`mailto:${site.email}`}>{site.email}</a>
                   </li>
                   <li>
-                    <a className="underline" href={`mailto:${site.estimatesEmail}`}>{site.estimatesEmail}</a>
+                    <a className="inline-block py-2.5 underline" href={`mailto:${site.estimatesEmail}`}>{site.estimatesEmail}</a>
                   </li>
                   <li className="pt-1">{site.address.full}</li>
                 </ul>

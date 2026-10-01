@@ -16,8 +16,8 @@ export function ServicePageView({ service }: { service: Service }) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-ink text-parchment">
-        <Container className="relative grid min-h-[68vh] items-end gap-10 pb-14 pt-32 lg:grid-cols-12 lg:items-center lg:pb-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-ink to-ink-soft text-parchment">
+        <Container className="relative grid min-h-[68dvh] items-end gap-10 pb-14 pt-32 lg:grid-cols-12 lg:items-center lg:pb-20">
           <Reveal className="lg:col-span-7">
             <Eyebrow light>Service · {service.shortName}</Eyebrow>
             <h1 className="mt-4 max-w-4xl font-display text-5xl leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
@@ -27,7 +27,7 @@ export function ServicePageView({ service }: { service: Service }) {
           </Reveal>
           {hero ? (
             <div className="lg:col-span-5">
-              <div className="relative mx-auto aspect-[4/5] max-h-[60vh] w-full max-w-md overflow-hidden rounded-[2px] ring-1 ring-white/15 lg:max-w-none">
+              <div className="relative mx-auto aspect-[4/5] max-h-[60dvh] w-full max-w-md overflow-hidden rounded-[2px] ring-1 ring-white/15 lg:max-w-none">
                 <div className="ken-burns absolute inset-[-3%] h-[106%] w-[106%]">
                   <Image
                     src={hero.src}
@@ -45,7 +45,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-gradient-to-b from-paper to-parchment py-16 md:py-24">
         <Container className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <p className="font-display text-2xl leading-snug text-ink md:text-3xl">{service.intro}</p>
@@ -101,7 +101,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-parchment py-16 md:py-24">
+      <section className="bg-gradient-to-b from-parchment to-paper py-16 md:py-24">
         <Container>
           <Reveal>
             <SectionHeading
@@ -126,7 +126,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-gradient-to-b from-paper to-parchment-deep py-16 md:py-24">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="On site" title="How we typically work" />
@@ -177,6 +177,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
+      <div aria-hidden className="h-16 bg-gradient-to-b from-parchment-deep to-ink-soft md:h-24" />
       <section className="bg-ink-soft py-16 text-parchment md:py-20">
         <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>

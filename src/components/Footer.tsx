@@ -7,7 +7,7 @@ import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton"
 
 export function Footer() {
   const year = new Date().getFullYear();
-  const link = "transition hover:text-bronze-light";
+  const link = "inline-flex min-h-11 items-center transition hover:text-bronze-light lg:min-h-0";
   return (
     <footer className="relative overflow-hidden bg-ink text-parchment">
       <div
@@ -40,7 +40,7 @@ export function Footer() {
               <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Navigate
               </h2>
-              <ul className="mt-5 space-y-2.5 text-sm text-parchment/85">
+              <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
                 {nav.map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className={link}>
@@ -55,7 +55,7 @@ export function Footer() {
               <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Trades
               </h2>
-              <ul className="mt-5 space-y-2.5 text-sm text-parchment/85">
+              <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
                 {services.map((s) => (
                   <li key={s.slug}>
                     <Link href={`/services/${s.slug}/`} className={link}>
@@ -70,7 +70,7 @@ export function Footer() {
               <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Contact
               </h2>
-              <ul className="mt-5 space-y-2.5 text-sm text-parchment/85">
+              <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
                 <li>
                   <a href={site.phoneHref} className={link}>
                     {site.phone}
@@ -113,17 +113,17 @@ export function Footer() {
           </p>
           <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <li>
-              <Link href="/privacy/" className="underline underline-offset-2 hover:text-bronze-light">
+              <Link href="/privacy/" className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-bronze-light">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms/" className="underline underline-offset-2 hover:text-bronze-light">
+              <Link href="/terms/" className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-bronze-light">
                 Terms of Use
               </Link>
             </li>
             <li>
-              <CookieSettingsButton className="underline underline-offset-2 hover:text-bronze-light" />
+              <CookieSettingsButton className="inline-flex min-h-11 items-center underline underline-offset-2 hover:text-bronze-light" />
             </li>
           </ul>
         </div>

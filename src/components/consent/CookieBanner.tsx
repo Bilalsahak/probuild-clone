@@ -12,12 +12,12 @@ export function CookieBanner() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/15 bg-ink px-4 py-5 text-parchment shadow-[0_-16px_50px_rgba(7,21,37,0.35)] md:px-8"
+      className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/20 bg-ink px-4 supports-[backdrop-filter]:bg-ink/90 supports-[backdrop-filter]:backdrop-blur-md py-5 text-parchment shadow-[0_-16px_50px_rgba(7,21,37,0.35)] md:px-8"
     >
-      <div className="mx-auto flex max-w-7xl flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-3xl">
-          <h2 className="font-display text-xl text-parchment">Your privacy choices</h2>
-          <p className="mt-2 text-sm leading-relaxed text-parchment/80">
+          <h2 className="font-display text-lg text-parchment sm:text-xl">Your privacy choices</h2>
+          <p className="mt-1.5 text-[13px] leading-snug text-parchment/85 sm:text-sm sm:leading-relaxed">
             This site only uses what it needs to work. With your permission, we can also load
             third-party embedded content, such as the Calendly scheduling calendar. We do not use
             advertising or analytics trackers. You can change your choice any time from
@@ -28,11 +28,11 @@ export function CookieBanner() {
             .
           </p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
           <button
             type="button"
             onClick={acceptAll}
-            className={`${btn} bg-bronze text-ink hover:bg-bronze-light`}
+            className={`${btn} col-span-2 bg-bronze text-ink hover:bg-bronze-light`}
           >
             Accept all
           </button>

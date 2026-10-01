@@ -10,42 +10,53 @@ import { site } from "@/config/site";
 import { PHOTO_NOTE, photoByFile } from "@/content/photos";
 import { services } from "@/content/services";
 
-const hero = photoByFile("siding", "siding7.webp");
+// Homepage hero: owner's bathroom photo from the Paint gallery set (see photos.ts, project-1).
+// Responsive WebP renditions live in public/images/hero/ (640/1024/1600/2400 px wide).
+const hero = photoByFile("paint", "project-1.webp");
+const heroSizes = [640, 1024, 1600, 2400];
+const base = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const heroSrcSet = heroSizes.map((w) => `${base}/images/hero/home-${w}.webp ${w}w`).join(", ");
 
 export default function HomePage() {
   return (
     <>
       {/* Cinematic hero */}
-      <section className="relative min-h-[100svh] overflow-hidden bg-ink text-parchment">
+      <section className="relative isolate min-h-[100dvh] overflow-hidden bg-ink text-parchment">
         <div className="absolute inset-0 overflow-hidden">
           <div className="ken-burns absolute inset-[-4%] h-[108%] w-[108%]">
-            <Image
-              src={hero.src}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`${base}/images/hero/home-1600.webp`}
+              srcSet={heroSrcSet}
+              sizes="(max-width: 1024px) 1600px, 100vw"
               alt={hero.alt}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover opacity-80"
+              width={2400}
+              height={1339}
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full object-cover object-[64%_50%] md:object-[56%_50%] lg:object-center"
             />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/60 to-ink/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/20" />
+          {/* Scrims keep the text AA-legible over the bright photo */}
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/65 to-ink/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/10 to-ink/45 md:from-ink/70" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-ink/50" />
         </div>
 
-        <Container className="relative flex min-h-[100svh] flex-col justify-end pb-20 pt-32 md:justify-center md:pb-28 lg:pt-40">
+        <Container className="relative flex min-h-[100dvh] flex-col justify-end pb-28 pt-28 md:justify-center md:pb-32 lg:pt-44">
           <Reveal className="max-w-4xl">
             <Eyebrow light>Seattle &amp; King County · Remodeling</Eyebrow>
-            <h1 className="mt-6 font-display text-[2.75rem] leading-[0.98] tracking-tight text-parchment sm:text-6xl md:text-7xl lg:text-[5.25rem]">
+            <h1 className="mt-5 font-display text-[clamp(2.5rem,9.5vw,5.25rem)] leading-[0.98] tracking-tight text-parchment">
               Built on trust.
               <br />
               <span className="text-bronze-light">Executed with precision.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-parchment/85 md:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-parchment/90 md:text-lg">
               Siding, fencing, tile, laminate flooring, drywall, and paint for Seattle-area homes
               and light-commercial spaces. A crew that plans around the rain, keeps you in the
               loop, and pays attention to the details.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
               <Button href="/contact/" variant="primary">
                 Request an estimate
               </Button>
@@ -53,14 +64,15 @@ export default function HomePage() {
                 View photos
               </Button>
             </div>
-            <p className="mt-10 max-w-2xl text-[11px] uppercase leading-relaxed tracking-[0.16em] text-parchment/80">
+            {/* Glass info bar (solid fallback when backdrop-filter is unsupported) */}
+            <p className="mt-8 inline-block max-w-full rounded-[2px] border border-white/25 bg-ink/80 px-4 py-3 text-[11px] uppercase leading-relaxed tracking-[0.16em] text-parchment supports-[backdrop-filter]:bg-ink/55 supports-[backdrop-filter]:backdrop-blur-md">
               Washington-registered contractor · No. {site.registrationNo}
             </p>
           </Reveal>
         </Container>
 
         <div aria-hidden className="absolute bottom-8 right-5 hidden text-right md:block lg:right-10">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-parchment/70">Scroll</p>
+          <p className="text-[10px] uppercase tracking-[0.24em] text-parchment/80">Scroll</p>
           <div className="ml-auto mt-2 h-12 w-px bg-gradient-to-b from-bronze to-transparent" />
         </div>
       </section>
@@ -68,7 +80,7 @@ export default function HomePage() {
       <TradeMarquee items={["Siding", "Fencing", "Tile", "Laminate flooring", "Drywall", "Paint", "Seattle", "King County"]} />
 
       {/* Approach */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
         <Container>
           <div className="grid items-end gap-10 lg:grid-cols-12">
             <Reveal className="lg:col-span-7">
@@ -106,7 +118,7 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="bg-parchment py-20 md:py-28">
+      <section className="bg-gradient-to-b from-parchment to-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
@@ -127,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* Trades */}
-      <section className="bg-parchment-deep py-20 md:py-28">
+      <section className="bg-gradient-to-b from-parchment-deep to-paper py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
@@ -226,7 +238,7 @@ export default function HomePage() {
                       className="object-cover transition duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-ink/25 transition group-hover:bg-ink/40" />
-                    <span className="absolute bottom-4 left-4 rounded-[2px] bg-ink/70 px-2 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment">
+                    <span className="absolute bottom-4 left-4 rounded-[2px] bg-ink/85 px-2 py-1 supports-[backdrop-filter]:bg-ink/65 supports-[backdrop-filter]:backdrop-blur-sm text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment">
                       {trade}
                     </span>
                   </Link>
@@ -240,8 +252,9 @@ export default function HomePage() {
       {/* Optional, disabled by default: see README "Crew feedback" */}
       <CrewFeedback />
 
-      {/* CTA band */}
-      <section className="relative overflow-hidden bg-ink py-20 text-parchment md:py-28">
+      {/* CTA band (gradient strip eases paper into ink) */}
+      <div aria-hidden className="h-20 bg-gradient-to-b from-paper to-ink-soft md:h-28" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-ink-soft to-ink py-20 text-parchment md:py-28">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-y-0 right-0 w-1/2 bg-[radial-gradient(ellipse_at_center,rgba(196,137,58,0.18),transparent_65%)]"
@@ -271,7 +284,7 @@ export default function HomePage() {
               </ul>
             </Reveal>
             <Reveal delay={0.12}>
-              <div className="rounded-[2px] border border-white/15 bg-white/[0.04] p-8 md:p-10">
+              <div className="rounded-[2px] border border-white/20 bg-ink-mid/60 p-6 supports-[backdrop-filter]:bg-white/[0.07] supports-[backdrop-filter]:backdrop-blur-md sm:p-8 md:p-10">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
                   Next step
                 </p>
