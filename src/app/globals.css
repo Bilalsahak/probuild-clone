@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Ink / bronze / parchment — editorial PNW craft */
+  --color-ink: #071525;
+  --color-ink-soft: #0e2136;
+  --color-ink-mid: #16304a;
+  --color-bronze: #c4893a;
+  --color-bronze-light: #e0b06a;
+  --color-bronze-deep: #7d5420;
+  --color-parchment: #f3eee6;
+  --color-parchment-deep: #e7dfd2;
+  --color-stone: #c8bba8;
+  --color-stone-warm: #b5a48c;
+  --color-charcoal: #1c242e;
+  --color-mist: #dfe6ec;
+  --color-paper: #faf8f4;
+  --color-rule: color-mix(in srgb, #071525 12%, transparent);
+
+  /* Back-compat aliases used across components */
+  --color-brand-navy: var(--color-ink);
+  --color-brand-amber: var(--color-bronze);
+  --color-brand-slate: var(--color-charcoal);
+  --color-brand-light: var(--color-parchment);
+  --color-brand-mist: var(--color-parchment-deep);
+  --color-brand-stone: var(--color-stone);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-instrument);
+  --font-heading: var(--font-instrument);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-parchment);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-bronze) 40%, white);
+    color: var(--color-ink);
+  }
+}
+
+/* Typography helpers */
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.font-heading {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.font-ui {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Subtle film grain — atelier quiet */
+.grain::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Hairline rule */
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--color-ink) 18%, transparent),
+    transparent
+  );
+}
+
+.rule-solid {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-ink) 12%, transparent);
+}
+
+/* Ken Burns — soft architectural drift */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.05) translate(0%, 0%);
+  }
+  100% {
+    transform: scale(1.14) translate(-1.5%, -1%);
+  }
+}
+
+.ken-burns {
+  animation: kenburns 24s ease-out 1 forwards;
+  will-change: transform;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 42s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Sticky mobile CTA clearance */
+.pb-mobile-cta {
+  padding-bottom: 5.5rem;
+}
+
+@media (min-width: 768px) {
+  .pb-mobile-cta {
+    padding-bottom: 0;
+  }
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-bronze);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ken-burns,
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  left: 0.75rem;
+  top: -4rem;
+  z-index: 200;
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  padding: 0.75rem 1rem;
+  border-radius: 2px;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Visible focus on dark backgrounds too */
+.on-dark :focus-visible,
+footer :focus-visible,
+header :focus-visible {
+  outline-color: var(--color-bronze-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Legal page lists */
+.legal ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+}
+.legal ul li {
+  margin-top: 0.4rem;
+}
+.legal a {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

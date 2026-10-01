@@ -1,0 +1,40 @@
+# TEMPLATE: copy to .github/workflows/preview-pages.yml (needs a token/user with workflow permission to add it).
+name: Preview on GitHub Pages (manual)
+
+# Optional. Builds a noindex preview with the base path "/<repo-name>" and publishes it
+# to GitHub Pages. Requires Settings > Pages > Source = "GitHub Actions" on the repo.
+# Production (seattlemasterfix.com) does NOT use this workflow.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build:preview
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      - run: touch out/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+      - id: deployment
+        uses: actions/deploy-pages@v4

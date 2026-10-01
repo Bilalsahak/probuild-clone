@@ -1,0 +1,14 @@
+{
+  // Cloudflare Workers (static assets) config for seattlemasterfix.com.
+  // The existing Cloudflare "Workers Builds" project is named "probuild-clone".
+  // Build command (set in Cloudflare dashboard if not already): npm ci && npm run build
+  // Deploy command: npx wrangler deploy      (serves the ./out folder)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "probuild-clone",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./out",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,0 +1,16 @@
+# Old static-site URLs -> new locations (Cloudflare Workers/Pages static assets). Ignored on GitHub Pages.
+/siding.html    /services/siding/    301
+/fencing.html   /services/fencing/   301
+/tile.html      /services/tile/      301
+/laminate.html  /services/laminate/  301
+/drywall.html   /services/drywall/   301
+/paint.html     /services/paint/     301
+/privacy.html   /privacy/            301
+/terms.html     /terms/              301
+/index.html     /                    301
+/siding         /services/siding/    301
+/fencing        /services/fencing/   301
+/tile           /services/tile/      301
+/laminate       /services/laminate/  301
+/drywall        /services/drywall/   301
+/paint          /services/paint/     301
