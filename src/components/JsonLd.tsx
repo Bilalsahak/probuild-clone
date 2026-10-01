@@ -16,7 +16,7 @@ export function LocalBusinessJsonLd() {
     url: `${site.url}/`,
     telephone: site.phoneE164,
     email: site.email,
-    logo: `${site.url}/logos/smpc-logo-cropped.png`,
+    logo: `${site.url}/logos/seattle-masterfix-logo-1024.png`,
     identifier: `WA Contractor Registration ${site.registrationNo}`,
     sameAs: [site.linkedin],
     makesOffer: services.map((s) => ({

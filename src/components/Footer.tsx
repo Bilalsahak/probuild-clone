@@ -18,11 +18,11 @@ export function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Image
-              src="/logos/smpc-logo-white.webp"
+              src="/logos/seattle-masterfix-logo.svg"
               alt={`${site.name} logo`}
-              width={160}
-              height={128}
-              className="h-14 w-auto"
+              width={272}
+              height={222}
+              className="h-24 w-auto md:h-28"
             />
             <p className="mt-6 max-w-sm font-display text-2xl leading-snug text-parchment/95 md:text-3xl">
               Built for Seattle weather.
