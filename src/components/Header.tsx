@@ -58,12 +58,12 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <Link href="/" className="relative z-10 flex shrink-0 items-center" aria-label={`${site.shortName}, home`}>
           <Image
-            src="/logos/smpc-logo-white.webp"
+            src="/logos/seattle-masterfix-logo.svg"
             alt=""
-            width={180}
-            height={56}
+            width={272}
+            height={222}
             className={`w-auto transition-all duration-500 ${
-              scrolled ? "h-9 md:h-10" : "h-10 md:h-12"
+              scrolled ? "h-11 md:h-[3.25rem]" : "h-12 md:h-[3.75rem]"
             }`}
             priority
           />

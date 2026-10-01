@@ -52,14 +52,14 @@ export const site = {
   serviceArea: "Seattle and King County, WA",
   serviceAreaConfirmed: false,
 
-  calendly: "https://calendly.com/bill-seattlemasterfix",
+  calendly: "https://calendly.com/bill-seattlemasterfix/new-meeting",
   /** Public Formspree endpoint (same one the production site uses). */
   formspree: "https://formspree.io/f/xnjeedlb",
 
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
 
   lniVerifyUrl:
-    "https://lni.wa.gov/licensing-permits/contractors/hiring-a-contractor/verify-contractor-tradesperson-business",
+    "https://secure.lni.wa.gov/verify/Detail.aspx?UBI=605904953&LIC=SEATTMP744NL&SAW=",
 
   /** Privacy-policy / terms effective date. */
   policyEffectiveDate: "October 1, 2026",
