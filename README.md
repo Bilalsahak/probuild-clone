@@ -135,19 +135,18 @@ Skip link, `<main>`, keyboard-operable nav, labeled buttons, visible focus rings
 **Must confirm / decide**
 1. **Update the address with L&I.** The owner confirmed the current address is 5415 6th Ave NW, Seattle, WA 98107 (shown on the site and in the structured data). The L&I public record still lists **5011 Ravenna Ave NE Unit #1, Seattle, WA 98105**. Update L&I so the public record matches the website (and the Google profile).
 2. **Service area** (`serviceArea`; then `serviceAreaConfirmed: true`).
-3. **Retention period** for estimate records (`retentionPeriod` in `src/config/site.ts`; shown in the privacy policy).
-4. **Photo provenance** for every published photo, including the 7 in the Paint gallery (see "Photos"). Remove anything that is not yours to show.
-5. **Crew feedback consent** (see "Crew feedback"). Not shown until done.
-6. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
-7. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
-8. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
-9. **Which mailbox is monitored**: `info@` vs `estimates@` (both are shown).
-10. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
-11. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
-12. **Add the registration number** to Google Business Profile, LinkedIn, Calendly page, email signature, estimates and contracts (RCW 18.27.100).
-13. **Contract items (not on the website):** RCW 18.27.114 notice to customer, lien notice, right-to-cancel, dispute resolution, pre-1978 lead pamphlet, warranty.
-14. **Make this GitHub repo private and rename it** (it is public and named `probuild-clone`; git history still contains the original clone of another company's site, name, phone and email). Ask an attorney before rewriting history.
-15. **Attorney review** of the Privacy Policy and Terms of Use and of the older-home, permit and texting language. This work was prepared from a non-lawyer compliance audit and is not a substitute for attorney review.
+3. **Photo provenance** for every published photo, including the 7 in the Paint gallery (see "Photos"). Remove anything that is not yours to show.
+4. **Crew feedback consent** (see "Crew feedback"). Not shown until done.
+5. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
+6. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
+7. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
+8. **Which mailbox is monitored**: `info@` vs `estimates@` (both are shown).
+9. **Retention wording**: the privacy policy now describes retention generically (no fixed period). If you want a specific period for estimate records, edit section 7 of `src/app/privacy/page.tsx`. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
+10. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
+11. **Add the registration number** to Google Business Profile, LinkedIn, Calendly page, email signature, estimates and contracts (RCW 18.27.100).
+12. **Contract items (not on the website):** RCW 18.27.114 notice to customer, lien notice, right-to-cancel, dispute resolution, pre-1978 lead pamphlet, warranty.
+13. **Make this GitHub repo private and rename it** (it is public and named `probuild-clone`; git history still contains the original clone of another company's site, name, phone and email). Ask an attorney before rewriting history.
+14. **Attorney review** of the Privacy Policy and Terms of Use and of the older-home, permit and texting language. This work was prepared from a non-lawyer compliance audit and is not a substitute for attorney review.
 
 **CI workflows:** they are provided as templates in `ci-templates/` (not active) because the account used to open this PR could not create files under `.github/workflows/` (GitHub requires a `workflow` token scope). Copy `github-actions-ci.yml` to `.github/workflows/ci.yml` to get build + lint + forbidden-claims checks on every PR.
 

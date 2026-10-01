@@ -65,8 +65,6 @@ export const site = {
 
   /** Privacy-policy / terms effective date. */
   policyEffectiveDate: "October 1, 2026",
-  /** OWNER TO CONFIRM — how long form submissions / estimate records are kept. */
-  retentionPeriod: "[retention period — OWNER TO CONFIRM]",
   /** Term used in the Terms of Use for venue. Attorney to confirm. */
   venue: "King County, Washington",
 } as const;

@@ -134,10 +134,11 @@ export default function PrivacyPage() {
 
       <LegalSection n={7} title="Retention">
         <p>
-          We keep estimate requests and related communications for {site.retentionPeriod}. Signed
-          contracts, required notices and related business, tax and insurance records are kept for
-          as long as the law or our legitimate business needs require. We then delete or de-identify
-          them.
+          We keep estimate requests and related communications for as long as we need them to respond to
+          you, prepare estimates and manage our business, and as long as the law or our legitimate
+          record-keeping needs (such as tax, insurance and licensing) require. Signed contracts,
+          required notices and related records are kept for the periods the law requires. We then
+          delete or de-identify them.
         </p>
       </LegalSection>
 
