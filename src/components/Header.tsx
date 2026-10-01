@@ -39,7 +39,7 @@ export function Header() {
     <motion.header
       className={`fixed inset-x-0 top-0 z-50 transition-[background,border,backdrop-filter,padding] duration-500 ${
         scrolled || open
-          ? "border-b border-white/10 bg-ink/92 py-2 backdrop-blur-xl"
+          ? "border-b border-white/15 bg-ink/95 py-2 supports-[backdrop-filter]:bg-ink/80 supports-[backdrop-filter]:backdrop-blur-xl"
           : "border-b border-transparent bg-gradient-to-b from-ink/70 to-transparent py-3"
       }`}
       initial={false}
@@ -148,7 +148,7 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: easeCraft }}
-            className="overflow-hidden border-t border-white/10 bg-ink lg:hidden"
+            className="overflow-hidden border-t border-white/10 bg-ink/95 lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-5 py-5" aria-label="Mobile">
               {nav.map((item) => (
