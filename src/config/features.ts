@@ -14,12 +14,3 @@
  *   3. an attorney's sign-off. See README, "Crew feedback".
  */
 export const SHOW_CREW_FEEDBACK = process.env.NEXT_PUBLIC_SHOW_CREW_FEEDBACK === "true";
-
-/**
- * Photos flagged in the legal audit as having unverified origin (they look
- * professionally staged, may be stock/AI/another company's, or do not look
- * like Seattle). They are held back from every page until the owner confirms
- * provenance and flips `status` to "verified" in src/content/photos.ts, or
- * set this to true to show them anyway.
- */
-export const SHOW_UNVERIFIED_PHOTOS = process.env.NEXT_PUBLIC_SHOW_UNVERIFIED_PHOTOS === "true";

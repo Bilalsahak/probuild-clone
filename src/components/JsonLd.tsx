@@ -12,6 +12,7 @@ export function LocalBusinessJsonLd() {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
     name: site.name,
+    legalName: site.registeredName,
     url: `${site.url}/`,
     telephone: site.phoneE164,
     email: site.email,

@@ -7,7 +7,7 @@ Design: the approved "Cinematic redesign" (ink / bronze / parchment, Instrument 
 hero, trade marquee, scroll-drawn process timeline, accessible photo lightbox).
 
 > **Remaining "OWNER TO CONFIRM" items are listed below.** Run
-> `npm run check:owner` to list them. The registered name (`SEATTLE MASTERFIX PRCSN CRFTSM`, as confirmed against the L&I record) is a single constant in `src/config/site.ts`.
+> `npm run check:owner` to list them. The business name used in the license line (`Seattle MasterFix Precision Craftsmanship`, as confirmed with L&I) is a single constant in `src/config/site.ts`.
 
 ---
 
@@ -42,7 +42,7 @@ npm run lint
 │   │   └── globals.css         colors, fonts, animations
 │   ├── config/
 │   │   ├── site.ts           ← ★ EDIT HERE: business name, registration no., phone, address, links
-│   │   └── features.ts         on/off switches (crew feedback, held-back photos)
+│   │   └── features.ts         on/off switch (crew feedback)
 │   ├── content/
 │   │   ├── services.ts       ← text for the six trade pages + the 4-step process
 │   │   ├── photos.ts         ← list of every published photo with alt text + caption
@@ -112,9 +112,9 @@ Do not relabel them as reviews, add stars, or link them to a Google profile.
 
 ## Photos
 
-The photos are the owner's job-site photos from the old repo. Their provenance (who took them, when, where, for which company, permission) is **unconfirmed (OWNER TO CONFIRM)**. Captions and alt text describe only what is visible and do not claim "completed", location or date. A note on the pages says some photos were taken before Seattle MasterFix operated in Washington; the owner should confirm this statement is accurate or edit `PHOTO_NOTE` in `src/content/photos.ts`.
+The owner confirmed that all photos came from his camera roll and show real work done by members of his crew. The crew has also worked in other states, so captions and alt text describe only what is visible and **never claim a Seattle/Washington location, a date, or that a project was "completed"**; a note on the pages says not all are Seattle MasterFix or Washington projects and that locations and dates are not listed (edit `PHOTO_NOTE` in `src/content/photos.ts`). Please keep it that way if you add photos.
 
-Seven photos that the legal audit flagged as possibly staged/stock/other-company/not-Seattle (`front`, `siding`, `tile`, `tile5` (palm-tree pool deck), `laminate1`, `paint`, `fencing7` (a deck)) are shown **only in the Paint page's "Project photos" gallery** (files `public/images/services/paint/project-1..7.webp`), at the owner's request, with neutral alt text and the caption "Project photo" and no location, date or "completed" claim. The page says they are general project photos and not all paint work. **Their provenance is still the owner's to-do**; remove any that are not yours to show by deleting the file and its line in `src/content/photos.ts`. The originals are also in `legacy-static/` and git history. The old paint gallery referenced `paint1–12.webp`, which never existed; they are not referenced.
+Seven photos that earlier looked staged or off-topic (`front`, `siding`, `tile`, `tile5` (palm-tree pool deck), `laminate1`, `paint`, `fencing7` (a deck)) are shown **only in the Paint page's "Project photos" gallery** (`public/images/services/paint/project-1..7.webp`) with the neutral caption "Project photo"; the page says they are general project photos, not all paint work. The old paint gallery referenced `paint1–12.webp`, which never existed; they are not referenced. The originals are also in `legacy-static/` and git history.
 
 ## Accessibility and motion
 
@@ -133,20 +133,18 @@ Skip link, `<main>`, keyboard-operable nav, labeled buttons, visible focus rings
 ## FOR THE OWNER: to-do list before this goes live
 
 **Must confirm / decide**
-1. **Update the address with L&I.** The owner confirmed the current address is 5415 6th Ave NW, Seattle, WA 98107 (shown on the site and in the structured data). The L&I public record still lists **5011 Ravenna Ave NE Unit #1, Seattle, WA 98105**. Update L&I so the public record matches the website (and the Google profile).
-2. **Service area** (`serviceArea`; then `serviceAreaConfirmed: true`).
-3. **Photo provenance** for every published photo, including the 7 in the Paint gallery (see "Photos"). Remove anything that is not yours to show.
-4. **Crew feedback consent** (see "Crew feedback"). Not shown until done.
-5. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
-6. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
-7. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
-8. **Which mailbox is monitored**: `info@` vs `estimates@` (both are shown).
-9. **Retention wording**: the privacy policy now describes retention generically (no fixed period). If you want a specific period for estimate records, edit section 7 of `src/app/privacy/page.tsx`. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
-10. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
-11. **Add the registration number** to Google Business Profile, LinkedIn, Calendly page, email signature, estimates and contracts (RCW 18.27.100).
-12. **Contract items (not on the website):** RCW 18.27.114 notice to customer, lien notice, right-to-cancel, dispute resolution, pre-1978 lead pamphlet, warranty.
-13. **Make this GitHub repo private and rename it** (it is public and named `probuild-clone`; git history still contains the original clone of another company's site, name, phone and email). Ask an attorney before rewriting history.
-14. **Attorney review** of the Privacy Policy and Terms of Use and of the older-home, permit and texting language. This work was prepared from a non-lawyer compliance audit and is not a substitute for attorney review.
+1. **Service area** (`serviceArea`; then `serviceAreaConfirmed: true`).
+2. **Crew feedback consent** (see "Crew feedback"). Not shown until done.
+3. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
+4. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
+5. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
+6. **Which mailbox is monitored**: `info@` vs `estimates@` (both are shown).
+7. **Retention wording**: the privacy policy now describes retention generically (no fixed period). If you want a specific period for estimate records, edit section 7 of `src/app/privacy/page.tsx`. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
+8. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
+9. **Add the registration number** to Google Business Profile, LinkedIn, Calendly page, email signature, estimates and contracts (RCW 18.27.100).
+10. **Contract items (not on the website):** RCW 18.27.114 notice to customer, lien notice, right-to-cancel, dispute resolution, pre-1978 lead pamphlet, warranty.
+11. **Make this GitHub repo private and rename it** (it is public and named `probuild-clone`; git history still contains the original clone of another company's site, name, phone and email). Ask an attorney before rewriting history.
+12. **Attorney review** of the Privacy Policy and Terms of Use and of the older-home, permit and texting language. This work was prepared from a non-lawyer compliance audit and is not a substitute for attorney review.
 
 **CI workflows:** they are provided as templates in `ci-templates/` (not active) because the account used to open this PR could not create files under `.github/workflows/` (GitHub requires a `workflow` token scope). Copy `github-actions-ci.yml` to `.github/workflows/ci.yml` to get build + lint + forbidden-claims checks on every PR.
 

@@ -2,12 +2,10 @@
  * Project photo catalogue — the ONLY place images are listed, so a missing or
  * un-vetted file can never be referenced by accident.
  *
- * Alt text describes what is visible. Captions never say "completed" or imply
- * a location/date. Provenance of every photo is still OWNER TO CONFIRM
- * (who took it, when, where, for which company, permission) — see README.
- *
- * Photos the legal audit flagged as possibly staged/stock/AI/another company's
- * are NOT here; they were moved to /content/held-photos/ (not deployed).
+ * Alt text describes what is visible. Captions never say "completed" or imply a location/date.
+ * The owner confirmed all photos are from his camera roll and show real work by members of his
+ * crew (who have also worked in other states), so never describe any photo as a Seattle or
+ * Washington project.
  */
 import type { ServiceSlug } from "@/content/services";
 
@@ -77,7 +75,7 @@ export const photos: Photo[] = [
   p("laminate", "laminate12.webp", 598, 1280, "Entry hallway toward a glass-paneled door with laminate in place and a vacuum cleaner and debris on the floor.", "Hallway with cleanup still under way"),
 
   // Paint gallery: general project photos (owner request). They are NOT necessarily paint work,
-  // and no location, date or "completed" claim is made. Provenance is still OWNER TO CONFIRM.
+  // and no location, date or "completed" claim is made.
   p("paint", "project-1.webp", 2752, 1536, "Bathroom with a freestanding white tub, glass shower enclosure, double vanity with round mirrors, and dark large-format floor tile.", "Project photo"),
   p("paint", "project-2.webp", 1250, 584, "Wide view of a house with blue lap siding and a wood deck with outdoor furniture and potted plants.", "Project photo"),
   p("paint", "project-3.webp", 667, 889, "Bathtub alcove with white marble-pattern tile on the walls and a shower curtain pulled aside.", "Project photo"),
@@ -96,9 +94,13 @@ export const photos: Photo[] = [
   p("drywall", "drywall6.webp", 960, 1280, "Empty finished room with white walls, diagonal wood-look flooring, open doorways and a black rectangular ceiling light.", "Finished empty room"),
 ];
 
-/** Shown wherever photos appear. OWNER TO CONFIRM provenance of each photo (see README). */
+/**
+ * Shown wherever photos appear. The owner confirmed the photos are real work by members of
+ * his crew, taken from his camera roll; the crew has also worked in other states, so we do
+ * not say where or when any photo was taken.
+ */
 export const PHOTO_NOTE =
-  "Photos of work by members of our crew. Some were taken before Seattle MasterFix began operating in Washington. Locations and dates are not listed.";
+  "Photos of work by members of our crew. Not all are Seattle MasterFix or Washington projects. Locations and dates are not listed.";
 
 export function photosFor(trade: ServiceSlug): Photo[] {
   return photos.filter((x) => x.trade === trade);

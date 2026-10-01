@@ -18,11 +18,13 @@ export const site = {
   url: "https://seattlemasterfix.com",
 
   /**
-   * EXACT name as registered with WA Dept. of Labor & Industries (confirmed by the
-   * owner, Oct 1, 2026). Edit ONLY this constant; it is used in the header strip,
-   * footer, contact page, privacy policy, terms and the license line.
+   * Business name for the license line and legal pages. Per the owner (Oct 1, 2026), L&I
+   * confirmed the business name is "Seattle MasterFix Precision Craftsmanship" (the all-caps
+   * abbreviated form on the L&I lookup is only a display abbreviation). Edit ONLY this
+   * constant; it is used in the header strip, footer, contact page, privacy policy, terms,
+   * the license line and the JSON-LD legalName.
    */
-  registeredName: "SEATTLE MASTERFIX PRCSN CRFTSM",
+  registeredName: "Seattle MasterFix Precision Craftsmanship",
 
   /** WA contractor registration number (RCW 18.27.100 requires it in advertising). */
   registrationNo: "SEATTMP744NL",
@@ -35,11 +37,7 @@ export const site = {
   email: "info@seattlemasterfix.com",
   estimatesEmail: "estimates@seattlemasterfix.com",
 
-  /**
-   * Current business address (confirmed by the owner, Oct 1, 2026).
-   * NOTE: the L&I public record still lists 5011 Ravenna Ave NE, Seattle, WA 98105;
-   * the owner should update the address with L&I so the record matches the website.
-   */
+  /** Current business address (confirmed by the owner, Oct 1, 2026; also updated with L&I). */
   address: {
     street: "5415 6th Ave NW",
     city: "Seattle",

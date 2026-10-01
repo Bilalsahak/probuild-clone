@@ -39,9 +39,8 @@ export default function TermsPage() {
           misrepresent our content or branding without our written permission.
         </p>
         <p>
-          Photos show job-site work by members of our crew. Some were taken before {site.shortName}
-          {" "}began operating in Washington, and they are not a promise of any particular result on
-          your project.
+          Photos show work by members of our crew. Not all are {site.shortName} or Washington
+          projects, and they are not a promise of any particular result on your project.
         </p>
       </LegalSection>
 
