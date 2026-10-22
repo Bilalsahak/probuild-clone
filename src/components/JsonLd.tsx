@@ -21,7 +21,7 @@ export function LocalBusinessJsonLd() {
     sameAs: [site.linkedin],
     makesOffer: services.map((s) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.name, url: `${site.url}/services/${s.slug}/` },
+      itemOffered: { "@type": "Service", name: s.name, url: `${site.url}/services/${s.slug}/`, provider: { "@type": "GeneralContractor", name: site.name } },
     })),
   };
 

@@ -6,7 +6,9 @@
  * ratings or customer counts. Warranty terms belong in the signed contract.
  */
 
-export type ServiceSlug = "siding" | "fencing" | "tile" | "laminate" | "drywall" | "paint";
+/** Trades that own a photo folder in public/images/services/<slug>/. */
+export type PhotoTrade = "siding" | "fencing" | "tile" | "laminate" | "drywall" | "paint";
+export type ServiceSlug = PhotoTrade | "bathroom-remodels" | "unit-turns";
 
 export type Service = {
   slug: ServiceSlug;
@@ -17,6 +19,11 @@ export type Service = {
   intro: string;
   /** File name inside public/images/services/<slug>/ — undefined = typographic hero. */
   heroFile?: string;
+  /** For services without their own photo folder: owner photos borrowed from a trade folder. */
+  photoSet?: { trade: PhotoTrade; files: string[] };
+  /** Unique <title> and meta description (falls back to name/summary). */
+  seoTitle?: string;
+  seoDescription?: string;
   timeline: string;
   costDrivers: string[];
   materials: string[];
@@ -294,10 +301,117 @@ export const services: Service[] = [
     ],
     notices: ["older-home", "permits"],
   },
+  {
+    slug: "bathroom-remodels",
+    name: "Bathroom remodels",
+    shortName: "Bathrooms",
+    headline: "Bathroom remodels planned around waterproofing, layout and the trades behind the walls",
+    summary: "Full and partial bathroom remodels: demolition, tile, waterproofing, fixtures, drywall and paint.",
+    intro:
+      "A bathroom brings several trades into one small room. We plan the layout and sequence before demolition, put waterproofing behind tile in wet areas, and coordinate the work so each step is ready for the next.",
+    heroFile: "tile2.webp",
+    photoSet: {
+      trade: "tile",
+      files: ["tile2.webp", "tile1.webp", "tile9.webp", "tile4.webp", "tile6.webp", "tile7.webp", "tile11.webp"],
+    },
+    seoTitle: "Bathroom Remodels in Seattle",
+    seoDescription:
+      "Bathroom remodeling in Seattle and King County: layout planning, shower and tub tile, waterproofing, fixtures, drywall and paint. Request an estimate.",
+    timeline: "Depends on the scope, the condition behind the walls, material lead times and any permit or inspection steps. Your written contract sets the actual schedule.",
+    costDrivers: [
+      "Size of the room and how much is being changed",
+      "Moving or keeping plumbing locations",
+      "Tile size, pattern and how many surfaces are tiled",
+      "Shower type: tub surround, walk-in, glass enclosure",
+      "Fixture, vanity and finish selections",
+      "Repairs found behind walls or under the floor",
+      "Permit requirements, where they apply",
+    ],
+    materials: [
+      "Waterproof membranes and backer board for wet areas",
+      "Porcelain, ceramic and natural stone tile",
+      "Moisture-resistant drywall and bathroom-rated paint",
+      "Fixtures and vanities you select",
+    ],
+    mistakes: [
+      {
+        title: "Treating grout as waterproofing",
+        body: "Grout is not a water barrier. The membrane behind the tile keeps water out of the wall.",
+      },
+      {
+        title: "Choosing finishes after demolition",
+        body: "Waiting to pick tile, fixtures and the vanity can stall a job. Selections made early keep the schedule steady.",
+      },
+      {
+        title: "Skipping ventilation",
+        body: "Without a working exhaust fan, moisture lingers and finishes suffer. Check it during planning.",
+      },
+    ],
+    process: [
+      { title: "Plan", body: "Walk the room, confirm layout, selections and what needs a permit." },
+      { title: "Demo and prep", body: "Remove old finishes, check what is behind them, and prepare the substrate." },
+      { title: "Build", body: "Waterproofing, tile, drywall, paint and fixtures in the right order." },
+      { title: "Walkthrough", body: "Final walkthrough and punch list with you." },
+    ],
+    notices: ["older-home", "permits"],
+  },
+  {
+    slug: "unit-turns",
+    name: "Unit turns",
+    shortName: "Unit turns",
+    headline: "Getting vacant units repaired, refreshed and ready for the next tenant",
+    summary: "Make-ready work for rentals: drywall repair, paint, flooring, tile and punch-list items between tenants.",
+    intro:
+      "Between tenants, a unit usually needs a mix of small repairs and refresh work. We walk the unit with you or your property manager, agree a written scope, and handle drywall patching, paint, flooring and punch-list items with our crew.",
+    heroFile: "drywall5.webp",
+    photoSet: {
+      trade: "drywall",
+      files: ["drywall5.webp", "drywall6.webp", "drywall2.webp", "drywall4.webp"],
+    },
+    seoTitle: "Rental Unit Turns & Make-Ready Work in Seattle",
+    seoDescription:
+      "Unit turn and make-ready work for Seattle-area rentals: drywall repair, interior paint, flooring and punch lists between tenants. Request a walkthrough.",
+    timeline: "Depends on the unit's condition and the agreed scope. We confirm the schedule in writing after the walkthrough.",
+    costDrivers: [
+      "Condition of the unit after move-out",
+      "Amount of drywall patching and paint",
+      "Flooring repair versus replacement",
+      "Number of punch-list items",
+      "Access, occupancy of neighboring units and building rules",
+    ],
+    materials: ["Drywall and patching compound", "Interior paint matched to building standards where provided", "Laminate flooring and trim", "Tile and grout for small repairs"],
+    mistakes: [
+      {
+        title: "No written scope",
+        body: "Agreeing the list in writing before work starts avoids surprises at handoff.",
+      },
+      {
+        title: "Mismatched paint and finishes",
+        body: "If the building has standard colors and finishes, share them so touch-ups blend in.",
+      },
+      {
+        title: "Forgetting access details",
+        body: "Keys, lockbox codes, parking and quiet hours affect scheduling. Share them up front.",
+      },
+    ],
+    process: [
+      { title: "Walkthrough", body: "Walk the unit and list what needs repair or refresh." },
+      { title: "Written scope", body: "You get a written estimate for the agreed items." },
+      { title: "Work", body: "Repairs, paint, flooring and punch-list items." },
+      { title: "Handoff", body: "Final check against the scope and photos on request." },
+    ],
+    notices: ["older-home"],
+  },
 ];
 
 export function getService(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }
 
-export const servicesWithPhotos = services;
+/** Trades with their own photo folder (used for the Projects gallery filters). */
+export const servicesWithPhotos = services.filter((s) => !s.photoSet);
+
+/** Photo folder a service's images come from. */
+export function photoTradeOf(s: Service): PhotoTrade {
+  return s.photoSet?.trade ?? (s.slug as PhotoTrade);
+}

@@ -34,8 +34,14 @@ export const site = {
   phone: "(206) 550-4576",
   phoneHref: "tel:+12065504576",
   phoneE164: "+1-206-550-4576",
-  email: "info@seattlemasterfix.com",
-  estimatesEmail: "estimates@seattlemasterfix.com",
+  /** The ONLY public email address. Displayed exactly as written. */
+  email: "Bill@seattlemasterfix.com",
+
+  /**
+   * Warranty line. Shown publicly ONLY when this is set to real, owner-confirmed text
+   * (anything containing "BILL TO CONFIRM" is treated as a placeholder and hidden).
+   */
+  warrantyTerms: "[Warranty terms — BILL TO CONFIRM]",
 
   /** Current business address (confirmed by the owner, Oct 1, 2026; also updated with L&I). */
   address: {
@@ -81,6 +87,14 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/services/", label: "Services" },
   { href: "/projects/", label: "Projects" },
+  { href: "/property-managers/", label: "Property managers" },
   { href: "/how-we-work/", label: "How we work" },
   { href: "/contact/", label: "Contact" },
 ] as const;
+
+/** Returns the warranty text only when the owner has replaced the placeholder. */
+export function getWarrantyTerms(): string | null {
+  const t: string = site.warrantyTerms.trim();
+  if (!t || /TO CONFIRM|^\[.*\]$/i.test(t)) return null;
+  return t;
+}

@@ -138,7 +138,7 @@ Skip link, `<main>`, keyboard-operable nav, labeled buttons, visible focus rings
 3. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
 4. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
 5. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
-6. **Which mailbox is monitored**: `info@` vs `estimates@` (both are shown).
+6. **Mailbox**: `Bill@seattlemasterfix.com` is the only public email (`site.email`). Confirm it is monitored and that Formspree notifications go to it.
 7. **Retention wording**: the privacy policy now describes retention generically (no fixed period). If you want a specific period for estimate records, edit section 7 of `src/app/privacy/page.tsx`. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
 8. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
 9. **Add the registration number** to Google Business Profile, LinkedIn, Calendly page, email signature, estimates and contracts (RCW 18.27.100).
@@ -149,3 +149,23 @@ Skip link, `<main>`, keyboard-operable nav, labeled buttons, visible focus rings
 **CI workflows:** they are provided as templates in `ci-templates/` (not active) because the account used to open this PR could not create files under `.github/workflows/` (GitHub requires a `workflow` token scope). Copy `github-actions-ci.yml` to `.github/workflows/ci.yml` to get build + lint + forbidden-claims checks on every PR.
 
 **Not done / out of scope:** Google Business Profile and LinkedIn edits; contract templates.
+
+
+## Reviews (genuine Google / Yelp only)
+
+The homepage Reviews section (`src/components/Reviews.tsx`) is **hidden while `src/content/reviews.ts` is empty**.
+To add a review, copy it from the public Google or Yelp listing into the `reviews` array:
+`{ author, platform: "Google" | "Yelp", url, date: "YYYY-MM-DD", text, rating }`.
+- Author name and text exactly as shown publicly; `url` must link to that review.
+- Never add sample, paraphrased, staff-written or the old out-of-state crew quotes.
+- Stars render only from a real entry's `rating`. When the first review is added, `check:forbidden`
+  will flag "Google"/star glyphs; relax those two rules in `scripts/check-forbidden.mjs` at that time.
+
+## Warranty line
+
+`site.warrantyTerms` in `src/config/site.ts` defaults to a placeholder and is **not shown** until Bill
+replaces it with the real warranty terms (they must match the signed contract).
+
+## Contact email
+
+`Bill@seattlemasterfix.com` is the only public email address on the site (`site.email`).

@@ -48,9 +48,6 @@ export default function ContactPage() {
                   <li>
                     <a className="inline-block py-2.5 underline" href={`mailto:${site.email}`}>{site.email}</a>
                   </li>
-                  <li>
-                    <a className="inline-block py-2.5 underline" href={`mailto:${site.estimatesEmail}`}>{site.estimatesEmail}</a>
-                  </li>
                   <li className="pt-1">{site.address.full}</li>
                 </ul>
               </aside>

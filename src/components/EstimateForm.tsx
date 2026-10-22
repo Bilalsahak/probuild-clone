@@ -274,7 +274,7 @@ export function EstimateForm() {
               />
               <p className="mt-3 text-xs text-charcoal/80">
                 Please don&rsquo;t include Social Security numbers, bank or card details, or other
-                sensitive information. You can email photos to {site.estimatesEmail} after you
+                sensitive information. You can email photos to {site.email} after you
                 submit; mention your name in the subject line.
               </p>
             </fieldset>
