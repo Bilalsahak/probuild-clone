@@ -66,7 +66,7 @@ export const site = {
    * Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX").
    * Leave empty to disable analytics entirely. NEXT_PUBLIC_GA4_ID overrides this.
    */
-  ga4Id: "",
+  ga4Id: "G-CE3T16MYB3",
 
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
 
