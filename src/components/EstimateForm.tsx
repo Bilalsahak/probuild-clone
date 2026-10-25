@@ -7,6 +7,7 @@ import { getFormspreeEndpoint, site } from "@/config/site";
 import { services } from "@/content/services";
 import { easeCraft } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
+import { track } from "@/lib/analytics";
 
 type Step = 1 | 2 | 3 | 4;
 
@@ -53,6 +54,22 @@ export function EstimateForm() {
   });
   const headingRef = useRef<HTMLDivElement>(null);
   const firstRender = useRef(true);
+  const started = useRef(false);
+  const stepsSeen = useRef(new Set<number>());
+
+  function markStart() {
+    if (started.current) return;
+    started.current = true;
+    track("form_start", { form_name: "estimate_wizard" });
+  }
+
+  // form_step: once per step viewed (drop-off funnel). Step 1 counts only after the form is started.
+  useEffect(() => {
+    if (step === 1 && !started.current) return;
+    if (stepsSeen.current.has(step)) return;
+    stepsSeen.current.add(step);
+    track("form_step", { form_name: "estimate_wizard", step_number: step, step_name: stepLabels[step - 1] });
+  }, [step]);
 
   // Move focus to the step heading when the step changes (keyboard / screen-reader users).
   useEffect(() => {
@@ -137,6 +154,7 @@ export function EstimateForm() {
         throw new Error(data?.error || "Unable to submit right now.");
       }
       setStatus("success");
+      track("generate_lead", { form_name: "estimate_wizard", project_types: form.projectTypes.join(", ").slice(0, 100) });
     } catch (err) {
       setStatus("error");
       setErrorMsg(err instanceof Error ? err.message : "Submission failed.");
@@ -180,6 +198,14 @@ export function EstimateForm() {
   return (
     <form
       onSubmit={onSubmit}
+      onFocusCapture={() => {
+        if (started.current) return;
+        markStart();
+        if (!stepsSeen.current.has(1)) {
+          stepsSeen.current.add(1);
+          track("form_step", { form_name: "estimate_wizard", step_number: 1, step_name: stepLabels[0] });
+        }
+      }}
       className="rounded-[2px] border border-ink/10 bg-paper p-6 shadow-[0_20px_60px_rgba(7,21,37,0.06)] md:p-9"
       noValidate
     >

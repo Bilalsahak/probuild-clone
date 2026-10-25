@@ -62,6 +62,12 @@ export const site = {
   /** Public Formspree endpoint (same one the production site uses). */
   formspree: "https://formspree.io/f/xnjeedlb",
 
+  /**
+   * Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX").
+   * Leave empty to disable analytics entirely. NEXT_PUBLIC_GA4_ID overrides this.
+   */
+  ga4Id: "",
+
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
 
   lniVerifyUrl:
@@ -75,6 +81,11 @@ export const site = {
 
 export function getFormspreeEndpoint(): string {
   return process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || site.formspree;
+}
+
+export function getGa4Id(): string {
+  const id = (process.env.NEXT_PUBLIC_GA4_ID || site.ga4Id || "").trim();
+  return /^G-[A-Z0-9]+$/i.test(id) ? id : "";
 }
 
 /** Deployment base path ("" on seattlemasterfix.com; "/repo-name" on GitHub Pages previews). */

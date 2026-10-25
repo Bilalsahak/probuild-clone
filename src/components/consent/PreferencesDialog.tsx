@@ -7,6 +7,7 @@ import { useFocusTrap } from "@/lib/useFocusTrap";
 export function PreferencesDialog({ onClose }: { onClose: () => void }) {
   const { choices, save, acceptAll, rejectNonEssential } = useConsent();
   const [embeds, setEmbeds] = useState(choices.embeds);
+  const [analytics, setAnalytics] = useState(choices.analytics);
   const ref = useRef<HTMLDivElement>(null);
   useFocusTrap(ref, true, onClose);
 
@@ -84,15 +85,40 @@ export function PreferencesDialog({ onClose }: { onClose: () => void }) {
             </p>
           </div>
 
-          <p className="text-sm text-charcoal/80">
-            We do not use analytics or advertising trackers.
-          </p>
+          <div className="rounded-[2px] border border-ink/15 bg-parchment p-4">
+            <div className="flex items-center justify-between gap-4">
+              <h3 id="analytics-label" className="font-semibold text-ink">
+                Analytics
+              </h3>
+              <label className="relative inline-flex h-11 min-w-11 cursor-pointer items-center">
+                <input
+                  type="checkbox"
+                  role="switch"
+                  aria-labelledby="analytics-label"
+                  checked={analytics}
+                  onChange={(e) => setAnalytics(e.target.checked)}
+                  className="peer h-6 w-11 cursor-pointer appearance-none rounded-full border border-ink/50 bg-white transition-colors checked:border-ink checked:bg-ink"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-[3px] h-4 w-4 rounded-full bg-ink transition-transform peer-checked:translate-x-5 peer-checked:bg-parchment"
+                />
+              </label>
+            </div>
+            <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
+              Lets us use Google Analytics to count visits and see which pages and contact options
+              people use, so we can improve the site. Google may set its own cookies. We never send
+              your name, email, phone or address to Google Analytics.
+            </p>
+          </div>
+
+          <p className="text-sm text-charcoal/80">We do not use advertising trackers.</p>
         </div>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <button
             type="button"
-            onClick={() => save({ embeds })}
+            onClick={() => save({ embeds, analytics })}
             className="inline-flex min-h-11 items-center justify-center rounded-[2px] bg-ink px-5 text-xs font-semibold uppercase tracking-[0.14em] text-parchment hover:bg-ink-mid"
           >
             Save choices

@@ -97,14 +97,30 @@ export default function PrivacyPage() {
           </li>
         </ul>
         <p>
-          Our fonts and styles are served from our own site, not from third-party networks. We do not use analytics or advertising trackers.
+          Our fonts and styles are served from our own site, not from third-party networks. We do not use advertising trackers.
+        </p>
+        <p>
+          <strong>Google Analytics (only with your permission).</strong> If you allow
+          &ldquo;Analytics&rdquo; in your cookie settings, we use Google Analytics 4, a service of
+          Google LLC, to measure visits and how the site is used: pages viewed, approximate
+          location (city level), device and browser type, the page you came from, and actions such
+          as starting the estimate form, reaching each form step, submitting it, or tapping our
+          phone or scheduling links. We do not send your name, email, phone number, address or
+          the content of your messages to Google Analytics. Google may set cookies (such as
+          &ldquo;_ga&rdquo;) and processes this data under{" "}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+            Google&rsquo;s privacy policy<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+          . Without your permission, Google Analytics is not loaded. You can withdraw permission at
+          any time in Cookie settings.
         </p>
       </LegalSection>
 
       <LegalSection n={5} title="Cookies and similar technologies">
         <p>
           This site is essential-only by default. It stores one item in your browser&rsquo;s local
-          storage to remember your cookie choice. It does not set tracking cookies of its own.
+          storage to remember your cookie choice. It does not set tracking cookies of its own. Google Analytics loads only if you allow
+          &ldquo;Analytics&rdquo;, and then sets its own cookies.
           Third-party embedded content (currently only the Calendly calendar) loads only if you
           allow it and then click to load it, and it may set its own cookies once loaded. Our
           hosting provider may set cookies needed for security and performance; we have not

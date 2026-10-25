@@ -52,6 +52,8 @@ function scan(file) {
     return;
   }
   for (const [name, re] of checks) {
+    // The Privacy Policy must name Google Analytics (consent-based disclosure); still banned elsewhere.
+    if (name === "Google (any)" && /[\\/]privacy[\\/]/.test(file)) continue;
     if (re.test(text)) report(file, name, re, text);
   }
 }

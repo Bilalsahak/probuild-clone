@@ -9,6 +9,7 @@ import {
 } from "@/lib/consent";
 import { CookieBanner } from "@/components/consent/CookieBanner";
 import { PreferencesDialog } from "@/components/consent/PreferencesDialog";
+import { Analytics } from "@/components/consent/Analytics";
 
 type Ctx = {
   /** True once localStorage has been read on the client. */
@@ -41,7 +42,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const stored = readConsent();
     if (stored) {
-      setChoices({ embeds: stored.embeds });
+      setChoices({ embeds: stored.embeds, analytics: stored.analytics });
       setDecided(true);
     }
     setReady(true);
@@ -60,8 +61,8 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
       ready,
       decided,
       choices,
-      acceptAll: () => save({ embeds: true }),
-      rejectNonEssential: () => save({ embeds: false }),
+      acceptAll: () => save({ embeds: true, analytics: true }),
+      rejectNonEssential: () => save({ embeds: false, analytics: false }),
       save,
       openPreferences: () => setPrefsOpen(true),
     }),
@@ -71,6 +72,7 @@ export function ConsentProvider({ children }: { children: ReactNode }) {
   return (
     <ConsentContext.Provider value={value}>
       {children}
+      <Analytics enabled={ready && choices.analytics} />
       {ready && !decided && !prefsOpen ? <CookieBanner /> : null}
       {prefsOpen ? <PreferencesDialog onClose={() => setPrefsOpen(false)} /> : null}
     </ConsentContext.Provider>
