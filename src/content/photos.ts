@@ -7,7 +7,7 @@
  * crew (who have also worked in other states), so never describe any photo as a Seattle or
  * Washington project.
  */
-import type { ServiceSlug } from "@/content/services";
+import type { PhotoTrade as ServiceSlug } from "@/content/services";
 
 export type Photo = {
   src: string;

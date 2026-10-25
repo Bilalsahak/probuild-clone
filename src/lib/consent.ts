@@ -12,20 +12,23 @@
 export type ConsentChoices = {
   /** Third-party embedded content, currently only the Calendly scheduling embed. */
   embeds: boolean;
+  /** Google Analytics 4 (anonymous usage + lead events). */
+  analytics: boolean;
 };
 
 export type StoredConsent = ConsentChoices & { v: 1; decidedAt: string };
 
 export const CONSENT_KEY = "mf_consent_v1";
 
-export const DEFAULT_CHOICES: ConsentChoices = { embeds: false };
+export const DEFAULT_CHOICES: ConsentChoices = { embeds: false, analytics: false };
 
 export function readConsent(): StoredConsent | null {
   try {
     const raw = window.localStorage.getItem(CONSENT_KEY);
     if (!raw) return null;
     const parsed = JSON.parse(raw) as StoredConsent;
-    if (parsed && parsed.v === 1 && typeof parsed.embeds === "boolean") return parsed;
+    if (parsed && parsed.v === 1 && typeof parsed.embeds === "boolean")
+      return { ...parsed, analytics: parsed.analytics === true };
   } catch {
     /* storage unavailable or corrupt: treat as undecided */
   }

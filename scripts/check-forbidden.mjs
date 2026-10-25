@@ -6,6 +6,11 @@ import { join, extname } from "node:path";
 const root = "out";
 const checks = [
   ["bonded", /bonded/i],
+  ["bonded and insured", /bonded (and|&|&amp;) insured/i],
+  ["info@", /info@/i],
+  ["estimates@", /estimates@/i],
+  ["gmail", /gmail\.com/i],
+  ["warranty placeholder", /BILL TO CONFIRM/i],
   ["5 Stars", /5 stars/i],
   ["80+", /80\+/],
   ["Google (any)", /google/i],
@@ -47,6 +52,8 @@ function scan(file) {
     return;
   }
   for (const [name, re] of checks) {
+    // The Privacy Policy must name Google Analytics (consent-based disclosure); still banned elsewhere.
+    if (name === "Google (any)" && /[\\/]privacy[\\/]/.test(file)) continue;
     if (re.test(text)) report(file, name, re, text);
   }
 }

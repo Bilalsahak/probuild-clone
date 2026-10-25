@@ -6,9 +6,12 @@ import { Button } from "@/components/ui/Button";
 import { TradeMarquee } from "@/components/ui/Marquee";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CrewFeedback } from "@/components/legal/CrewFeedback";
+import { TrustLine } from "@/components/legal/TrustLine";
+import { EstimateForm } from "@/components/EstimateForm";
+import { Reviews } from "@/components/Reviews";
 import { site } from "@/config/site";
 import { PHOTO_NOTE, photoByFile } from "@/content/photos";
-import { services } from "@/content/services";
+import { photoTradeOf, services } from "@/content/services";
 
 // Homepage hero: owner's bathroom photo from the Paint gallery set (see photos.ts, project-1).
 // Responsive WebP renditions live in public/images/hero/ (640/1024/1600/2400 px wide).
@@ -33,7 +36,7 @@ export default function HomePage() {
               width={2400}
               height={1339}
               fetchPriority="high"
-              decoding="async"
+              decoding="sync"
               className="h-full w-full object-cover object-[64%_50%] md:object-[56%_50%] lg:object-center"
             />
           </div>
@@ -44,13 +47,15 @@ export default function HomePage() {
         </div>
 
         <Container className="relative flex min-h-[100dvh] flex-col justify-end pb-28 pt-28 md:justify-center md:pb-32 lg:pt-44">
-          <Reveal className="max-w-4xl">
+          {/* No entrance animation here: the hero text is the LCP element. */}
+          <div className="max-w-4xl">
             <Eyebrow light>Seattle &amp; King County · Remodeling</Eyebrow>
-            <h1 className="mt-5 font-display text-[clamp(2.5rem,9.5vw,5.25rem)] leading-[0.98] tracking-tight text-parchment">
-              Built on trust.
-              <br />
-              <span className="text-bronze-light">Executed with precision.</span>
+            <h1 className="mt-5 font-display text-[clamp(2.4rem,8.5vw,5rem)] leading-[0.98] tracking-tight text-parchment">
+              Seattle remodeling &amp; repair contractor
             </h1>
+            <p className="mt-4 font-display text-2xl text-bronze-light md:text-3xl">
+              Built on trust. Executed with precision.
+            </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-parchment/90 md:text-lg">
               Siding, fencing, tile, laminate flooring, drywall, and paint for Seattle-area homes
               and light-commercial spaces. A crew that plans around the rain, keeps you in the
@@ -60,15 +65,15 @@ export default function HomePage() {
               <Button href="/contact/" variant="primary">
                 Request an estimate
               </Button>
-              <Button href="/projects/" variant="ghost">
-                View photos
+              <Button href={site.calendly} external variant="ghost">
+                Book free estimate<span className="sr-only"> (opens Calendly in a new tab)</span>
               </Button>
             </div>
             {/* Glass info bar (solid fallback when backdrop-filter is unsupported) */}
             <p className="mt-8 inline-block max-w-full rounded-[2px] border border-white/25 bg-ink/80 px-4 py-3 text-[11px] uppercase leading-relaxed tracking-[0.16em] text-parchment supports-[backdrop-filter]:bg-ink/55 supports-[backdrop-filter]:backdrop-blur-md">
               Washington-registered contractor · No. {site.registrationNo}
             </p>
-          </Reveal>
+          </div>
         </Container>
 
         <div aria-hidden className="absolute bottom-8 right-5 hidden text-right md:block lg:right-10">
@@ -77,7 +82,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <TradeMarquee items={["Siding", "Fencing", "Tile", "Laminate flooring", "Drywall", "Paint", "Seattle", "King County"]} />
+      <TradeMarquee items={["Bathroom remodels", "Unit turns", "Siding", "Fencing", "Tile", "Laminate flooring", "Drywall", "Paint", "Seattle", "King County"]} />
 
       {/* Approach */}
       <section className="bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
@@ -151,7 +156,7 @@ export default function HomePage() {
           <Stagger className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.07}>
             {services.map((s) => {
               const photo = s.heroFile
-                ? photoByFile(s.slug, s.heroFile)
+                ? photoByFile(photoTradeOf(s), s.heroFile)
                 : undefined;
               return (
                 <StaggerItem key={s.slug}>
@@ -249,6 +254,36 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Homepage estimate form + booking */}
+      <section id="estimate" className="scroll-mt-24 bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
+        <Container className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <SectionHeading
+              eyebrow="Free estimate"
+              title="Tell us about the project"
+              body="Send a short request and we will follow up about next steps. Prefer to pick a time? Book a free estimate on Calendly."
+            />
+            <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
+              <Button href={site.calendly} external variant="primary">
+                Book free estimate<span className="sr-only"> (opens Calendly in a new tab)</span>
+              </Button>
+              <Button href={site.phoneHref} variant="secondary">
+                Call {site.phone}
+              </Button>
+            </div>
+            <div className="mt-8 rounded-[2px] border border-ink/10 bg-paper/70 p-5 text-sm leading-relaxed text-charcoal/90 supports-[backdrop-filter]:bg-paper/55 supports-[backdrop-filter]:backdrop-blur-md">
+              <TrustLine linkClassName="underline underline-offset-2 hover:text-bronze-deep" />
+              <p className="mt-2">Estimates are non-binding until a written contract is signed.</p>
+            </div>
+          </div>
+          <div className="lg:col-span-7">
+            <EstimateForm />
+          </div>
+        </Container>
+      </section>
+
+      <Reviews />
+
       {/* Optional, disabled by default: see README "Crew feedback" */}
       <CrewFeedback />
 
@@ -271,7 +306,9 @@ export default function HomePage() {
               <ul className="mt-8 space-y-3 text-sm text-parchment/85">
                 <li className="flex gap-3">
                   <span aria-hidden className="text-bronze-light">—</span>
-                  Washington-registered contractor, No. {site.registrationNo}
+                  <a href={site.lniVerifyUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:text-bronze-light">
+                    WA-registered contractor #{site.registrationNo} · Bond &amp; insurance verifiable via WA L&amp;I<span className="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </li>
                 <li className="flex gap-3">
                   <span aria-hidden className="text-bronze-light">—</span>
@@ -295,8 +332,8 @@ export default function HomePage() {
                   <Button href="/contact/" variant="primary">
                     Request an estimate
                   </Button>
-                  <Button href="/contact/#book" variant="ghost">
-                    Book a consultation
+                  <Button href={site.calendly} external variant="ghost">
+                    Book free estimate<span className="sr-only"> (opens Calendly in a new tab)</span>
                   </Button>
                 </div>
               </div>

@@ -7,12 +7,15 @@ import { FencingNotice } from "@/components/legal/FencingNotice";
 import { OlderHomeNotice } from "@/components/legal/OlderHomeNotice";
 import { PermitNotice } from "@/components/legal/PermitNotice";
 import { site } from "@/config/site";
-import { PHOTO_NOTE, heroPhoto, photosFor } from "@/content/photos";
+import { PHOTO_NOTE, photoByFile, photosFor } from "@/content/photos";
 import type { Service } from "@/content/services";
 
 export function ServicePageView({ service }: { service: Service }) {
-  const hero = heroPhoto(service.slug, service.heroFile);
-  const gallery = photosFor(service.slug);
+  const trade = service.photoSet?.trade ?? (service.slug as Parameters<typeof photosFor>[0]);
+  const hero = service.heroFile ? photoByFile(trade, service.heroFile) : undefined;
+  const gallery = service.photoSet
+    ? service.photoSet.files.map((f) => photoByFile(trade, f))
+    : photosFor(trade);
 
   return (
     <>
@@ -153,7 +156,9 @@ export function ServicePageView({ service }: { service: Service }) {
               title={
                 service.slug === "paint"
                   ? "Project photos"
-                  : `${service.shortName}: photos from job sites`
+                  : service.photoSet
+                    ? "Related project photos"
+                    : `${service.shortName}: photos from job sites`
               }
               body={
                 gallery.length > 0

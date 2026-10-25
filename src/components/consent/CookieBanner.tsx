@@ -19,8 +19,8 @@ export function CookieBanner() {
           <h2 className="font-display text-lg text-parchment sm:text-xl">Your privacy choices</h2>
           <p className="mt-1.5 text-[13px] leading-snug text-parchment/85 sm:text-sm sm:leading-relaxed">
             This site only uses what it needs to work. With your permission, we can also load
-            third-party embedded content, such as the Calendly scheduling calendar. We do not use
-            advertising or analytics trackers. You can change your choice any time from
+            third-party embedded content, such as the Calendly scheduling calendar, and Google
+            Analytics to understand how the site is used. We do not use advertising trackers. You can change your choice any time from
             &ldquo;Cookie settings&rdquo; in the footer. See our{" "}
             <Link href="/privacy/" className="underline decoration-bronze-light underline-offset-2">
               Privacy Policy

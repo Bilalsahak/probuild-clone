@@ -34,8 +34,14 @@ export const site = {
   phone: "(206) 550-4576",
   phoneHref: "tel:+12065504576",
   phoneE164: "+1-206-550-4576",
-  email: "info@seattlemasterfix.com",
-  estimatesEmail: "estimates@seattlemasterfix.com",
+  /** The ONLY public email address. Displayed exactly as written. */
+  email: "Bill@seattlemasterfix.com",
+
+  /**
+   * Warranty line. Shown publicly ONLY when this is set to real, owner-confirmed text
+   * (anything containing "BILL TO CONFIRM" is treated as a placeholder and hidden).
+   */
+  warrantyTerms: "[Warranty terms — BILL TO CONFIRM]",
 
   /** Current business address (confirmed by the owner, Oct 1, 2026; also updated with L&I). */
   address: {
@@ -56,6 +62,12 @@ export const site = {
   /** Public Formspree endpoint (same one the production site uses). */
   formspree: "https://formspree.io/f/xnjeedlb",
 
+  /**
+   * Google Analytics 4 Measurement ID (looks like "G-XXXXXXXXXX").
+   * Leave empty to disable analytics entirely. NEXT_PUBLIC_GA4_ID overrides this.
+   */
+  ga4Id: "G-CE3T16MYB3",
+
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
 
   lniVerifyUrl:
@@ -71,6 +83,11 @@ export function getFormspreeEndpoint(): string {
   return process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || site.formspree;
 }
 
+export function getGa4Id(): string {
+  const id = (process.env.NEXT_PUBLIC_GA4_ID || site.ga4Id || "").trim();
+  return /^G-[A-Z0-9]+$/i.test(id) ? id : "";
+}
+
 /** Deployment base path ("" on seattlemasterfix.com; "/repo-name" on GitHub Pages previews). */
 export const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -81,6 +98,14 @@ export const nav = [
   { href: "/", label: "Home" },
   { href: "/services/", label: "Services" },
   { href: "/projects/", label: "Projects" },
+  { href: "/property-managers/", label: "Property managers" },
   { href: "/how-we-work/", label: "How we work" },
   { href: "/contact/", label: "Contact" },
 ] as const;
+
+/** Returns the warranty text only when the owner has replaced the placeholder. */
+export function getWarrantyTerms(): string | null {
+  const t: string = site.warrantyTerms.trim();
+  if (!t || /TO CONFIRM|^\[.*\]$/i.test(t)) return null;
+  return t;
+}

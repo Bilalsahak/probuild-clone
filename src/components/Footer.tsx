@@ -3,6 +3,7 @@ import Link from "next/link";
 import { nav, site } from "@/config/site";
 import { services } from "@/content/services";
 import { LicenseLine } from "@/components/legal/LicenseLine";
+import { TrustLine } from "@/components/legal/TrustLine";
 import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
 
 export function Footer() {
@@ -81,11 +82,6 @@ export function Footer() {
                     {site.email}
                   </a>
                 </li>
-                <li>
-                  <a href={`mailto:${site.estimatesEmail}`} className={link}>
-                    {site.estimatesEmail}
-                  </a>
-                </li>
                 <li className="pt-2">{site.address.full}</li>
                 <li>
                   <a
@@ -104,6 +100,10 @@ export function Footer() {
 
         <LicenseLine
           className="border-b border-white/10 py-7 text-xs leading-relaxed text-parchment/85"
+          linkClassName="underline underline-offset-2 hover:text-bronze-light"
+        />
+        <TrustLine
+          className="border-b border-white/10 py-5 text-xs leading-relaxed text-parchment/85"
           linkClassName="underline underline-offset-2 hover:text-bronze-light"
         />
 

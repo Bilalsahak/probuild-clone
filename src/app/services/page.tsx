@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Container, Eyebrow, SectionHeading } from "@/components/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { photoByFile } from "@/content/photos";
-import { services } from "@/content/services";
+import { photoTradeOf, services } from "@/content/services";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -40,7 +40,7 @@ export default function ServicesIndexPage() {
           </Reveal>
           <Stagger className="mt-12 space-y-5" stagger={0.08}>
             {services.map((s, idx) => {
-              const photo = s.heroFile ? photoByFile(s.slug, s.heroFile) : undefined;
+              const photo = s.heroFile ? photoByFile(photoTradeOf(s), s.heroFile) : undefined;
               return (
                 <StaggerItem key={s.slug}>
                   <Link

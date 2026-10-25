@@ -25,24 +25,26 @@ const instrument = localFont({
   weight: "400",
 });
 
-const title = `${site.shortName} | ${site.tagline}`;
+const title = "Seattle Remodeling & Repair Contractor | Seattle MasterFix";
+const description =
+  "Seattle MasterFix is a WA-registered remodeling and repair contractor in Seattle and King County: bathroom remodels, unit turns, tile, drywall, paint, flooring, siding and fencing.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: title, template: `%s | ${site.shortName}` },
-  description: site.description,
+  description,
   alternates: { canonical: "./" },
   robots: isPreview ? { index: false, follow: false } : undefined,
   openGraph: {
     title,
-    description: site.description,
+    description,
     type: "website",
     locale: "en_US",
     siteName: site.name,
     url: site.url,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: `${site.name} logo` }],
   },
-  twitter: { card: "summary_large_image", title, description: site.description, images: ["/og-image.png"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og-image.png"] },
 };
 
 export const viewport: Viewport = {
