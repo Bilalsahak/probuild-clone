@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { LocalBusinessJsonLd } from "@/components/JsonLd";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
+import { ReviewBadge } from "@/components/ReviewBadge";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { ConsentProvider } from "@/components/consent/ConsentProvider";
 import { isPreview, site } from "@/config/site";
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />
+          <ReviewBadge />
           <StickyMobileCta />
         </ConsentProvider>
       </body>

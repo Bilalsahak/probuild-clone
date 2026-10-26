@@ -54,8 +54,17 @@ function scan(file) {
   for (const [name, re] of checks) {
     // The Privacy Policy must name Google Analytics (consent-based disclosure); still banned elsewhere.
     if (name === "Google (any)" && /[\\/]privacy[\\/]/.test(file)) continue;
-    if (re.test(text)) report(file, name, re, text);
+    // Genuine Google reviews (src/components/Reviews.tsx + ReviewBadge.tsx) may name Google only via
+    // these exact attribution phrases and listing URLs. Any other "Google" mention still fails.
+    const t = name === "Google (any)" ? stripReviewAttribution(text) : text;
+    if (re.test(t)) report(file, name, re, t);
   }
+}
+function stripReviewAttribution(text) {
+  return text
+    .replace(/https:\/\/www\.google\.com\/maps\/place\/Seattle\+MasterFix\+Precision\+Craftsmanship\/[^"'\s<\\]*/g, "")
+    .replace(/https:\/\/maps\.app\.goo\.gl\/mr9dPTnkT5AcTn5a9/g, "")
+    .replace(/Reviews from Google|Read on Google|Leave a review on Google|Google reviews?|on Google/g, "");
 }
 function report(file, name, re, text) {
   failures++;
