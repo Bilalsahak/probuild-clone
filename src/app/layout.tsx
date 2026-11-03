@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ReviewBadge />
           <StickyMobileCta />
         </ConsentProvider>
+        <Script src="https://code.tidio.co/uijyzmn5bisfm77pabupidugeqjy1skl.js" strategy="lazyOnload" />
       </body>
     </html>
   );

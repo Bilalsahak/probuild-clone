@@ -114,6 +114,10 @@ export default function PrivacyPage() {
           . Without your permission, Google Analytics is not loaded. You can withdraw permission at
           any time in Cookie settings.
         </p>
+        <p>
+          <strong>Live chat (Tidio).</strong> Our site uses Tidio live chat. Chat messages and any
+          information you type into the chat window are processed by Tidio.
+        </p>
       </LegalSection>
 
       <LegalSection n={5} title="Cookies and similar technologies">
