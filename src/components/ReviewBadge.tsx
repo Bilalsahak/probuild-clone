@@ -24,7 +24,7 @@ export function ReviewBadge() {
   if (!show || reviews.length === 0 || googleListing.reviewCount < 1) return null;
   const { rating, reviewCount, url } = googleListing;
   return (
-    <div className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom))] left-3 z-40 flex items-center rounded-full border border-bronze/40 bg-ink/85 text-paper shadow-lg backdrop-blur-md md:bottom-5 md:left-5">
+    <div className="fixed bottom-[calc(5.25rem+env(safe-area-inset-bottom))] left-3 z-40 flex max-w-[calc(100vw-7rem)] items-center rounded-full border border-bronze/40 bg-ink/85 text-paper shadow-lg backdrop-blur-md md:bottom-5 md:left-5">
       <a href={url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-2 pl-3.5 pr-1 text-xs">
         <span className="font-bold text-bronze">{rating.toFixed(1)}</span>
         <Stars rating={rating} size={12} className="text-paper" />
