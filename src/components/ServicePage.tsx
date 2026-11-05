@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ProjectGallery } from "@/components/ProjectGallery";
 import { Container, Eyebrow, SectionHeading } from "@/components/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
@@ -82,9 +83,20 @@ export function ServicePageView({ service }: { service: Service }) {
 
           <Reveal className="lg:col-span-5" delay={0.1}>
             <aside className="h-full rounded-[2px] border border-ink/10 bg-ink-soft p-7 text-parchment md:p-8">
-              <h2 className="font-display text-2xl">Cost drivers</h2>
+              <h2 className="font-display text-2xl">What drives cost</h2>
               <p className="mt-2 text-sm text-parchment/80">
                 What typically moves the price. We talk through these early, before work starts.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-parchment/85">
+                Every job is priced as one written project quote for the agreed scope — never by
+                the hour. There are no fixed prices on this site; the items below are what we
+                look at when we put your quote together.{" "}
+                <Link
+                  href="/faq/#pricing"
+                  className="font-semibold text-bronze-light underline underline-offset-2"
+                >
+                  How pricing works
+                </Link>
               </p>
               <ul className="mt-6">
                 {service.costDrivers.map((c) => (

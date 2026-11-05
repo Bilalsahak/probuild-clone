@@ -36,6 +36,15 @@ export function EstimateForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const reduce = useReducedMotion();
+  // Photos: Formspree file uploads (multipart/form-data) are a paid-plan
+  // feature — Personal and up, up to 5 files per submission, 25 MB each,
+  // 100 MB total per request. Bill to confirm the Formspree plan includes
+  // file uploads and to test one submission with a photo before relying
+  // on it; the success screen still tells people they can email photos.
+  const MAX_PHOTOS = 5;
+  const MAX_PHOTO_MB = 25;
+  const [photos, setPhotos] = useState<File[]>([]);
+  const [photoError, setPhotoError] = useState("");
   const [form, setForm] = useState({
     projectTypes: [] as string[],
     details: "",
@@ -89,6 +98,22 @@ export function EstimateForm() {
     }));
   }
 
+  function onPhotosPicked(files: FileList | null) {
+    if (!files) return;
+    const picked = Array.from(files);
+    const tooBig = picked.find((f) => f.size > MAX_PHOTO_MB * 1024 * 1024);
+    if (tooBig) {
+      setPhotoError(`${tooBig.name} is over ${MAX_PHOTO_MB} MB. Attach smaller photos, or email them to ${site.email}.`);
+      return;
+    }
+    if (photos.length + picked.length > MAX_PHOTOS) {
+      setPhotoError(`Attach up to ${MAX_PHOTOS} photos. Email any extras to ${site.email}.`);
+      return;
+    }
+    setPhotoError("");
+    setPhotos((prev) => [...prev, ...picked]);
+  }
+
   function canContinue() {
     if (step === 1) return form.projectTypes.length > 0;
     if (step === 2) return form.details.trim().length > 10;
@@ -115,7 +140,9 @@ export function EstimateForm() {
     setStatus("submitting");
     setErrorMsg("");
 
-    const payload = {
+    // Multipart (not JSON): the only way file inputs reach Formspree.
+    const payload = new FormData();
+    const fields: Record<string, string> = {
       _subject: `Project estimate — ${form.projectTypes.join(", ")}`,
       projectTypes: form.projectTypes.join(", "),
       details: form.details,
@@ -139,15 +166,16 @@ export function EstimateForm() {
       referrer: typeof document !== "undefined" ? document.referrer : "",
       _gotcha: form.gotcha,
     };
+    for (const [key, value] of Object.entries(fields)) payload.append(key, value);
+    // "photos" is the file field Formspree stores; links appear in the
+    // notification email and dashboard. Files are not emailed as attachments.
+    photos.forEach((file) => payload.append("photos", file));
 
     try {
       const res = await fetch(endpoint, {
         method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        headers: { Accept: "application/json" },
+        body: payload,
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -172,6 +200,19 @@ export function EstimateForm() {
           Received
         </p>
         <h2 className="mt-3 font-display text-3xl text-ink">Request received</h2>
+        <h3 className="mt-6 font-display text-xl text-ink">What happens next</h3>
+        <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-charcoal/85">
+          <li>We review your project details.</li>
+          <li>We follow up about next steps — that may be a phone call, a consultation, or a site visit and walkthrough where it makes sense.</li>
+          <li>If the scope is agreed, you receive a written estimate. Estimates are non-binding until a written contract is signed.</li>
+        </ol>
+        {photos.length > 0 ? (
+          <p className="mt-4 text-sm leading-relaxed text-charcoal/85">
+            Your {photos.length} {photos.length === 1 ? "photo was" : "photos were"} sent with this
+            request. If an upload did not go through, email the photos to {site.email} and mention
+            your name.
+          </p>
+        ) : null}
         <p className="mt-4 text-charcoal/85">
           Thank you. Our team will review your project details and follow up shortly. Prefer to
           talk now? Call{" "}
@@ -298,10 +339,48 @@ export function EstimateForm() {
                 className="mt-2 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                 placeholder="Scope, materials you have in mind, access notes…"
               />
+              <div className="mt-6">
+                <label className="text-sm font-medium text-ink" htmlFor="photos">
+                  Photos (optional)
+                </label>
+                <input
+                  id="photos"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={(e) => onPhotosPicked(e.target.files)}
+                  className="mt-2 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                />
+                <p className="mt-2 text-xs leading-relaxed text-charcoal/80">
+                  Attach up to {MAX_PHOTOS} photos ({MAX_PHOTO_MB} MB each). Photos are sent with
+                  this request. You can also email photos to {site.email} after you submit;
+                  mention your name in the subject line.
+                </p>
+                {photoError ? (
+                  <p className="mt-2 text-xs font-medium text-red-800" role="alert">
+                    {photoError}
+                  </p>
+                ) : null}
+                {photos.length > 0 ? (
+                  <ul className="mt-3 space-y-2">
+                    {photos.map((file, i) => (
+                      <li key={`${file.name}-${i}`} className="flex items-center justify-between gap-3 text-sm">
+                        <span className="truncate">{file.name}</span>
+                        <button
+                          type="button"
+                          onClick={() => setPhotos((prev) => prev.filter((_, j) => j !== i))}
+                          className="shrink-0 text-xs font-semibold text-ink underline underline-offset-2"
+                        >
+                          Remove
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
               <p className="mt-3 text-xs text-charcoal/80">
                 Please don&rsquo;t include Social Security numbers, bank or card details, or other
-                sensitive information. You can email photos to {site.email} after you
-                submit; mention your name in the subject line.
+                sensitive information.
               </p>
             </fieldset>
           )}
@@ -480,7 +559,7 @@ export function EstimateForm() {
                   </label>
 
                   <p className="text-xs leading-relaxed text-charcoal/80">
-                    Your information is processed by Formspree. When you submit, we also send the
+                    Your information is processed by Formspree, including any photos you attach. When you submit, we also send the
                     page address, the page you came from, and the time of submission. See our{" "}
                     <Link href="/privacy/" className="underline">
                       Privacy Policy

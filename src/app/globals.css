@@ -125,6 +125,19 @@
   animation-play-state: paused;
 }
 
+/* Tidio chat bubble: lift it above the mobile sticky CTA bar (which is
+ * ~72px tall). The Tidio iframe is injected by a third-party script with
+ * inline positioning, so only an !important rule wins. Without this, at
+ * ~640px the bubble and its "Chat with us" pill cover the right end of the
+ * sticky GET QUOTE button (live browser check, Nov 2026). When the chat
+ * panel is open it covers page content by design — the visitor opened it. */
+@media (max-width: 767px) {
+  #tidio-chat-iframe,
+  #tidio-chat {
+    bottom: 84px !important;
+  }
+}
+
 /* Sticky mobile CTA clearance */
 .pb-mobile-cta {
   padding-bottom: 5.5rem;

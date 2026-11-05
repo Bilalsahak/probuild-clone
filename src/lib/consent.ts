@@ -10,7 +10,7 @@
  * behind `useConsent().choices.<key>`. Do not load it any other way.
  */
 export type ConsentChoices = {
-  /** Third-party embedded content, currently only the Calendly scheduling embed. */
+  /** Third-party embedded content, currently the Calendly scheduling embed and Tidio live chat. */
   embeds: boolean;
   /** Google Analytics 4 (anonymous usage + lead events). */
   analytics: boolean;
