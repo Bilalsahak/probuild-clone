@@ -1,10 +1,15 @@
 # Cloudflare static-asset response headers. Ignored on GitHub Pages.
+# CSP notes: frame-src MUST include 'self' — Tidio renders inside srcdoc /
+# about:blank iframes, which 'self' allows; without it the chat frame was
+# refused even after cookie consent (Nov 2026 regression). font-src /
+# media-src / connect-src include Tidio's loader, widget, font, sound and
+# socket hosts (code.tidio.co, *.tidiochat.com, socket.tidio.co).
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://code.tidio.co https://www.googletagmanager.com https://calendly.com; style-src 'self' 'unsafe-inline' https://calendly.com; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://formspree.io https://www.google-analytics.com https://calendly.com https://code.tidio.co https://*.tidiochat.com wss://socket.tidiochat.com; frame-src https://calendly.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://code.tidio.co https://*.tidiochat.com https://www.googletagmanager.com https://calendly.com; style-src 'self' 'unsafe-inline' https://calendly.com https://code.tidio.co https://*.tidiochat.com; img-src 'self' data: https:; font-src 'self' https://code.tidio.co https://*.tidiochat.com; media-src 'self' https://code.tidio.co; connect-src 'self' https://formspree.io https://www.google-analytics.com https://calendly.com https://code.tidio.co https://*.tidiochat.com https://socket.tidio.co wss://socket.tidiochat.com wss://socket.tidio.co; frame-src 'self' https://calendly.com https://*.tidiochat.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formspree.io
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable

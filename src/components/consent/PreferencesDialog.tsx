@@ -79,9 +79,11 @@ export function PreferencesDialog({ onClose }: { onClose: () => void }) {
               </label>
             </div>
             <p className="mt-2 text-sm leading-relaxed text-charcoal/80">
-              Lets us offer the Calendly scheduling calendar on the Contact page. Calendly is run
-              by a third party and may set its own cookies once loaded. It stays off until you
-              allow it here <em>and</em> click &ldquo;Load calendar&rdquo;.
+              Lets us offer the Calendly scheduling calendar on the Contact page and live chat
+              across the site. Both are run by third parties and may set their own cookies once
+              loaded. Chat loads when you allow it here — or when you tap the chat button, which
+              turns it on for chat. The calendar stays off until you allow it here <em>and</em>{" "}
+              click &ldquo;Load calendar&rdquo;.
             </p>
           </div>
 

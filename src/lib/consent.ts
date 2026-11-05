@@ -8,6 +8,10 @@
  * To add a new consent category (e.g. analytics): add a key to `ConsentChoices`,
  * a toggle in components/consent/PreferencesDialog.tsx, and gate the new script
  * behind `useConsent().choices.<key>`. Do not load it any other way.
+ * The Tidio script follows the same rule: it loads only after embeds consent.
+ * The chat launcher button is always visible, but tapping it grants embeds
+ * consent first (see TidioChat.tsx) — the script itself never loads before
+ * that.
  */
 export type ConsentChoices = {
   /** Third-party embedded content, currently the Calendly scheduling embed and Tidio live chat. */
