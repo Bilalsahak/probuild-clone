@@ -63,6 +63,9 @@ export const services: Service[] = [
     shortName: "Siding",
     headline: "Siding details that keep water out in the Pacific Northwest",
     summary: "Lap siding and trim installed over proper house wrap and flashing for Seattle's wet climate.",
+    seoTitle: "Exterior Siding in Seattle",
+    seoDescription:
+      "Exterior siding in Seattle and King County: lap siding and trim over proper house wrap and flashing for wet winters. Request an estimate.",
     intro:
       "In Seattle, siding has to keep shedding rain through wet winters. How the wall is flashed and wrapped matters as much as the boards you see. We install siding over a weather-resistive barrier with flashing at openings, and follow the manufacturer's installation instructions for the product you choose.",
     heroFile: "siding6.webp",
@@ -267,9 +270,14 @@ export const services: Service[] = [
     shortName: "Paint",
     headline: "Painting where preparation does most of the work",
     summary: "Interior and exterior painting with careful prep, matched primers, and exterior work planned around the weather.",
+    seoTitle: "Interior & Exterior Paint in Seattle",
+    seoDescription:
+      "Interior and exterior painting in Seattle and King County: careful prep, matched primers, and exterior work planned around the weather. Request an estimate.",
     intro:
       "A paint job is only as good as the prep under it. We clean, sand, patch and prime to suit the surface, then cut in the edges by hand. Exterior work is scheduled around Seattle's dry spells so coatings can cure.",
-    heroFile: "project-6.webp",
+    // No hero photo: the paint gallery holds general project photos only, and
+    // no paint-specific photo exists in the catalogue. A deck photo was used
+    // here before; it has been removed rather than shown as paint work.
     timeline: "Typically 2–7 days, depending on the number of rooms or exterior walls and the weather. Your written contract sets the actual schedule.",
     costDrivers: [
       "Interior square footage versus exterior walls",
@@ -309,10 +317,10 @@ export const services: Service[] = [
     summary: "Full and partial bathroom remodels: demolition, tile, waterproofing, fixtures, drywall and paint.",
     intro:
       "A bathroom brings several trades into one small room. We plan the layout and sequence before demolition, put waterproofing behind tile in wet areas, and coordinate the work so each step is ready for the next.",
-    heroFile: "tile2.webp",
+    heroFile: "tile9.webp",
     photoSet: {
       trade: "tile",
-      files: ["tile2.webp", "tile1.webp", "tile9.webp", "tile4.webp", "tile6.webp", "tile7.webp", "tile11.webp"],
+      files: ["tile9.webp", "tile1.webp", "tile4.webp", "tile6.webp", "tile11.webp", "tile3.webp", "tile13.webp"],
     },
     seoTitle: "Bathroom Remodels in Seattle",
     seoDescription:
@@ -363,10 +371,10 @@ export const services: Service[] = [
     summary: "Make-ready work for rentals: drywall repair, paint, flooring, tile and punch-list items between tenants.",
     intro:
       "Between tenants, a unit usually needs a mix of small repairs and refresh work. We walk the unit with you or your property manager, agree a written scope, and handle drywall patching, paint, flooring and punch-list items with our crew.",
-    heroFile: "drywall5.webp",
+    heroFile: "drywall6.webp",
     photoSet: {
       trade: "drywall",
-      files: ["drywall5.webp", "drywall6.webp", "drywall2.webp", "drywall4.webp"],
+      files: ["drywall6.webp", "drywall2.webp", "drywall3.webp", "drywall1.webp"],
     },
     seoTitle: "Rental Unit Turns & Make-Ready Work in Seattle",
     seoDescription:

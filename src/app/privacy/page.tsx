@@ -28,7 +28,7 @@ export default function PrivacyPage() {
           <strong>Information you give us.</strong> When you submit the estimate request form we
           collect the details you enter: your name, email address, phone number, project
           address and company (both optional), the kinds of work you are interested in, project
-          details, budget range, desired timeline and property type. We also record whether you
+          details, photos you attach (optional), budget range, desired timeline and property type. We also record whether you
           agreed to be contacted by phone or email, whether you separately opted in to text
           messages, and when. If you email or call us, we keep what you send or say to us.
         </p>
@@ -71,7 +71,7 @@ export default function PrivacyPage() {
       <LegalSection n={4} title="Service providers that process information for us">
         <ul>
           <li>
-            <strong>Formspree</strong> receives and relays estimate form submissions to us. See{" "}
+            <strong>Formspree</strong> receives and relays estimate form submissions, including any photos you attach, to us. See{" "}
             <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">
               Formspree&rsquo;s privacy policy<span className="sr-only"> (opens in a new tab)</span>
             </a>
@@ -115,7 +115,8 @@ export default function PrivacyPage() {
           any time in Cookie settings.
         </p>
         <p>
-          <strong>Live chat (Tidio).</strong> Our site uses Tidio live chat. Chat messages and any
+          <strong>Live chat (Tidio).</strong> Our site uses Tidio live chat, loaded only if you
+          allow third-party embedded content in your cookie settings. Chat messages and any
           information you type into the chat window are processed by Tidio.
         </p>
       </LegalSection>
@@ -125,7 +126,7 @@ export default function PrivacyPage() {
           This site is essential-only by default. It stores one item in your browser&rsquo;s local
           storage to remember your cookie choice. It does not set tracking cookies of its own. Google Analytics loads only if you allow
           &ldquo;Analytics&rdquo;, and then sets its own cookies.
-          Third-party embedded content (currently only the Calendly calendar) loads only if you
+          Third-party embedded content (currently the Calendly calendar and live chat) loads only if you
           allow it and then click to load it, and it may set its own cookies once loaded. Our
           hosting provider may set cookies needed for security and performance; we have not
           confirmed which, if any, and will update this policy if that changes.

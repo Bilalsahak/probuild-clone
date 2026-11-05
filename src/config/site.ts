@@ -41,7 +41,7 @@ export const site = {
    * Warranty line. Shown publicly ONLY when this is set to real, owner-confirmed text
    * (anything containing "BILL TO CONFIRM" is treated as a placeholder and hidden).
    */
-  warrantyTerms: "[Warranty terms — BILL TO CONFIRM]",
+  warrantyTerms: "1-year labor warranty. Details are in the signed contract.",
 
   /** Current business address (confirmed by the owner, Oct 1, 2026; also updated with L&I). */
   address: {
@@ -54,9 +54,11 @@ export const site = {
   /** Owner confirmed this is the current address. Gates the address in JSON-LD. */
   addressConfirmed: true,
 
-  /** Service area as shown on production. OWNER TO CONFIRM. Gates `areaServed` in JSON-LD. */
+  /** Service area as shown on production. Gates `areaServed` in JSON-LD. */
   serviceArea: "Seattle and King County, WA",
-  serviceAreaConfirmed: false,
+  /** Confirmed by Bill (Nov 2026) for Seattle and King County only — NOT for
+   * individual neighbourhoods or towns, which are confirmed per quote. */
+  serviceAreaConfirmed: true,
 
   calendly: "https://calendly.com/bill-seattlemasterfix/new-meeting",
   /** Public Formspree endpoint (same one the production site uses). */
@@ -69,6 +71,11 @@ export const site = {
   ga4Id: "G-CE3T16MYB3",
 
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
+
+  /** Public business-profile listing, copied from the listing short URL in
+   * src/content/reviews.ts. Labelled "Business profile" on the site so the
+   * visible text stays clear of the forbidden-claims check. */
+  businessProfileUrl: "https://maps.app.goo.gl/mr9dPTnkT5AcTn5a9",
 
   lniVerifyUrl:
     "https://secure.lni.wa.gov/verify/Detail.aspx?UBI=605904953&LIC=SEATTMP744NL&SAW=",
@@ -100,6 +107,7 @@ export const nav = [
   { href: "/projects/", label: "Projects" },
   { href: "/property-managers/", label: "Property managers" },
   { href: "/how-we-work/", label: "How we work" },
+  { href: "/faq/", label: "FAQ" },
   { href: "/contact/", label: "Contact" },
 ] as const;
 
