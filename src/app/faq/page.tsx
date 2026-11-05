@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, Eyebrow, SectionHeading } from "@/components/Section";
+import { Container, Eyebrow } from "@/components/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { LicenseLine } from "@/components/legal/LicenseLine";
