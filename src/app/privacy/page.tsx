@@ -115,9 +115,11 @@ export default function PrivacyPage() {
           any time in Cookie settings.
         </p>
         <p>
-          <strong>Live chat (Tidio).</strong> Our site uses Tidio live chat, loaded only if you
-          allow third-party embedded content in your cookie settings. Chat messages and any
-          information you type into the chat window are processed by Tidio.
+          <strong>Live chat (Tidio).</strong> Our site uses Tidio live chat. The chat button is
+          always visible. Tidio loads when you allow third-party embedded content in your cookie
+          settings, or when you tap the chat button — tapping it turns on embedded content for
+          chat. Chat messages and any information you type into the chat window are processed by
+          Tidio.
         </p>
       </LegalSection>
 
@@ -127,7 +129,8 @@ export default function PrivacyPage() {
           storage to remember your cookie choice. It does not set tracking cookies of its own. Google Analytics loads only if you allow
           &ldquo;Analytics&rdquo;, and then sets its own cookies.
           Third-party embedded content (currently the Calendly calendar and live chat) loads only if you
-          allow it and then click to load it, and it may set its own cookies once loaded. Our
+          allow it. The calendar also needs you to click to load it, and live chat also loads when you
+          tap the chat button, which turns on embedded content for chat. Either may set its own cookies once loaded. Our
           hosting provider may set cookies needed for security and performance; we have not
           confirmed which, if any, and will update this policy if that changes.
         </p>
