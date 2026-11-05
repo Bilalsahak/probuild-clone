@@ -84,6 +84,11 @@ export function Footer() {
                 </li>
                 <li className="pt-2">{site.address.full}</li>
                 <li>
+                  <a href={site.businessProfileUrl} target="_blank" rel="noopener noreferrer" className={link}>
+                    Business profile<span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </li>
+                <li>
                   <a
                     href={site.linkedin}
                     target="_blank"

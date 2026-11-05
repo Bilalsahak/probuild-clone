@@ -133,11 +133,11 @@ Skip link, `<main>`, keyboard-operable nav, labeled buttons, visible focus rings
 ## FOR THE OWNER: to-do list before this goes live
 
 **Must confirm / decide**
-1. **Service area** (`serviceArea`; then `serviceAreaConfirmed: true`).
+1. **Service area** (`serviceArea`; then `serviceAreaConfirmed: true`). Done in the FAQ/pricing PR for Seattle and King County only — individual neighbourhoods/towns are still NOT confirmed and must be confirmed per quote.
 2. **Crew feedback consent** (see "Crew feedback"). Not shown until done.
 3. **EPA lead-safe (RRP) certification**: the "we follow EPA lead-safe practices" claim was removed. If the firm holds EPA/Washington firm certification, add: "We hold EPA/Washington lead-safe renovation firm certification, No. ____" to `src/components/legal/OlderHomeNotice.tsx`; only if true. Also confirm asbestos practices.
 4. **Who files permits** (the site says "we prepare and submit the application... as set out in your written contract"). Confirm this is accurate.
-5. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract.
+5. **Warranty**: the site makes no warranty promise; decide terms and put them in the signed contract. Done in the FAQ/pricing PR: `warrantyTerms` is now “1-year labor warranty. Details are in the signed contract.” (Bill’s estimate terms). If the contract terms ever differ, update `site.ts` to match.
 6. **Mailbox**: `Bill@seattlemasterfix.com` is the only public email (`site.email`). Confirm it is monitored and that Formspree notifications go to it.
 7. **Retention wording**: the privacy policy now describes retention generically (no fixed period). If you want a specific period for estimate records, edit section 7 of `src/app/privacy/page.tsx`. **Formspree**: check retention/access settings and that notifications arrive; the hosting provider's/Calendly's cookie behavior is not verified.
 8. **Trademark clearance** for "MasterFix" (an Australian renovation franchise uses a similar name) and **logo ownership**.
@@ -163,8 +163,8 @@ To add a review, copy it from the public Google or Yelp listing into the `review
 
 ## Warranty line
 
-`site.warrantyTerms` in `src/config/site.ts` defaults to a placeholder and is **not shown** until Bill
-replaces it with the real warranty terms (they must match the signed contract).
+`site.warrantyTerms` in `src/config/site.ts` is now set to “1-year labor warranty. Details are in the signed contract.”
+(Bill confirmed these terms for estimates, Nov 2026.) The terms must match the signed contract; if the contract terms ever differ, update `site.ts` to match.
 
 ## Contact email
 

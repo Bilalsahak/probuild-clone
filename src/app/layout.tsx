@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import localFont from "next/font/local";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -8,6 +7,7 @@ import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { ReviewBadge } from "@/components/ReviewBadge";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { ConsentProvider } from "@/components/consent/ConsentProvider";
+import { TidioChat } from "@/components/consent/TidioChat";
 import { isPreview, site } from "@/config/site";
 import "./globals.css";
 
@@ -71,8 +71,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <Footer />
           <ReviewBadge />
           <StickyMobileCta />
+          <TidioChat />
         </ConsentProvider>
-        <Script src="https://code.tidio.co/uijyzmn5bisfm77pabupidugeqjy1skl.js" strategy="lazyOnload" />
       </body>
     </html>
   );

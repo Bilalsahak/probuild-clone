@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "npx serve out -l 3000",
     "lint": "eslint",
+    "typecheck": "tsc --noEmit",
     "build:preview": "NEXT_PUBLIC_PREVIEW=1 next build",
     "check:forbidden": "node scripts/check-forbidden.mjs",
     "check:owner": "node scripts/list-owner-todos.mjs"
