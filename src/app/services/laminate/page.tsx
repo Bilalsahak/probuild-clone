@@ -7,8 +7,8 @@ const slug = "laminate" as const;
 const service = getService(slug);
 
 export const metadata: Metadata = {
-  title: service?.name ?? "Service",
-  description: service?.summary,
+  title: service?.seoTitle ?? service?.name ?? "Service",
+  description: service?.seoDescription ?? service?.summary,
   alternates: { canonical: `/services/${slug}/` },
 };
 
