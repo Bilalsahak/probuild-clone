@@ -153,8 +153,8 @@ export function NeighbourhoodPageView({ neighbourhood }: { neighbourhood: Neighb
               <ProcessTimeline dense />
             </div>
           </Reveal>
-          <Reveal className="lg:col-span-5" delay={0.1}>
-            <aside className="h-full rounded-[2px] border border-ink/10 bg-ink-soft p-7 text-parchment md:p-8">
+          <Reveal className="self-start lg:col-span-5" delay={0.1}>
+            <aside className="rounded-[2px] border border-ink/10 bg-ink-soft p-7 text-parchment md:p-8">
               <h2 className="font-display text-2xl">What drives cost</h2>
               <p className="mt-2 text-sm text-parchment/85">
                 What typically moves the price. We talk through these early, before work starts.
@@ -198,7 +198,7 @@ export function NeighbourhoodPageView({ neighbourhood }: { neighbourhood: Neighb
             />
           </Reveal>
           <div className="mt-10">
-            <ProjectGallery images={photos} showFilters={false} />
+            <ProjectGallery images={photos} showFilters={false} layout="grid" />
           </div>
           <p className="mt-10 max-w-2xl text-caption leading-relaxed text-charcoal/70">
             {PHOTO_NOTE}

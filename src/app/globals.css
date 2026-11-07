@@ -49,6 +49,19 @@
     scroll-behavior: smooth;
   }
 
+  /* Anchored sections and headings land clear of the fixed header
+     (~72–84px tall) instead of sliding underneath it — e.g. in-page
+     links such as /faq/#pricing and any heading scrolled into view. */
+  section,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    scroll-margin-top: 6rem;
+  }
+
   body {
     background: var(--color-parchment);
     color: var(--color-charcoal);
