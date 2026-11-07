@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/config/site";
 import { services } from "@/content/services";
+import { neighbourhoods } from "@/content/neighbourhoods";
 import { LicenseLine } from "@/components/legal/LicenseLine";
 import { TrustLine } from "@/components/legal/TrustLine";
 import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
@@ -46,6 +47,23 @@ export function Footer() {
                   <li key={item.href}>
                     <Link href={item.href} className={link}>
                       {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <h2 className="mt-8 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                Service area
+              </h2>
+              <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
+                <li>
+                  <Link href="/service-area/" className={link}>
+                    Seattle &amp; King County
+                  </Link>
+                </li>
+                {neighbourhoods.map((n) => (
+                  <li key={n.slug}>
+                    <Link href={`/service-area/${n.slug}/`} className={link}>
+                      {n.name}
                     </Link>
                   </li>
                 ))}
