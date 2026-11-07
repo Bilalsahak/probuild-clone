@@ -7,7 +7,7 @@ const slug = "north-seattle" as const;
 const neighbourhood = getNeighbourhood(slug);
 
 export const metadata: Metadata = {
-  title: "North Seattle remodeling & repair contractor | Seattle MasterFix",
+  title: "North Seattle remodeling & repair contractor",
   description:
     "Remodeling and repair in North Seattle, Seattle — siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns, priced per written project quote.",
   alternates: { canonical: "/service-area/north-seattle/" },

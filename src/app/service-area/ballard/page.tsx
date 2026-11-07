@@ -7,7 +7,7 @@ const slug = "ballard" as const;
 const neighbourhood = getNeighbourhood(slug);
 
 export const metadata: Metadata = {
-  title: "Ballard remodeling & repair contractor | Seattle MasterFix",
+  title: "Ballard remodeling & repair contractor",
   description:
     "Remodeling and repair in Ballard, Seattle — siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns, priced per written project quote.",
   alternates: { canonical: "/service-area/ballard/" },
