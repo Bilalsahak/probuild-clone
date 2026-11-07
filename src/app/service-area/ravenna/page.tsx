@@ -7,7 +7,7 @@ const slug = "ravenna" as const;
 const neighbourhood = getNeighbourhood(slug);
 
 export const metadata: Metadata = {
-  title: "Ravenna remodeling & repair contractor | Seattle MasterFix",
+  title: "Ravenna remodeling & repair contractor",
   description:
     "Remodeling and repair in Ravenna, Seattle — siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns, priced per written project quote.",
   alternates: { canonical: "/service-area/ravenna/" },
