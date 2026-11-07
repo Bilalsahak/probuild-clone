@@ -11,7 +11,7 @@
  */
 import { site } from "@/config/site";
 
-export type FaqItem = { id: string; q: string; a: string };
+export type FaqItem = { id: string; q: string; a: string; link?: { href: string; label: string } };
 export type FaqGroup = { id: string; title: string; items: FaqItem[] };
 
 export const faqGroups: FaqGroup[] = [
@@ -96,7 +96,8 @@ export const faqGroups: FaqGroup[] = [
       {
         id: "where-do-you-work",
         q: "Where do you work?",
-        a: "We work in Seattle and King County, WA. Tell us your property address when you request an estimate, and your written quote confirms the service area for your job.",
+        a: "We work in Seattle and King County, WA. Our home turf is Ballard, Greenwood, Ravenna and North Seattle — tell us your property address when you request an estimate, and your written quote confirms the service area for your job.",
+        link: { href: "/service-area/", label: "See the service area page" },
       },
       {
         id: "how-do-i-prepare",

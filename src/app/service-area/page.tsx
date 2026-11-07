@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { LicenseLine } from "@/components/legal/LicenseLine";
 import { services } from "@/content/services";
+import { neighbourhoods } from "@/content/neighbourhoods";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -57,9 +58,28 @@ export default function ServiceAreaPage() {
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/85">
               Elsewhere in Seattle or King County? Tell us where the property is when you
               request an estimate — if we cannot take the job on, we will say so early rather
-              than after a visit.
+              than after a visit. King County towns beyond these neighbourhoods are served on a
+              per-project basis; your written quote confirms the service area for your job.
             </p>
           </Reveal>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {neighbourhoods.map((n) => (
+              <Link
+                key={n.slug}
+                href={`/service-area/${n.slug}/`}
+                className="group rounded-[2px] border border-ink/10 bg-ink p-7 text-parchment transition hover:ring-1 hover:ring-ink/30"
+              >
+                <h2 className="font-display text-2xl">{n.name}</h2>
+                <p className="mt-3 text-sm leading-relaxed text-parchment/85">
+                  Remodeling and repair in {n.name}, Seattle — all eight trades, priced per
+                  written project quote.
+                </p>
+                <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-light transition group-hover:gap-3">
+                  Visit page <span aria-hidden>→</span>
+                </span>
+              </Link>
+            ))}
+          </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <Link

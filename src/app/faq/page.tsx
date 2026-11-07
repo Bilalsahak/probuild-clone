@@ -65,6 +65,16 @@ export default function FaqPage() {
                       <p className="mt-3 text-sm leading-relaxed text-charcoal/85 md:text-base">
                         {item.a}
                       </p>
+                      {item.link ? (
+                        <p className="mt-3 text-sm">
+                          <Link
+                            href={item.link.href}
+                            className="font-semibold text-ink underline underline-offset-2"
+                          >
+                            {item.link.label}
+                          </Link>
+                        </p>
+                      ) : null}
                     </article>
                   ))}
                 </div>
