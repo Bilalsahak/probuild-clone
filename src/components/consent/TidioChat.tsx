@@ -256,7 +256,7 @@ export function TidioChat() {
             type="button"
             onClick={dismissGreeting}
             aria-label="Dismiss chat greeting"
-            className="absolute right-1 top-1 grid h-7 w-7 place-items-center rounded-full text-charcoal/60 hover:text-charcoal"
+            className="absolute right-1 top-1 grid h-11 w-11 place-items-center rounded-full text-charcoal/60 hover:text-charcoal"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden>
               <path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" />

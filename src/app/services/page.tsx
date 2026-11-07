@@ -3,8 +3,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Container, Eyebrow, SectionHeading } from "@/components/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/Button";
 import { photoByFile } from "@/content/photos";
 import { photoTradeOf, services } from "@/content/services";
+import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -33,7 +35,7 @@ export default function ServicesIndexPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-16 md:py-24">
+      <section className="bg-parchment py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="Pick a trade" title="Explore by trade" />
@@ -68,7 +70,7 @@ export default function ServicesIndexPage() {
                       </span>
                       <h2 className="mt-2 font-display text-2xl text-ink md:text-4xl">{s.name}</h2>
                       <p className="mt-3 max-w-xl text-charcoal/85">{s.summary}</p>
-                      <span className="mt-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition group-hover:gap-3">
+                      <span className="mt-6 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-ink transition group-hover:gap-3">
                         Open {s.shortName.toLowerCase()} page <span aria-hidden>→</span>
                       </span>
                     </div>
@@ -77,6 +79,26 @@ export default function ServicesIndexPage() {
               );
             })}
           </Stagger>
+        </Container>
+      </section>
+      {/* Start with an estimate band */}
+      <section className="bg-ink py-20 text-parchment md:py-28">
+        <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+          <div>
+            <h2 className="font-display text-3xl md:text-4xl">Not sure which trade you need?</h2>
+            <p className="mt-3 max-w-xl text-parchment/85">
+              Start with an estimate — describe the project in a few short steps and we will
+              follow up about next steps. Or call {site.phone}.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button href="/contact/" variant="primary">
+              Start with an estimate
+            </Button>
+            <Button href={site.phoneHref} variant="ghost">
+              Call {site.phone}
+            </Button>
+          </div>
         </Container>
       </section>
     </>

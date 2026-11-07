@@ -10,7 +10,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   const link = "inline-flex min-h-11 items-center transition hover:text-bronze-light lg:min-h-0";
   return (
-    <footer className="relative overflow-hidden bg-ink text-parchment">
+    <footer className="relative overflow-hidden bg-ink pb-mobile-cta text-parchment">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 top-0 h-72 w-72 rounded-full bg-bronze/10 blur-3xl"
@@ -30,7 +30,7 @@ export function Footer() {
               <br />
               Finished with care.
             </p>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-parchment/80">
+            <p className="mt-5 max-w-md text-sm leading-relaxed text-parchment/85">
               Residential and light-commercial remodeling: siding, fencing, tile, laminate
               flooring, drywall, and paint.
             </p>
@@ -38,7 +38,7 @@ export function Footer() {
 
           <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7">
             <nav aria-label="Footer: site">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+              <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Navigate
               </h2>
               <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
@@ -53,7 +53,7 @@ export function Footer() {
             </nav>
 
             <nav aria-label="Footer: trades">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+              <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Trades
               </h2>
               <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
@@ -68,7 +68,7 @@ export function Footer() {
             </nav>
 
             <div>
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+              <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Contact
               </h2>
               <ul className="mt-5 space-y-0 text-sm lg:space-y-2.5 text-parchment/85">
@@ -85,7 +85,7 @@ export function Footer() {
                 <li className="pt-2">{site.address.full}</li>
                 <li>
                   <a href={site.businessProfileUrl} target="_blank" rel="noopener noreferrer" className={link}>
-                    Business profile<span className="sr-only"> (opens in a new tab)</span>
+                    Google Business Profile<span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </li>
                 <li>
@@ -98,6 +98,18 @@ export function Footer() {
                     LinkedIn<span className="sr-only"> (opens in a new tab)</span>
                   </a>
                 </li>
+                <li className="pt-2 text-parchment/85">We usually reply within 1 hour.</li>
+              </ul>
+              <h2 className="mt-8 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                Hours
+              </h2>
+              <ul className="mt-5 space-y-0 text-sm text-parchment/85 lg:space-y-2.5">
+                {site.hours.map((h) => (
+                  <li key={h.days} className="flex min-h-11 items-center gap-2 lg:min-h-0">
+                    <span className="w-20 shrink-0">{h.days}</span>
+                    <span>{h.time}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -112,7 +124,7 @@ export function Footer() {
           linkClassName="underline underline-offset-2 hover:text-bronze-light"
         />
 
-        <div className="flex flex-col items-start justify-between gap-4 py-7 text-xs text-parchment/80 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start justify-between gap-4 py-7 text-xs text-parchment/85 sm:flex-row sm:items-center">
           <p>
             © {year} {site.name}. All rights reserved.
           </p>

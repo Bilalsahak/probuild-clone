@@ -27,6 +27,7 @@ const instrument = localFont({
   weight: "400",
 });
 
+
 const title = "Seattle Remodeling & Repair Contractor | Seattle MasterFix";
 const description =
   "Seattle MasterFix is a WA-registered remodeling and repair contractor in Seattle and King County: bathroom remodels, unit turns, tile, drywall, paint, flooring, siding and fencing.";
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#071525",
+  themeColor: "#14293F",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

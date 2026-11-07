@@ -5,17 +5,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import { type ReactNode } from "react";
 import { easeCraft } from "@/components/motion/Reveal";
 
-type Variant = "primary" | "secondary" | "ghost" | "light";
+type Variant = "primary" | "secondary" | "ghost" | "light" | "dark";
 
 const styles: Record<Variant, string> = {
   primary:
-    "bg-bronze text-ink hover:bg-bronze-light shadow-[0_1px_0_rgba(7,21,37,0.08)]",
+    "bg-bronze text-ink hover:bg-bronze-light shadow-[0_1px_0_rgba(20,41,63,0.08)]",
   secondary:
     "border border-ink/20 bg-transparent text-ink hover:border-ink/50 hover:bg-ink/[0.03]",
   ghost:
     "border border-white/35 bg-transparent text-white hover:bg-white/10",
   light:
     "bg-parchment text-ink hover:bg-white",
+  dark:
+    "bg-ink text-parchment hover:bg-ink-mid",
 };
 
 export function Button({
@@ -27,6 +29,7 @@ export function Button({
   type,
   disabled,
   onClick,
+  compact = false,
 }: {
   href?: string;
   children: ReactNode;
@@ -36,10 +39,12 @@ export function Button({
   type?: "button" | "submit";
   disabled?: boolean;
   onClick?: () => void;
+  /** Tighter horizontal padding for crowded slots (e.g. the 3-up mobile bar). */
+  compact?: boolean;
 }) {
   const reduce = useReducedMotion();
   const base =
-    "group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-[2px] px-6 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-300 disabled:opacity-40";
+    `group relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-[2px] ${compact ? "px-3" : "px-6"} text-eyebrow font-semibold uppercase tracking-[0.18em] transition-colors duration-300 disabled:opacity-40`;
 
   const inner = (
     <>

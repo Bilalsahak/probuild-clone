@@ -8,7 +8,7 @@ export function Stars({ rating, size = 14, className = "" }: { rating: number; s
           <svg key={i} width={size} height={size} viewBox="0 0 20 20">
             <defs>
               <linearGradient id={`s${i}-${fill}`}>
-                <stop offset={`${fill}%`} stopColor="#C79248" />
+                <stop offset={`${fill}%`} stopColor="#D79A43" />
                 <stop offset={`${fill}%`} stopColor="currentColor" stopOpacity="0.25" />
               </linearGradient>
             </defs>

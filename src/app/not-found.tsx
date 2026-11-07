@@ -11,7 +11,7 @@ export default function NotFound() {
       <Container>
         <Eyebrow light>404</Eyebrow>
         <h1 className="mt-4 font-display text-4xl md:text-6xl">That page isn&rsquo;t here.</h1>
-        <p className="mt-5 max-w-xl text-parchment/80">
+        <p className="mt-5 max-w-xl text-parchment/85">
           The link may be old or mistyped. You can head back to the homepage, browse our services,
           or call us at {site.phone}.
         </p>

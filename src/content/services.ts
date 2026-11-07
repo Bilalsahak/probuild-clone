@@ -152,7 +152,7 @@ export const services: Service[] = [
     summary: "Floor, wall, shower and backsplash tile, with flat substrates and waterproofing in wet areas.",
     intro:
       "Every seam and grout joint stays visible for as long as the tile does. We flatten the substrate, plan the layout before setting anything, and put waterproofing behind tile in wet areas.",
-    heroFile: "tile2.webp",
+    heroFile: "tile8.webp",
     timeline: "Typically 3–14 days, depending on the area, pattern and cure times. Your written contract sets the actual schedule.",
     costDrivers: [
       "Square footage and pattern complexity",
@@ -275,9 +275,14 @@ export const services: Service[] = [
       "Interior and exterior painting in Seattle and King County: careful prep, matched primers, and exterior work planned around the weather. Request an estimate.",
     intro:
       "A paint job is only as good as the prep under it. We clean, sand, patch and prime to suit the surface, then cut in the edges by hand. Exterior work is scheduled around Seattle's dry spells so coatings can cure.",
-    // No hero photo: the paint gallery holds general project photos only, and
-    // no paint-specific photo exists in the catalogue. A deck photo was used
-    // here before; it has been removed rather than shown as paint work.
+    // No hero photo and no gallery: no shot in the catalogue is clearly a
+    // paint job (the old paint set was a bathroom, a house exterior, a tub
+    // alcove and a kitchen — general project photos, not paint work). Rather
+    // than label a non-paint photo as paint, Paint uses the deliberate
+    // gradient typographic card and the honest "not published yet" note.
+    // Bill to supply real paint photos; the paving-stones and deck shots
+    // that used to sit in the paint set were removed from the catalogue.
+    photoSet: { trade: "paint", files: [] },
     timeline: "Typically 2–7 days, depending on the number of rooms or exterior walls and the weather. Your written contract sets the actual schedule.",
     costDrivers: [
       "Interior square footage versus exterior walls",

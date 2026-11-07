@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Container, Eyebrow, SectionHeading } from "@/components/Section";
+import { Container, Eyebrow, Hairline, SectionHeading } from "@/components/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { TrustLine } from "@/components/legal/TrustLine";
@@ -64,7 +64,7 @@ export default function PropertyManagersPage() {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-paper to-parchment py-16 md:py-24">
+      <section className="bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="What we handle" title="Work we take on for managers and GCs" />
@@ -75,7 +75,7 @@ export default function PropertyManagersPage() {
                 <h2 className="font-display text-2xl text-ink">{o.t}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{o.d}</p>
                 {o.href ? (
-                  <Link href={o.href} className="mt-4 inline-flex min-h-11 items-center text-[11px] font-semibold uppercase tracking-[0.18em] text-bronze-deep underline-offset-2 hover:underline">
+                  <Link href={o.href} className="mt-4 inline-flex min-h-11 items-center text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-deep underline-offset-2 hover:underline">
                     Learn more <span aria-hidden>&nbsp;→</span>
                   </Link>
                 ) : null}
@@ -85,7 +85,7 @@ export default function PropertyManagersPage() {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-parchment to-parchment-deep py-16 md:py-24">
+      <section className="bg-gradient-to-b from-parchment to-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="How to start" title="Requesting a walkthrough" />
@@ -93,7 +93,7 @@ export default function PropertyManagersPage() {
           <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s, i) => (
               <li key={s.t} className="h-full rounded-[2px] bg-parchment p-6">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+                <span className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
                   Step {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-display text-xl text-ink">{s.t}</h3>
@@ -104,12 +104,12 @@ export default function PropertyManagersPage() {
         </Container>
       </section>
 
-      <div aria-hidden className="h-16 bg-gradient-to-b from-parchment-deep to-ink-soft md:h-24" />
-      <section className="bg-ink-soft py-16 text-parchment md:py-20">
+      <Hairline />
+      <section className="bg-ink-soft py-20 text-parchment md:py-28">
         <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <h2 className="font-display text-3xl md:text-4xl">Have a unit or punch list coming up?</h2>
-            <p className="mt-3 text-parchment/80">
+            <p className="mt-3 text-parchment/85">
               Call <a href={site.phoneHref} className="underline underline-offset-2">{site.phone}</a> or email{" "}
               <a href={`mailto:${site.email}`} className="underline underline-offset-2">{site.email}</a>.
             </p>

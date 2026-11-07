@@ -59,7 +59,7 @@ export function ProjectGallery({
                 type="button"
                 aria-pressed={on}
                 onClick={() => setTrade(f.id)}
-                className={`min-h-11 rounded-full px-4 text-[11px] font-semibold uppercase tracking-[0.14em] transition ${
+                className={`min-h-11 rounded-[2px] px-4 text-eyebrow font-semibold uppercase tracking-[0.14em] transition ${
                   on
                     ? "bg-ink text-parchment"
                     : "bg-parchment-deep text-ink hover:bg-stone"
@@ -97,7 +97,7 @@ export function ProjectGallery({
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="h-auto w-full object-cover transition duration-700 ease-out group-hover:scale-[1.03]"
               />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 to-transparent px-3 pb-3 pt-10 text-[11px] font-semibold uppercase tracking-[0.12em] text-parchment">
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/85 to-transparent px-3 pb-3 pt-10 text-eyebrow font-semibold uppercase tracking-[0.12em] text-parchment">
                 {img.caption}
               </span>
             </button>
@@ -152,7 +152,7 @@ function Lightbox({
   }, [n]);
 
   const btn =
-    "min-h-11 rounded-[2px] border border-white/50 px-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-parchment hover:bg-white/10";
+    "min-h-11 rounded-[2px] border border-white/50 px-4 text-eyebrow font-semibold uppercase tracking-[0.14em] text-parchment hover:bg-white/10";
 
   return (
     <div
@@ -191,7 +191,7 @@ function Lightbox({
           <button type="button" onClick={() => go(-1)} aria-label="Previous photo" className={btn}>
             Prev
           </button>
-          <span className="px-2 text-[11px] uppercase tracking-[0.14em] text-parchment/80" aria-hidden>
+          <span className="px-2 text-eyebrow uppercase tracking-[0.14em] text-parchment/85" aria-hidden>
             {index + 1} / {n}
           </span>
           <button type="button" onClick={() => go(1)} aria-label="Next photo" className={btn}>

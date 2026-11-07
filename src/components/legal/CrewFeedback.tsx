@@ -20,7 +20,7 @@ export function CrewFeedback() {
   if (items.length === 0) return null;
 
   return (
-    <section className="bg-paper py-16 md:py-24" aria-labelledby="crew-feedback-title">
+    <section className="bg-paper py-20 md:py-28" aria-labelledby="crew-feedback-title">
       <Container>
         <Eyebrow>About this feedback</Eyebrow>
         <h2 id="crew-feedback-title" className="mt-4 font-display text-3xl text-ink md:text-4xl">

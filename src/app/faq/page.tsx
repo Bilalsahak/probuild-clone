@@ -46,7 +46,7 @@ export default function FaqPage() {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-paper py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-8">
             {faqGroups.map((group) => (
@@ -106,7 +106,7 @@ export default function FaqPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-14 md:py-20">
+      <section className="bg-parchment py-20 md:py-28">
         <Container>
           <LicenseLine className="max-w-3xl text-sm leading-relaxed text-charcoal/85" />
         </Container>

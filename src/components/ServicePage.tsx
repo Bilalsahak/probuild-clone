@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ProjectGallery } from "@/components/ProjectGallery";
-import { Container, Eyebrow, SectionHeading } from "@/components/Section";
+import { Container, Eyebrow, Hairline, SectionHeading } from "@/components/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { FencingNotice } from "@/components/legal/FencingNotice";
 import { OlderHomeNotice } from "@/components/legal/OlderHomeNotice";
 import { PermitNotice } from "@/components/legal/PermitNotice";
 import { site } from "@/config/site";
-import { PHOTO_NOTE, photoByFile, photosFor } from "@/content/photos";
+import { photoByFile, photosFor } from "@/content/photos";
 import type { Service } from "@/content/services";
 
 export function ServicePageView({ service }: { service: Service }) {
@@ -49,19 +49,19 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-paper to-parchment py-16 md:py-24">
+      <section className="bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <p className="font-display text-2xl leading-snug text-ink md:text-3xl">{service.intro}</p>
             <div className="mt-12 grid gap-5 sm:grid-cols-2">
               <div className="rounded-[2px] border border-ink/10 bg-parchment p-6">
-                <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+                <h2 className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
                   Typical timeline
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{service.timeline}</p>
               </div>
               <div className="rounded-[2px] border border-ink/10 bg-parchment p-6">
-                <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+                <h2 className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
                   Materials
                 </h2>
                 <ul className="mt-3 space-y-2 text-sm text-charcoal/85">
@@ -84,7 +84,7 @@ export function ServicePageView({ service }: { service: Service }) {
           <Reveal className="lg:col-span-5" delay={0.1}>
             <aside className="h-full rounded-[2px] border border-ink/10 bg-ink-soft p-7 text-parchment md:p-8">
               <h2 className="font-display text-2xl">What drives cost</h2>
-              <p className="mt-2 text-sm text-parchment/80">
+              <p className="mt-2 text-sm text-parchment/85">
                 What typically moves the price. We talk through these early, before work starts.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-parchment/85">
@@ -116,7 +116,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-parchment to-paper py-16 md:py-24">
+      <section className="bg-gradient-to-b from-parchment to-paper py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
@@ -141,7 +141,7 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-paper to-parchment-deep py-16 md:py-24">
+      <section className="bg-gradient-to-b from-paper to-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="On site" title="How we typically work" />
@@ -149,7 +149,7 @@ export function ServicePageView({ service }: { service: Service }) {
           <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {service.process.map((p, i) => (
               <li key={p.title} className="relative h-full overflow-hidden rounded-[2px] bg-parchment p-6">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+                <span className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
                   Step {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 font-display text-xl text-ink">{p.title}</h3>
@@ -160,7 +160,45 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <section className="bg-parchment-deep py-16 md:py-24">
+      {/* One differentiating module per trade: finished details worth
+          noticing, from the trade's own photos. No case study is linked —
+          none exists yet — and no claim is made about any photo. Skipped
+          for trades with no photos (Paint, until Bill supplies paint shots). */}
+      {gallery.length > 0 ? (
+      <section className="bg-paper py-20 md:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="What good looks like"
+              title={`Finished ${service.shortName.toLowerCase()} — details worth noticing`}
+              body="A few photos from the trade, with what to look for in each one."
+            />
+          </Reveal>
+          <Stagger className="mt-12 grid gap-5 sm:grid-cols-3" stagger={0.08}>
+            {gallery.slice(0, 3).map((photo) => (
+              <StaggerItem key={photo.src}>
+                <figure className="h-full overflow-hidden rounded-[2px] bg-parchment ring-1 ring-ink/10">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={photo.src}
+                      alt={photo.alt}
+                      fill
+                      sizes="(max-width:768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="p-5 text-sm leading-relaxed text-charcoal/85">
+                    {photo.caption}
+                  </figcaption>
+                </figure>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Container>
+      </section>
+      ) : null}
+
+      <section className="bg-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
@@ -173,10 +211,8 @@ export function ServicePageView({ service }: { service: Service }) {
                     : `${service.shortName}: photos from job sites`
               }
               body={
-                gallery.length > 0
-                  ? service.slug === "paint"
-                    ? `${PHOTO_NOTE} These are general project photos and are not all paint work.`
-                    : PHOTO_NOTE
+                gallery.length > 0 && service.slug === "paint"
+                  ? "General project photos — not all show paint work."
                   : undefined
               }
             />
@@ -194,14 +230,14 @@ export function ServicePageView({ service }: { service: Service }) {
         </Container>
       </section>
 
-      <div aria-hidden className="h-16 bg-gradient-to-b from-parchment-deep to-ink-soft md:h-24" />
-      <section className="bg-ink-soft py-16 text-parchment md:py-20">
+      <Hairline />
+      <section className="bg-ink-soft py-20 text-parchment md:py-28">
         <Container className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>
             <h2 className="font-display text-3xl md:text-4xl">
               Thinking about {service.shortName.toLowerCase()}?
             </h2>
-            <p className="mt-3 text-parchment/80">
+            <p className="mt-3 text-parchment/85">
               Call {site.phone} or send an estimate request.
             </p>
           </div>

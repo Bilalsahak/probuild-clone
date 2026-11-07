@@ -31,14 +31,34 @@ export default function ServiceAreaPage() {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-paper py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
               eyebrow="Where we work"
               title="One service area, confirmed in your quote"
-              body="Tell us your property address when you request an estimate. Your written quote confirms the service area for your job — we do not list individual neighbourhoods or towns as confirmed service areas on this site."
+              body="Seattle and King County, WA. Our home turf is Ballard, Greenwood, Ravenna and North Seattle — tell us your property address when you request an estimate and your written quote confirms the service area for your job."
             />
+          </Reveal>
+          <Reveal className="mt-10">
+            <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-deep">
+              Home turf
+            </h2>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {site.homeTurf.map((n) => (
+                <li
+                  key={n}
+                  className="rounded-[2px] border border-ink/15 bg-parchment px-4 py-2 text-sm font-medium text-ink"
+                >
+                  {n}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/85">
+              Elsewhere in Seattle or King County? Tell us where the property is when you
+              request an estimate — if we cannot take the job on, we will say so early rather
+              than after a visit.
+            </p>
           </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
@@ -49,7 +69,7 @@ export default function ServiceAreaPage() {
               >
                 <h2 className="font-display text-2xl text-ink">{s.name}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{s.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-bronze-deep transition group-hover:gap-3">
+                <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-deep transition group-hover:gap-3">
                   Learn more <span aria-hidden>→</span>
                 </span>
               </Link>
@@ -58,7 +78,7 @@ export default function ServiceAreaPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-16 md:py-24">
+      <section className="bg-parchment py-20 md:py-28">
         <Container className="grid gap-10 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <SectionHeading
@@ -67,7 +87,7 @@ export default function ServiceAreaPage() {
               body="Tell us where the property is when you request an estimate. If we cannot take the job on, we will say so early rather than after a visit."
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/contact/" variant="primary" className="!bg-ink !text-parchment">
+              <Button href="/contact/" variant="dark">
                 Request an estimate
               </Button>
               <Button href="/faq/" variant="secondary">
@@ -77,13 +97,24 @@ export default function ServiceAreaPage() {
           </Reveal>
           <Reveal className="lg:col-span-5" delay={0.1}>
             <aside className="rounded-[2px] bg-ink p-7 text-parchment md:p-8">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+              <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Registration
               </h2>
               <LicenseLine
                 className="mt-4 text-sm leading-relaxed text-parchment/90"
                 linkClassName="underline underline-offset-2 hover:text-bronze-light"
               />
+              <h3 className="mt-6 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                Hours
+              </h3>
+              <ul className="mt-3 space-y-1.5 text-sm text-parchment/90">
+                {site.hours.map((h) => (
+                  <li key={h.days} className="flex gap-2">
+                    <span className="w-20 shrink-0">{h.days}</span>
+                    <span>{h.time}</span>
+                  </li>
+                ))}
+              </ul>
               <p className="mt-4 text-sm leading-relaxed text-parchment/85">
                 Call{" "}
                 <a href={site.phoneHref} className="underline underline-offset-2">

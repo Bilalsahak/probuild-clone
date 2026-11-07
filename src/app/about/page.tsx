@@ -32,7 +32,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-paper py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <SectionHeading
@@ -63,21 +63,21 @@ export default function AboutPage() {
                 <strong className="text-ink">Service area:</strong> {site.serviceArea}
               </p>
             </div>
-            <div className="mt-10 rounded-[2px] border border-dashed border-ink/30 bg-parchment p-7">
+            <div className="mt-10 rounded-[2px] border border-ink/10 bg-parchment p-7">
               <h2 className="font-display text-2xl text-ink">
-                Photo and introduction — to be added
+                What we do
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-charcoal/85">
-                A photo of Bill and the crew, and a short introduction, will go here once Bill
-                adds them. Nothing here is invented: no years in business, no biography and no
-                crew photo are claimed on this page.
+                Siding, fencing, tile, laminate flooring, drywall and paint, plus bathroom
+                remodels and unit turns — for homes and light-commercial spaces in Seattle and
+                King County.
               </p>
             </div>
           </Reveal>
 
           <Reveal className="lg:col-span-5" delay={0.1}>
             <aside className="rounded-[2px] bg-ink p-7 text-parchment md:p-8">
-              <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+              <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Registration
               </h2>
               <LicenseLine
@@ -96,7 +96,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-16 md:py-24">
+      <section className="bg-parchment py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="How we work" title="From first call to closeout" />
@@ -112,7 +112,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-paper py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="Trades" title="What we do" />
