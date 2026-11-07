@@ -56,9 +56,21 @@ export const site = {
 
   /** Service area as shown on production. Gates `areaServed` in JSON-LD. */
   serviceArea: "Seattle and King County, WA",
-  /** Confirmed by Bill (Nov 2026) for Seattle and King County only — NOT for
-   * individual neighbourhoods or towns, which are confirmed per quote. */
+  /** Confirmed by Bill (Nov 2026) for Seattle and King County only.
+   * Home turf below is the only neighbourhood list shown on the site —
+   * no other neighbourhoods or towns are claimed as confirmed areas. */
   serviceAreaConfirmed: true,
+  /** Home turf, approved by Bill 2026-11-06. Shown on /service-area/ only. */
+  homeTurf: ["Ballard", "Greenwood", "Ravenna", "North Seattle"] as const,
+  /** Business hours, chosen by Bill 2026-11-06 20:50 PST for the site.
+   * NOTE: the Google Business Profile still shows Mon–Sat 7 AM–6 PM,
+   * Sun Closed — it needs updating to match these hours; the Marketing
+   * agent is handling the GBP side, not this repo. */
+  hours: [
+    { days: "Mon–Fri", time: "8:00 AM–6:00 PM" },
+    { days: "Saturday", time: "9:00 AM–5:00 PM" },
+    { days: "Sunday", time: "Closed" },
+  ] as const,
 
   calendly: "https://calendly.com/bill-seattlemasterfix/new-meeting",
   /** Public Formspree endpoint (same one the production site uses). */
@@ -72,10 +84,11 @@ export const site = {
 
   linkedin: "https://www.linkedin.com/company/seattle-masterfix-precision-craftsmanship/home/",
 
-  /** Public business-profile listing, copied from the listing short URL in
-   * src/content/reviews.ts. Labelled "Business profile" on the site so the
-   * visible text stays clear of the forbidden-claims check. */
-  businessProfileUrl: "https://maps.app.goo.gl/mr9dPTnkT5AcTn5a9",
+  /** Public Google Business Profile link, supplied by Bill 2026-11-06 and
+   * verified to resolve to this business (Seattle MasterFix Precision
+   * Craftsmanship, 5415 6th Ave NW, (206) 550-4576, 5.0 / 1 review).
+   * Labelled "Google Business Profile" on the site. */
+  businessProfileUrl: "https://share.google/nP2m5EEOoNouPY9bX",
 
   lniVerifyUrl:
     "https://secure.lni.wa.gov/verify/Detail.aspx?UBI=605904953&LIC=SEATTMP744NL&SAW=",

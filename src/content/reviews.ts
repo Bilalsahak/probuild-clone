@@ -22,12 +22,13 @@ export type Review = {
 export const googleListing = {
   name: "Seattle MasterFix Precision Craftsmanship",
   url: "https://www.google.com/maps/place/Seattle+MasterFix+Precision+Craftsmanship/@47.6683468,-122.363542,17z/data=!4m6!3m5!1s0x549015c3e27be477:0xa0987c9d5cbbcc15!8m2!3d47.6683468!4d-122.363542!16s%2Fg%2F11zwph69d1",
-  shortUrl: "https://maps.app.goo.gl/mr9dPTnkT5AcTn5a9",
+  /** Verified 2026-11-06: resolves to this business's Google listing. */
+  shortUrl: "https://share.google/nP2m5EEOoNouPY9bX",
   /** Average star rating shown on the listing. Update together with reviewCount. */
   rating: 5.0,
   reviewCount: 1,
   /** Date the rating/count above were last checked against the listing. */
-  checked: "2026-10-26",
+  checked: "2026-11-06",
 };
 
 export const reviews: Review[] = [

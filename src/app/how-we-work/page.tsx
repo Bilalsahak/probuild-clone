@@ -30,7 +30,7 @@ export default function HowWeWorkPage() {
         </Container>
       </section>
 
-      <section className="bg-paper py-16 md:py-24">
+      <section className="bg-paper py-20 md:py-28">
         <Container>
           <ProcessTimeline />
           <div className="mx-auto mt-16 max-w-3xl border-t border-ink/10 pt-12">
@@ -39,7 +39,7 @@ export default function HowWeWorkPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-16 md:py-24">
+      <section className="bg-parchment py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading
@@ -49,7 +49,7 @@ export default function HowWeWorkPage() {
             />
           </Reveal>
           <Reveal className="mt-10 flex flex-wrap gap-3" delay={0.1}>
-            <Button href="/contact/" variant="primary" className="!bg-ink !text-parchment">
+            <Button href="/contact/" variant="dark">
               Request an estimate
             </Button>
             <Button href="/contact/#book" variant="secondary">

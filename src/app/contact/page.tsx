@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { EstimateForm } from "@/components/EstimateForm";
 import { CalendlyEmbed } from "@/components/consent/CalendlyEmbed";
-import { LicenseLine } from "@/components/legal/LicenseLine";
 import { Container, Eyebrow } from "@/components/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/config/site";
@@ -30,7 +29,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="bg-parchment py-14 md:py-20">
+      <section className="bg-parchment py-20 md:py-28">
         <Container className="grid gap-10 lg:grid-cols-5">
           <Reveal className="lg:col-span-3">
             <EstimateForm />
@@ -49,6 +48,18 @@ export default function ContactPage() {
                     <a className="inline-block py-2.5 underline" href={`mailto:${site.email}`}>{site.email}</a>
                   </li>
                   <li className="pt-1">{site.address.full}</li>
+                  <li className="pt-2 text-charcoal/90">We usually reply within 1 hour.</li>
+                </ul>
+                <h3 className="mt-6 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-deep">
+                  Hours
+                </h3>
+                <ul className="mt-3 space-y-1.5 text-sm text-charcoal/90">
+                  {site.hours.map((h) => (
+                    <li key={h.days} className="flex gap-2">
+                      <span className="w-20 shrink-0 font-medium text-ink">{h.days}</span>
+                      <span>{h.time}</span>
+                    </li>
+                  ))}
                 </ul>
               </aside>
             </Reveal>
@@ -58,21 +69,20 @@ export default function ContactPage() {
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/90">
                   Pick a time that works for you on Calendly.
                 </p>
+                {/* Call fallback: the embedded calendar needs cookie consent
+                    plus a "Load calendar" click, so a visitor who wants to
+                    book now is never stuck behind it. */}
+                <p className="mt-3 text-sm leading-relaxed text-charcoal/90">
+                  Prefer to talk now? Call{" "}
+                  <a href={site.phoneHref} className="font-semibold text-ink underline">
+                    {site.phone}
+                  </a>{" "}
+                  — 30 seconds, no form needed.
+                </p>
                 <div className="mt-5">
                   <CalendlyEmbed />
                 </div>
               </aside>
-            </Reveal>
-            <Reveal delay={0.16}>
-              <div className="rounded-[2px] bg-ink p-7 text-parchment">
-                <h2 className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
-                  Registration
-                </h2>
-                <LicenseLine
-                  className="mt-4 text-sm leading-relaxed text-parchment/90"
-                  linkClassName="underline underline-offset-2 hover:text-bronze-light"
-                />
-              </div>
             </Reveal>
           </div>
         </Container>

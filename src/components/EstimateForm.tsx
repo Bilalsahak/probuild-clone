@@ -196,7 +196,7 @@ export function EstimateForm() {
         animate={{ opacity: 1, y: 0 }}
         className="rounded-[2px] border border-ink/10 bg-paper p-8 md:p-10"
       >
-        <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-deep">
+        <p className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-deep">
           Received
         </p>
         <h2 className="mt-3 font-display text-3xl text-ink">Request received</h2>
@@ -214,8 +214,8 @@ export function EstimateForm() {
           </p>
         ) : null}
         <p className="mt-4 text-charcoal/85">
-          Thank you. Our team will review your project details and follow up shortly. Prefer to
-          talk now? Call{" "}
+          Thank you. Our team will review your project details — we usually reply within
+          1 hour. Prefer to talk now? Call{" "}
           <a className="font-semibold text-ink underline decoration-bronze/60" href={site.phoneHref}>
             {site.phone}
           </a>{" "}
@@ -247,14 +247,14 @@ export function EstimateForm() {
           track("form_step", { form_name: "estimate_wizard", step_number: 1, step_name: stepLabels[0] });
         }
       }}
-      className="rounded-[2px] border border-ink/10 bg-paper p-6 shadow-[0_20px_60px_rgba(7,21,37,0.06)] md:p-9"
+      className="rounded-[2px] border border-ink/10 bg-paper p-6 shadow-[0_20px_60px_rgba(20,41,63,0.06)] md:p-9"
       noValidate
     >
       <div className="mb-2 flex items-center justify-between gap-4">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+        <p className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
           Step {step} of 4 · {stepLabels[step - 1]}
         </p>
-        <p className="text-[11px] uppercase tracking-[0.16em] text-charcoal/80">
+        <p className="text-eyebrow uppercase tracking-[0.16em] text-charcoal/80">
           {Math.round(progress)}%
         </p>
       </div>
@@ -267,17 +267,25 @@ export function EstimateForm() {
         />
       </div>
 
+      <p className="mb-6 text-sm text-charcoal/85">
+        Prefer to talk? Call{" "}
+        <a className="font-semibold text-ink underline" href={site.phoneHref}>
+          {site.phone}
+        </a>
+        .
+      </p>
+
       <div className="mb-8 flex gap-2" aria-label={`Step ${step} of 4`}>
         {([1, 2, 3, 4] as Step[]).map((s) => (
           <div key={s} className="flex flex-1 flex-col gap-2">
             <div
-              className={`flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-semibold transition ${
+              className={`flex h-8 w-8 items-center justify-center rounded-full text-eyebrow font-semibold transition ${
                 s <= step ? "bg-ink text-parchment" : "bg-parchment-deep text-charcoal/80"
               }`}
             >
               {s}
             </div>
-            <span className="hidden text-[10px] uppercase tracking-[0.14em] text-charcoal/80 sm:block">
+            <span className="block text-micro uppercase leading-tight tracking-[0.14em] text-charcoal/80">
               {stepLabels[s - 1]}
             </span>
           </div>
@@ -310,7 +318,7 @@ export function EstimateForm() {
                       className={`min-h-14 rounded-[2px] border px-4 py-3 text-left text-sm font-medium transition ${
                         on
                           ? "border-bronze bg-bronze/15 text-ink"
-                          : "border-ink/12 hover:border-ink/35"
+                          : "border-ink/25 hover:border-ink/50"
                       }`}
                       aria-pressed={on}
                     >
@@ -319,6 +327,9 @@ export function EstimateForm() {
                   );
                 })}
               </div>
+              <p className="mt-4 text-sm text-charcoal/80">
+                Photos help — you can attach up to {MAX_PHOTOS} in the next step.
+              </p>
             </fieldset>
           )}
 
@@ -336,9 +347,12 @@ export function EstimateForm() {
                 rows={6}
                 value={form.details}
                 onChange={(e) => setForm({ ...form, details: e.target.value })}
-                className="mt-2 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                className="mt-2 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                 placeholder="Scope, materials you have in mind, access notes…"
               />
+              <p className="mt-2 text-caption text-charcoal/80" aria-live="polite">
+                {form.details.trim().length} characters — at least 10 needed to continue.
+              </p>
               <div className="mt-6">
                 <label className="text-sm font-medium text-ink" htmlFor="photos">
                   Photos (optional)
@@ -349,7 +363,7 @@ export function EstimateForm() {
                   accept="image/*"
                   multiple
                   onChange={(e) => onPhotosPicked(e.target.files)}
-                  className="mt-2 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                  className="mt-2 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                 />
                 <p className="mt-2 text-xs leading-relaxed text-charcoal/80">
                   Attach up to {MAX_PHOTOS} photos ({MAX_PHOTO_MB} MB each). Photos are sent with
@@ -357,7 +371,7 @@ export function EstimateForm() {
                   mention your name in the subject line.
                 </p>
                 {photoError ? (
-                  <p className="mt-2 text-xs font-medium text-red-800" role="alert">
+                  <p className="mt-2 text-xs font-medium text-error" role="alert">
                     {photoError}
                   </p>
                 ) : null}
@@ -444,7 +458,7 @@ export function EstimateForm() {
                 id="propertyType"
                 value={form.propertyType}
                 onChange={(e) => setForm({ ...form, propertyType: e.target.value })}
-                className="mt-2 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                className="mt-2 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
               >
                 <option>Residential</option>
                 <option>Commercial</option>
@@ -479,7 +493,7 @@ export function EstimateForm() {
                       required
                       value={form[id]}
                       onChange={(e) => setForm({ ...form, [id]: e.target.value })}
-                      className="mt-1 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                      className="mt-1 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                     />
                   </div>
                 ))}
@@ -491,7 +505,7 @@ export function EstimateForm() {
                     id="address"
                     value={form.address}
                     onChange={(e) => setForm({ ...form, address: e.target.value })}
-                    className="mt-1 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                    className="mt-1 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                   />
                 </div>
                 <div className="sm:col-span-2">
@@ -502,7 +516,7 @@ export function EstimateForm() {
                     id="company"
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="mt-1 w-full rounded-[2px] border border-ink/15 bg-parchment px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
+                    className="mt-1 w-full rounded-[2px] border border-ink/25 bg-field px-3 py-3 text-sm outline-none ring-bronze focus:ring-2"
                   />
                 </div>
                 <div className="sm:col-span-2 space-y-4 border-t border-ink/10 pt-5">
@@ -574,7 +588,7 @@ export function EstimateForm() {
       </AnimatePresence>
 
       {status === "error" ? (
-        <p className="mt-4 text-sm font-medium text-red-800" role="alert">
+        <p className="mt-4 text-sm font-medium text-error" role="alert">
           {errorMsg || "Something went wrong. Please call us or try again."}
         </p>
       ) : null}
@@ -591,10 +605,9 @@ export function EstimateForm() {
         {step < 4 ? (
           <Button
             type="button"
-            variant="primary"
+            variant="dark"
             disabled={!canContinue()}
             onClick={() => setStep((s) => (s < 4 ? ((s + 1) as Step) : s))}
-            className="!bg-ink !text-parchment hover:!bg-ink-mid"
           >
             Continue
           </Button>

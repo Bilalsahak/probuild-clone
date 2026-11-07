@@ -75,14 +75,13 @@ export const photos: Photo[] = [
   p("laminate", "laminate12.webp", 598, 1280, "Entry hallway toward a glass-paneled door with laminate in place and a vacuum cleaner and debris on the floor.", "Hallway with cleanup still under way"),
 
   // Paint gallery: general project photos (owner request). They are NOT necessarily paint work,
-  // and no location, date or "completed" claim is made.
+  // and no location, date or "completed" claim is made. The paving-stones and deck shots that
+  // used to sit here were removed in the design-fixes PR rather than shown as paint work.
+  // No paint-specific photos exist yet — Bill to supply them.
   p("paint", "project-1.webp", 2752, 1536, "Bathroom with a freestanding white tub, glass shower enclosure, double vanity with round mirrors, and dark large-format floor tile.", "Project photo"),
   p("paint", "project-2.webp", 1250, 584, "Wide view of a house with blue lap siding and a wood deck with outdoor furniture and potted plants.", "Project photo"),
   p("paint", "project-3.webp", 667, 889, "Bathtub alcove with white marble-pattern tile on the walls and a shower curtain pulled aside.", "Project photo"),
-  p("paint", "project-4.webp", 598, 1280, "People laying large paving stones for a patio beside a swimming pool.", "Project photo"),
   p("paint", "project-5.webp", 1280, 960, "Kitchen with a white island, white countertop and wood-look flooring beside white cabinets and a stainless refrigerator.", "Project photo"),
-  p("paint", "project-6.webp", 389, 833, "Overhead view of a gray wood-grain deck beside a house with light yellow siding, a white railing and planters.", "Project photo"),
-  p("paint", "project-7.webp", 1280, 960, "Wood deck at night with a white railing, black balusters and lit post caps.", "Project photo"),
 
   // Drywall
   p("drywall", "drywall.webp", 831, 1600, "Room with drywall taped and mudded, floor covered in protective paper with blue tape, and a trowel on the floor.", "Taped and mudded walls"),
@@ -95,12 +94,14 @@ export const photos: Photo[] = [
 ];
 
 /**
- * Shown wherever photos appear. The owner confirmed the photos are real work by members of
- * his crew, taken from his camera roll; the crew has also worked in other states, so we do
- * not say where or when any photo was taken.
+ * Shown once, as a small footnote under the /projects/ gallery — not as a
+ * heading body on every gallery section. All photos are real work by members
+ * of our crew, from real jobs; Seattle is a new branch, so most of these are
+ * from jobs before the Seattle branch, in other states. We never claim a
+ * photo is a Seattle job, and locations and dates are not listed.
  */
 export const PHOTO_NOTE =
-  "Photos of work by members of our crew. Not all are Seattle MasterFix or Washington projects. Locations and dates are not listed.";
+  "Photos of real work by members of our crew, including jobs from before our Seattle branch, in other states. Locations and dates are not listed.";
 
 export function photosFor(trade: ServiceSlug): Photo[] {
   return photos.filter((x) => x.trade === trade);

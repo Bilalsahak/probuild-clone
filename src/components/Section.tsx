@@ -23,7 +23,7 @@ export function Eyebrow({
 }) {
   return (
     <p
-      className={`inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.28em] ${
+      className={`inline-flex items-center gap-3 text-eyebrow font-semibold uppercase tracking-[0.28em] ${
         light ? "text-bronze-light" : "text-bronze-deep"
       }`}
     >
@@ -62,7 +62,7 @@ export function SectionHeading({
       {body ? (
         <p
           className={`mt-5 max-w-2xl text-base leading-relaxed md:text-lg ${
-            light ? "text-parchment/80" : "text-charcoal/85"
+            light ? "text-parchment/85" : "text-charcoal/85"
           }`}
         >
           {body}

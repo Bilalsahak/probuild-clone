@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
 import { nav, site } from "@/config/site";
 import { easeCraft } from "@/components/motion/Reveal";
 
@@ -49,12 +50,6 @@ export function Header() {
       }}
       transition={{ duration: 0.35, ease: easeCraft }}
     >
-      {!scrolled && !open ? (
-        <p className="mx-auto mb-2 hidden max-w-7xl px-5 text-[11px] leading-snug tracking-wide text-parchment/80 lg:block lg:px-8">
-          {site.registeredName} · WA Contractor Registration No. {site.registrationNo} · UBI{" "}
-          {site.ubi} · {site.phone}
-        </p>
-      ) : null}
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 lg:px-8">
         <Link href="/" className="relative z-10 flex shrink-0 items-center" aria-label={`${site.shortName}, home`}>
           <Image
@@ -80,7 +75,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`relative rounded-[2px] px-3.5 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors ${
+                className={`relative rounded-[2px] px-3.5 py-2 text-eyebrow font-semibold uppercase tracking-[0.16em] transition-colors ${
                   active ? "text-bronze-light" : "text-white/85 hover:text-white"
                 }`}
               >
@@ -104,12 +99,7 @@ export function Header() {
           >
             {site.phone}
           </a>
-          <Link
-            href="/contact/"
-            className="rounded-[2px] bg-bronze px-4 py-2.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink transition hover:bg-bronze-light"
-          >
-            Start project
-          </Link>
+          <Button href="/contact/">Start project</Button>
         </div>
 
         <button
@@ -151,6 +141,12 @@ export function Header() {
             className="overflow-hidden border-t border-white/10 bg-ink/95 lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-5 py-5" aria-label="Mobile">
+              <a
+                href={site.phoneHref}
+                className="rounded-[2px] px-3 py-3.5 text-sm font-semibold text-bronze-light"
+              >
+                Call {site.phone}
+              </a>
               {nav.map((item) => (
                 <Link
                   key={item.href}
@@ -161,12 +157,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <a
-                href={site.phoneHref}
-                className="mt-2 rounded-[2px] px-3 py-3.5 text-sm text-bronze-light"
-              >
-                Call {site.phone}
-              </a>
             </nav>
           </motion.div>
         ) : null}

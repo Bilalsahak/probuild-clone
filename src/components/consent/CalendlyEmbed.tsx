@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { site } from "@/config/site";
 import { useConsent } from "@/components/consent/ConsentProvider";
+import { Button } from "@/components/ui/Button";
 
 /**
  * Click-to-load Calendly.
@@ -14,16 +15,11 @@ export function CalendlyEmbed() {
   const { choices, openPreferences } = useConsent();
   const [loaded, setLoaded] = useState(false);
 
-  const linkCls =
-    "inline-flex min-h-11 items-center justify-center rounded-[2px] bg-ink px-5 text-xs font-semibold uppercase tracking-[0.14em] text-parchment hover:bg-ink-mid";
-  const ghostCls =
-    "inline-flex min-h-11 items-center justify-center rounded-[2px] border border-ink/40 px-5 text-xs font-semibold uppercase tracking-[0.14em] text-ink hover:bg-ink/5";
-
   return (
     <div>
-      <a href={site.calendly} target="_blank" rel="noopener noreferrer" className={`${linkCls} w-full`}>
+      <Button href={site.calendly} external variant="dark" className="w-full">
         Book on Calendly<span className="sr-only"> (opens in a new tab)</span>
-      </a>
+      </Button>
       <p className="mt-3 text-xs leading-relaxed text-charcoal/80">
         Opens calendly.com in a new tab. Calendly&rsquo;s own terms and privacy policy apply there.
       </p>
@@ -42,9 +38,9 @@ export function CalendlyEmbed() {
               Prefer to book without leaving this page? Loading the calendar connects your browser
               to Calendly.
             </p>
-            <button type="button" onClick={() => setLoaded(true)} className={`${ghostCls} mt-3`}>
+            <Button onClick={() => setLoaded(true)} variant="secondary" className="mt-3">
               Load calendar
-            </button>
+            </Button>
           </div>
         ) : (
           <div>
@@ -52,9 +48,9 @@ export function CalendlyEmbed() {
               The embedded calendar is off because third-party embedded content is not allowed in
               your cookie settings.
             </p>
-            <button type="button" onClick={openPreferences} className={`${ghostCls} mt-3`}>
+            <Button onClick={openPreferences} variant="secondary" className="mt-3">
               Open cookie settings
-            </button>
+            </Button>
           </div>
         )}
       </div>

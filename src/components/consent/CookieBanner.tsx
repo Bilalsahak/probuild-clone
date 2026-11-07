@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { useConsent } from "@/components/consent/ConsentProvider";
-
-const btn =
-  "inline-flex min-h-11 items-center justify-center rounded-[2px] px-5 text-xs font-semibold uppercase tracking-[0.14em] transition-colors";
+import { Button } from "@/components/ui/Button";
 
 export function CookieBanner() {
   const { acceptAll, rejectNonEssential, openPreferences } = useConsent();
@@ -12,7 +10,7 @@ export function CookieBanner() {
     <div
       role="region"
       aria-label="Cookie consent"
-      className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/20 bg-ink px-4 supports-[backdrop-filter]:bg-ink/90 supports-[backdrop-filter]:backdrop-blur-md py-5 text-parchment shadow-[0_-16px_50px_rgba(7,21,37,0.35)] md:px-8"
+      className="fixed inset-x-0 bottom-0 z-[90] border-t border-white/20 bg-ink px-4 supports-[backdrop-filter]:bg-ink/90 supports-[backdrop-filter]:backdrop-blur-md py-5 text-parchment shadow-[0_-16px_50px_rgba(20,41,63,0.35)] md:px-8"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:gap-5 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-3xl">
@@ -28,28 +26,19 @@ export function CookieBanner() {
             .
           </p>
         </div>
+        {/* All three choices are equal-weight buttons through the shared
+            Button component — Reject and Preferences are not smaller than
+            Accept. */}
         <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3">
-          <button
-            type="button"
-            onClick={acceptAll}
-            className={`${btn} col-span-2 bg-bronze text-ink hover:bg-bronze-light`}
-          >
+          <Button onClick={acceptAll} className="col-span-2 sm:col-span-1">
             Accept all
-          </button>
-          <button
-            type="button"
-            onClick={rejectNonEssential}
-            className={`${btn} border border-white/60 text-parchment hover:bg-white/10`}
-          >
+          </Button>
+          <Button onClick={rejectNonEssential} variant="ghost">
             Reject non-essential
-          </button>
-          <button
-            type="button"
-            onClick={openPreferences}
-            className={`${btn} border border-white/30 text-parchment hover:bg-white/10`}
-          >
+          </Button>
+          <Button onClick={openPreferences} variant="ghost">
             Preferences
-          </button>
+          </Button>
         </div>
       </div>
     </div>

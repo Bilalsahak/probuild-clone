@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Seattle MasterFix">
+  <rect width="512" height="512" fill="#14293F"/>
+  <!-- Bronze roofline -->
+  <path d="M64 300 L256 148 L448 300 L448 348 L256 196 L64 348 Z" fill="#D79A43"/>
+  <!-- White MF monogram -->
+  <text x="256" y="420" font-family="Georgia, 'Times New Roman', serif" font-size="150" font-weight="400" fill="#F7F0E3" text-anchor="middle">MF</text>
+</svg>

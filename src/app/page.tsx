@@ -1,8 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Container, Eyebrow, SectionHeading } from "@/components/Section";
+import { Container, Eyebrow, Hairline, SectionHeading } from "@/components/Section";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
+import { Stars } from "@/components/Stars";
+import { googleListing } from "@/content/reviews";
 import { TradeMarquee } from "@/components/ui/Marquee";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CrewFeedback } from "@/components/legal/CrewFeedback";
@@ -10,7 +12,7 @@ import { TrustLine } from "@/components/legal/TrustLine";
 import { EstimateForm } from "@/components/EstimateForm";
 import { Reviews } from "@/components/Reviews";
 import { site } from "@/config/site";
-import { PHOTO_NOTE, photoByFile } from "@/content/photos";
+import { photoByFile } from "@/content/photos";
 import { photoTradeOf, services } from "@/content/services";
 
 // Homepage hero: owner's bathroom photo from the Paint gallery set (see photos.ts, project-1).
@@ -31,7 +33,7 @@ export default function HomePage() {
             <img
               src={`${base}/images/hero/home-1600.webp`}
               srcSet={heroSrcSet}
-              sizes="(max-width: 1024px) 1600px, 100vw"
+              sizes="(max-width: 640px) 640px, (max-width: 1024px) 1024px, 1600px"
               alt={hero.alt}
               width={2400}
               height={1339}
@@ -50,11 +52,11 @@ export default function HomePage() {
           {/* No entrance animation here: the hero text is the LCP element. */}
           <div className="max-w-4xl">
             <Eyebrow light>Seattle &amp; King County · Remodeling</Eyebrow>
-            <h1 className="mt-5 font-display text-[clamp(2.4rem,8.5vw,5rem)] leading-[0.98] tracking-tight text-parchment">
+            <h1 className="mt-5 font-display text-[clamp(2.2rem,7vw,4.25rem)] leading-[0.98] tracking-tight text-parchment">
               Seattle remodeling &amp; repair contractor
             </h1>
-            <p className="mt-4 font-display text-2xl text-bronze-light md:text-3xl">
-              Built on trust. Executed with precision.
+            <p className="mt-4 font-display text-3xl text-bronze-light md:text-4xl">
+              <em>Built on trust. Executed with precision.</em>
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-parchment/90 md:text-lg">
               Siding, fencing, tile, laminate flooring, drywall, and paint for Seattle-area homes
@@ -65,21 +67,56 @@ export default function HomePage() {
               <Button href="/contact/" variant="primary">
                 Request an estimate
               </Button>
-              <Button href={site.calendly} external variant="ghost">
-                Book free estimate<span className="sr-only"> (opens Calendly in a new tab)</span>
-              </Button>
             </div>
+            <p className="mt-4 text-sm text-parchment/85">
+              Prefer to pick a time?{" "}
+              <a
+                href={site.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-bronze-light underline underline-offset-2"
+              >
+                Book a free estimate on Calendly<span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
             {/* Glass info bar (solid fallback when backdrop-filter is unsupported) */}
-            <p className="mt-8 inline-block max-w-full rounded-[2px] border border-white/25 bg-ink/80 px-4 py-3 text-[11px] uppercase leading-relaxed tracking-[0.16em] text-parchment supports-[backdrop-filter]:bg-ink/55 supports-[backdrop-filter]:backdrop-blur-md">
+            <p className="mt-8 inline-block max-w-full rounded-[2px] border border-white/25 bg-ink/80 px-4 py-3 text-eyebrow uppercase leading-relaxed tracking-[0.16em] text-parchment supports-[backdrop-filter]:bg-ink/55 supports-[backdrop-filter]:backdrop-blur-md">
               Washington-registered contractor · No. {site.registrationNo}
             </p>
           </div>
         </Container>
 
         <div aria-hidden className="absolute bottom-8 right-5 hidden text-right md:block lg:right-10">
-          <p className="text-[10px] uppercase tracking-[0.24em] text-parchment/80">Scroll</p>
+          <p className="text-micro uppercase tracking-[0.24em] text-parchment/85">Scroll</p>
           <div className="ml-auto mt-2 h-12 w-px bg-gradient-to-b from-bronze to-transparent" />
         </div>
+      </section>
+
+      {/* Dark trust strip, directly under the hero — the rating and licence
+          are visible on mobile too (the floating review badge is desktop-only). */}
+      <section className="bg-ink text-parchment" aria-label="Trust highlights">
+        <Container>
+          <ul className="flex flex-wrap items-center gap-x-8 gap-y-3 py-5 text-sm">
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="text-bronze-light">—</span>
+              Washington-registered contractor · No. {site.registrationNo}
+            </li>
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="text-bronze-light">—</span>
+              1-year labor warranty
+            </li>
+            <li className="flex items-center gap-2">
+              <Stars rating={googleListing.rating} size={14} className="text-bronze" />
+              <span>
+                {`${googleListing.rating.toFixed(1)} out of 5 · ${googleListing.reviewCount} review${googleListing.reviewCount === 1 ? "" : "s"} on Google`}
+              </span>
+            </li>
+            <li className="flex items-center gap-2">
+              <span aria-hidden className="text-bronze-light">—</span>
+              Seattle &amp; King County
+            </li>
+          </ul>
+        </Container>
       </section>
 
       <TradeMarquee items={["Bathroom remodels", "Unit turns", "Siding", "Fencing", "Tile", "Laminate flooring", "Drywall", "Paint", "Seattle", "King County"]} />
@@ -111,7 +148,7 @@ export default function HomePage() {
               { k: "03", t: "Communication", d: "Clear updates on progress, schedule and any change in conditions." },
             ].map((item) => (
               <Reveal key={item.k} className="bg-paper p-7 md:p-9">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-deep">
+                <span className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-deep">
                   {item.k}
                 </span>
                 <h3 className="mt-3 font-display text-2xl text-ink">{item.t}</h3>
@@ -165,7 +202,7 @@ export default function HomePage() {
                     className="group relative block h-full overflow-hidden rounded-[2px] bg-ink-soft ring-1 ring-white/10"
                   >
                     {photo ? (
-                      <div className="relative aspect-[5/4] overflow-hidden">
+                      <div className="relative aspect-[4/3] overflow-hidden">
                         <Image
                           src={photo.src}
                           alt={photo.alt}
@@ -178,18 +215,18 @@ export default function HomePage() {
                     ) : (
                       <div
                         aria-hidden
-                        className="flex aspect-[5/4] items-end bg-gradient-to-br from-ink-mid to-ink-soft p-5"
+                        className="flex aspect-[4/3] items-end bg-gradient-to-br from-ink-mid to-ink-soft p-5"
                       >
                         <span className="font-display text-6xl text-parchment/15">Paint</span>
                       </div>
                     )}
                     <div className={`relative px-5 pb-6 pt-2 ${photo ? "-mt-16" : ""}`}>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                      <p className="text-micro font-semibold uppercase tracking-[0.22em] text-bronze-light">
                         {s.shortName}
                       </p>
                       <h3 className="mt-2 font-display text-2xl text-parchment">{s.name}</h3>
-                      <p className="mt-2 text-sm leading-relaxed text-parchment/80">{s.summary}</p>
-                      <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-bronze-light transition group-hover:gap-3">
+                      <p className="mt-2 text-sm leading-relaxed text-parchment/85">{s.summary}</p>
+                      <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-light transition group-hover:gap-3">
                         Learn more
                         <span aria-hidden>→</span>
                       </span>
@@ -203,14 +240,14 @@ export default function HomePage() {
       </section>
 
       {/* Photo strip */}
-      <section className="bg-paper py-16 md:py-20">
+      <section className="bg-paper py-20 md:py-28">
         <Container>
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <Reveal>
               <SectionHeading
                 eyebrow="Photos"
                 title="From job sites"
-                body={PHOTO_NOTE}
+                body="A look at work by members of our crew — trade by trade."
               />
             </Reveal>
             <Reveal delay={0.1}>
@@ -243,8 +280,13 @@ export default function HomePage() {
                       className="object-cover transition duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-ink/25 transition group-hover:bg-ink/40" />
-                    <span className="absolute bottom-4 left-4 rounded-[2px] bg-ink/85 px-2 py-1 supports-[backdrop-filter]:bg-ink/65 supports-[backdrop-filter]:backdrop-blur-sm text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment">
-                      {trade}
+                    <span className="absolute inset-x-4 bottom-4 rounded-[2px] bg-ink/85 px-3 py-2 supports-[backdrop-filter]:bg-ink/65 supports-[backdrop-filter]:backdrop-blur-sm">
+                      <span className="block text-eyebrow font-semibold uppercase tracking-[0.18em] text-parchment">
+                        {trade}
+                      </span>
+                      <span className="mt-1 block text-caption leading-snug text-parchment/85">
+                        {photo.caption}
+                      </span>
                     </span>
                   </Link>
                 </StaggerItem>
@@ -254,6 +296,9 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Reviews before the ask: social proof precedes the estimate form. */}
+      <Reviews />
+
       {/* Homepage estimate form + booking */}
       <section id="estimate" className="scroll-mt-24 bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
         <Container className="grid gap-12 lg:grid-cols-12">
@@ -261,7 +306,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Free estimate"
               title="Tell us about the project"
-              body="Send a short request and we will follow up about next steps. Prefer to pick a time? Book a free estimate on Calendly."
+              body="Send a short request — we usually reply within 1 hour. Prefer to pick a time? Book a free estimate on Calendly."
             />
             <div className="mt-8 flex flex-col gap-3 min-[420px]:flex-row min-[420px]:flex-wrap">
               <Button href={site.calendly} external variant="primary">
@@ -282,13 +327,11 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <Reviews />
-
       {/* Optional, disabled by default: see README "Crew feedback" */}
       <CrewFeedback />
 
-      {/* CTA band (gradient strip eases paper into ink) */}
-      <div aria-hidden className="h-20 bg-gradient-to-b from-paper to-ink-soft md:h-28" />
+      {/* CTA band */}
+      <Hairline className="bg-ink" />
       <section className="relative overflow-hidden bg-gradient-to-b from-ink-soft to-ink py-20 text-parchment md:py-28">
         <div
           aria-hidden
@@ -322,7 +365,7 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={0.12}>
               <div className="rounded-[2px] border border-white/20 bg-ink-mid/60 p-6 supports-[backdrop-filter]:bg-white/[0.07] supports-[backdrop-filter]:backdrop-blur-md sm:p-8 md:p-10">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                <p className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                   Next step
                 </p>
                 <p className="mt-4 font-display text-3xl leading-snug text-parchment md:text-4xl">
