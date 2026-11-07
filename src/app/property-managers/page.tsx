@@ -64,7 +64,7 @@ export default function PropertyManagersPage() {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-paper to-parchment py-20 md:py-28">
+      <section className="bg-gradient-to-b from-paper to-parchment pb-12 pt-20 md:pb-16 md:pt-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="What we handle" title="Work we take on for managers and GCs" />
@@ -85,7 +85,7 @@ export default function PropertyManagersPage() {
         </Container>
       </section>
 
-      <section className="bg-gradient-to-b from-parchment to-parchment-deep py-20 md:py-28">
+      <section className="bg-gradient-to-b from-parchment to-parchment-deep pb-20 pt-12 md:pb-28 md:pt-16">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="How to start" title="Requesting a walkthrough" />
