@@ -23,7 +23,7 @@ export default function ServicesIndexPage() {
           <Reveal>
             <Eyebrow light>Services</Eyebrow>
             <h1 className="mt-4 max-w-3xl font-display text-4xl leading-[1.02] tracking-tight md:text-6xl lg:text-7xl">
-              Six trades.
+              Eight trades.
               <br />
               One crew.
             </h1>
