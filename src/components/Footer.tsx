@@ -50,6 +50,11 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="/guides/" className={link}>
+                    Cost guides
+                  </Link>
+                </li>
               </ul>
               <h2 className="mt-8 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
                 Service area
