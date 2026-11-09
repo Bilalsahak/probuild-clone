@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ProjectGallery } from "@/components/ProjectGallery";
+import { ProjectStoryBlock } from "@/components/ProjectStory";
 import { Container, Eyebrow, SectionHeading } from "@/components/Section";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { PHOTO_NOTE } from "@/content/photos";
+import { projectStories } from "@/content/projectStories";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -25,31 +27,42 @@ export default function ProjectsPage() {
               Case studies and job-site photos
             </h1>
             <p className="mt-5 max-w-2xl text-parchment/85">
-              Photos from job sites below. Case studies with real Seattle jobs — trade, scope,
-              duration, location and date — will be added here once Bill supplies them. Nothing
-              on this page is a made-up project.
+              Photos from job sites below. Featured stories use real Seattle MasterFix jobs with
+              owner-approved photos. Client names are never listed. More case studies will be
+              added as jobs finish and photos are approved.
             </p>
           </Reveal>
         </Container>
       </section>
 
-      <section className="bg-parchment py-20 md:py-28">
+      {projectStories.length > 0 ? (
+        <section className="bg-parchment py-20 md:py-28">
+          <Container>
+            <Reveal>
+              <SectionHeading eyebrow="Featured" title="Recent work" />
+            </Reveal>
+            <div className="mt-10 space-y-10">
+              {projectStories.map((story) => (
+                <ProjectStoryBlock key={story.id} story={story} />
+              ))}
+            </div>
+          </Container>
+        </section>
+      ) : null}
+
+      <section className="bg-parchment-deep py-20 md:py-28">
         <Container>
           <Reveal>
             <SectionHeading eyebrow="Photos" title="From job sites" />
           </Reveal>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/85">
             Filter by trade and select a photo to enlarge it. These are photos of work by
-            members of our crew; they are not labelled as Seattle MasterFix projects, and no
-            location or date is claimed for any photo.
+            members of our crew. Captions that say &ldquo;Seattle-area&rdquo; are Seattle
+            MasterFix jobs in the Seattle area; other shots are not labelled with a place.
           </p>
           <div className="mt-10">
             <ProjectGallery />
           </div>
-          {/* The photo-honesty note lives here once, as a small footnote —
-              not as a heading body on every gallery section. The case-study
-              slots (src/content/caseStudies.ts) stay hidden until Bill
-              supplies a real job; they are not shown as empty cards. */}
           <p className="mt-10 max-w-2xl text-caption leading-relaxed text-charcoal/70">
             {PHOTO_NOTE}
           </p>

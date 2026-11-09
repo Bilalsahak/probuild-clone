@@ -91,17 +91,27 @@ export const photos: Photo[] = [
   p("drywall", "drywall4.webp", 598, 1280, "Large room with joint compound over seams on walls and ceiling, a portable work light and a broom on the protected floor.", "Joint compound on walls and ceiling"),
   p("drywall", "drywall5.webp", 960, 1280, "Bright hallway with white walls, several white doors and light grey wood-look flooring laid at a diagonal.", "Finished hallway"),
   p("drywall", "drywall6.webp", 960, 1280, "Empty finished room with white walls, diagonal wood-look flooring, open doorways and a black rectangular ceiling light.", "Finished empty room"),
+
+  // Seattle-area commercial ceiling & drywall (client unnamed; after photos pending)
+  p("drywall", "ceiling-room2-before-during.webp", 2000, 559, "Side-by-side: open ceiling with joists, insulation and shop lights on the left; new drywall sheets hung on the ceiling on the right, seen through a doorway.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-room3-before-during.webp", 2000, 559, "Side-by-side: exposed ceiling joists and hanging light on the left; new ceiling drywall hung with visible screw lines on the right.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-room5-before-during.webp", 2000, 559, "Side-by-side: open ceiling with pink insulation and ductwork on the left; new drywall hung across the ceiling on the right.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-before-hallway.webp", 900, 1600, "Hallway with the ceiling removed, showing wooden joists, pink-wrapped ducts, wiring and an open cavity above.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-during-hang.webp", 1600, 900, "Overhead view of new ceiling drywall sheets fastened with an even screw pattern; a wood T-square leans on the wall.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-during-tape.webp", 1600, 900, "Ceiling seams and screw heads coated with a first coat of joint compound; kraft paper protects the wall below.", "Seattle-area commercial ceiling & drywall"),
+  p("drywall", "ceiling-during-protect.webp", 1600, 900, "Room with new ceiling drywall hung and kraft paper taped over the wall to protect finishes during the work.", "Seattle-area commercial ceiling & drywall"),
 ];
 
 /**
  * Shown once, as a small footnote under the /projects/ gallery — not as a
  * heading body on every gallery section. All photos are real work by members
- * of our crew, from real jobs; Seattle is a new branch, so most of these are
- * from jobs before the Seattle branch, in other states. We never claim a
- * photo is a Seattle job, and locations and dates are not listed.
+ * of our crew, from real jobs. Older gallery shots may be from before the
+ * Seattle branch (other states) and are not labelled with a place. Photos
+ * whose caption names "Seattle-area" are Seattle MasterFix jobs in the
+ * Seattle area; still no street address, client name, or date on the page.
  */
 export const PHOTO_NOTE =
-  "Photos of real work by members of our crew, including jobs from before our Seattle branch, in other states. Locations and dates are not listed.";
+  "Photos of real work by members of our crew. Older shots may be from before our Seattle branch, in other states, and are not labelled with a place. Captions that say \"Seattle-area\" are Seattle MasterFix jobs in the Seattle area — no street address, client name, or date is listed.";
 
 export function photosFor(trade: ServiceSlug): Photo[] {
   return photos.filter((x) => x.trade === trade);

@@ -28,7 +28,7 @@ export type Service = {
   costDrivers: string[];
   materials: string[];
   mistakes: { title: string; body: string }[];
-  process: { title: string; body: string }[];
+  process: { title: string; body: string; /** Optional file in this trade's photo folder. */ photoFile?: string }[];
   /** Extra notice blocks shown under the intro. */
   notices: ("older-home" | "fencing-811" | "permits")[];
 };
@@ -257,9 +257,21 @@ export const services: Service[] = [
       },
     ],
     process: [
-      { title: "Hang", body: "Board fastened tight to framing at the right spacing." },
-      { title: "Tape", body: "Seams and corners taped and coated to build a flat surface." },
-      { title: "Feather", body: "Additional coats widened to blend joints into the wall." },
+      {
+        title: "Hang",
+        body: "Board fastened tight to framing at the right spacing.",
+        photoFile: "ceiling-during-hang.webp",
+      },
+      {
+        title: "Tape",
+        body: "Seams and corners taped and coated to build a flat surface.",
+        photoFile: "ceiling-during-tape.webp",
+      },
+      {
+        title: "Feather",
+        body: "Additional coats widened to blend joints into the wall.",
+        photoFile: "ceiling-during-protect.webp",
+      },
       { title: "Texture and sand", body: "Sand smooth, or match the texture of existing walls." },
     ],
     notices: ["older-home", "permits"],

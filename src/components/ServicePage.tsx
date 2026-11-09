@@ -147,15 +147,31 @@ export function ServicePageView({ service }: { service: Service }) {
             <SectionHeading eyebrow="On site" title="How we typically work" />
           </Reveal>
           <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {service.process.map((p, i) => (
-              <li key={p.title} className="relative h-full overflow-hidden rounded-[2px] bg-parchment p-6">
-                <span className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
-                  Step {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-3 font-display text-xl text-ink">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{p.body}</p>
+            {service.process.map((p, i) => {
+              const stepPhoto = p.photoFile ? photoByFile(trade, p.photoFile) : undefined;
+              return (
+              <li key={p.title} className="relative flex h-full flex-col overflow-hidden rounded-[2px] bg-parchment">
+                {stepPhoto ? (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-ink/5">
+                    <Image
+                      src={stepPhoto.src}
+                      alt={stepPhoto.alt}
+                      fill
+                      sizes="(max-width:768px) 100vw, 25vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="flex flex-1 flex-col p-6">
+                  <span className="text-eyebrow font-semibold uppercase tracking-[0.2em] text-bronze-deep">
+                    Step {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-3 font-display text-xl text-ink">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{p.body}</p>
+                </div>
               </li>
-            ))}
+              );
+            })}
           </ol>
         </Container>
       </section>
