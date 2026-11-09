@@ -55,8 +55,23 @@ export function GuidePageView({ guide }: { guide: Guide }) {
       "@type": "Offer",
       url: pageUrl,
       priceCurrency: "USD",
-      description:
-        "Public 2025–26 planning estimates from cited sources — not a MasterFix fixed quote. Request a written estimate for your property.",
+      description: guide.mfLabel,
+      priceSpecification: [
+        {
+          "@type": "UnitPriceSpecification",
+          priceType: "https://schema.org/MinimumPrice",
+          price: guide.mfStarting,
+          priceCurrency: "USD",
+          name: "Starting (MasterFix planning)",
+        },
+        {
+          "@type": "UnitPriceSpecification",
+          priceType: "https://schema.org/RegularPrice",
+          price: guide.mfTypical,
+          priceCurrency: "USD",
+          name: "Typical (MasterFix planning)",
+        },
+      ],
     },
   };
 
@@ -73,10 +88,9 @@ export function GuidePageView({ guide }: { guide: Guide }) {
               {guide.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-parchment/85">
-              Public 2025–26 planning estimates for homeowners and property managers in{" "}
-              {site.serviceArea}. These figures describe published report scopes —{" "}
-              <strong className="font-semibold text-parchment">not a MasterFix quote</strong>.
-              Every job is priced as one written project estimate for the agreed scope.
+              Seattle MasterFix project ranges for {site.serviceArea}, shown next to cited public
+              market benchmarks. Every job is priced as one written project estimate for the agreed
+              scope after a free on-site visit.
             </p>
           </Reveal>
         </Container>
@@ -111,20 +125,93 @@ export function GuidePageView({ guide }: { guide: Guide }) {
         <Container className="grid gap-12 lg:grid-cols-12">
           <Reveal className="lg:col-span-7">
             <SectionHeading
-              eyebrow="Planning ranges"
-              title="Public 2025–26 estimates"
-              body="Cited market benchmarks for budgeting — not Seattle MasterFix's price list."
+              eyebrow="MasterFix ranges"
+              title="Our project planning bands"
+              body={guide.mfLabel}
             />
-            <p className="mt-4 rounded-[2px] border border-bronze/30 bg-parchment px-4 py-3 text-sm text-charcoal/90">
-              Public 2025–26 estimates, not a MasterFix quote. Sources are linked below. Washington
-              sales tax may apply on a signed contract.
+            <p className="mt-4 rounded-[2px] border border-bronze/30 bg-parchment px-4 py-3 text-sm font-medium text-charcoal/90">
+              {guide.mfLabel}
             </p>
-            <div className="mt-8 overflow-hidden rounded-[2px] border border-ink/10 bg-paper">
+            <div className="mt-6 overflow-hidden rounded-[2px] border border-ink/10 bg-paper">
               <table className="w-full text-left text-sm">
                 <thead className="bg-ink text-parchment">
                   <tr>
                     <th className="px-4 py-3 font-semibold">Band</th>
-                    <th className="px-4 py-3 font-semibold">Amount</th>
+                    <th className="px-4 py-3 font-semibold">MasterFix</th>
+                    <th className="px-4 py-3 font-semibold">Notes</th>
+                  </tr>
+                </thead>
+                <tbody className="text-charcoal/90">
+                  <tr className="border-t border-ink/10">
+                    <td className="px-4 py-3">Starting at</td>
+                    <td className="px-4 py-3 font-semibold">
+                      {formatGuideMoney(guide.mfStarting)}
+                      <span className="ml-1 font-normal text-charcoal/60">/{guide.unit}</span>
+                    </td>
+                    <td className="px-4 py-3">Entry scopes</td>
+                  </tr>
+                  <tr className="border-t border-ink/10 bg-parchment/60">
+                    <td className="px-4 py-3">Typical</td>
+                    <td className="px-4 py-3 font-semibold">
+                      {formatGuideMoney(guide.mfTypical)}
+                      <span className="ml-1 font-normal text-charcoal/60">/{guide.unit}</span>
+                    </td>
+                    <td className="px-4 py-3">Most common mid scopes</td>
+                  </tr>
+                  <tr className="border-t border-ink/10">
+                    <td className="px-4 py-3">High planning</td>
+                    <td className="px-4 py-3 font-semibold">
+                      {formatGuideMoney(guide.mfHigh)}
+                      <span className="ml-1 font-normal text-charcoal/60">/{guide.unit}</span>
+                    </td>
+                    <td className="px-4 py-3">Complex or premium scopes</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-charcoal/85">{guide.mfNote}</p>
+            {guide.timelineWeeks ? (
+              <p className="mt-3 text-sm leading-relaxed text-charcoal/85">
+                <strong className="font-semibold text-ink">Typical timeline:</strong>{" "}
+                {guide.timelineWeeks}
+              </p>
+            ) : null}
+            {guide.packages?.length ? (
+              <div className="mt-6 overflow-hidden rounded-[2px] border border-ink/10 bg-paper">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-ink-soft text-parchment">
+                    <tr>
+                      <th className="px-4 py-3 font-semibold">Package</th>
+                      <th className="px-4 py-3 font-semibold">Starting</th>
+                      <th className="px-4 py-3 font-semibold">Typical</th>
+                      <th className="px-4 py-3 font-semibold">Turnaround</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-charcoal/90">
+                    {guide.packages.map((pkg) => (
+                      <tr key={pkg.name} className="border-t border-ink/10">
+                        <td className="px-4 py-3">{pkg.name}</td>
+                        <td className="px-4 py-3 font-semibold">{formatGuideMoney(pkg.starting)}</td>
+                        <td className="px-4 py-3 font-semibold">{formatGuideMoney(pkg.typical)}</td>
+                        <td className="px-4 py-3">{pkg.days}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            ) : null}
+
+            <h3 className="mt-12 font-display text-2xl text-ink">Public Seattle market ranges</h3>
+            <p className="mt-3 rounded-[2px] border border-ink/10 bg-paper px-4 py-3 text-sm text-charcoal/90">
+              Public 2025–26 estimates from cited sources — shown for comparison, not as a MasterFix
+              quote. Sources are linked below. Washington sales tax may apply on a signed contract.
+            </p>
+            <div className="mt-6 overflow-hidden rounded-[2px] border border-ink/10 bg-paper">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-ink text-parchment">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">Band</th>
+                    <th className="px-4 py-3 font-semibold">Market</th>
                     <th className="px-4 py-3 font-semibold">What it represents</th>
                   </tr>
                 </thead>

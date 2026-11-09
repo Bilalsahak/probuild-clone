@@ -1,10 +1,17 @@
 /**
  * Cost-guide hub pages for local SEO.
- * Price bands are public-source planning estimates (e.g. Cost vs. Value 2025 Seattle),
- * clearly labeled — never MasterFix fixed quotes.
+ * Market bands = cited public estimates.
+ * mf* = Seattle MasterFix project ranges (labeled on page; final after free on-site estimate).
  */
 
 export type GuideSlug = "kitchen-remodel-cost-seattle" | "bathroom-remodel-cost-seattle" | "bathroom-remodel-ballard" | "adu-cost-seattle" | "adu-builder-ballard" | "basement-finishing-cost-seattle" | "siding-replacement-cost-seattle" | "fence-installation-cost-seattle" | "laminate-flooring-cost-seattle" | "drywall-repair-cost-seattle" | "seismic-retrofit-king-county" | "tile-installation-cost-seattle" | "interior-painting-cost-seattle" | "deck-addition-cost-seattle" | "unit-turn-cost-seattle";
+
+export type GuidePackage = {
+  name: string;
+  starting: number;
+  typical: number;
+  days: string;
+};
 
 export type Guide = {
   slug: GuideSlug;
@@ -27,16 +34,24 @@ export type Guide = {
   faqs: { q: string; a: string }[];
   photoSlots: string[];
   sources: string[];
+  mfLabel: string;
+  mfStarting: number;
+  mfTypical: number;
+  mfHigh: number;
+  mfNote: string;
+  marketMid: number;
+  pctBelowMid: number;
+  timelineWeeks?: string;
+  packages?: GuidePackage[];
 };
 
-export const guides: Guide[] = 
-[
+export const guides: Guide[] = [
   {
     "slug": "kitchen-remodel-cost-seattle",
     "keyword": "kitchen remodel cost Seattle 2026",
     "title": "Kitchen remodel cost Seattle 2026",
     "seoTitle": "Kitchen remodel cost Seattle 2026 | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for kitchen remodel cost Seattle 2026 in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for kitchen remodel cost Seattle 2026 in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/",
     "relatedServices": [
       "/services/tile/",
@@ -48,10 +63,10 @@ export const guides: Guide[] =
     "low": 32271,
     "typical": 95542,
     "high": 188401,
-    "lowLabel": "Minor midrange (CvV 2025 Seattle)",
-    "typicalLabel": "Major midrange (CvV 2025 Seattle)",
-    "highLabel": "Upscale (CvV 2025 Seattle)",
-    "notes": "CvV defined scopes, not quotes. Seattle sales tax ~10.55% may apply on top (WA DOR / FairHomeCost).",
+    "lowLabel": "Minor midrange (Cost vs. Value 2025 Seattle)",
+    "typicalLabel": "Major midrange (Cost vs. Value 2025 Seattle)",
+    "highLabel": "Upscale (Cost vs. Value 2025 Seattle)",
+    "notes": "Market bands from Cost vs. Value 2025 Seattle (JLC/Zonda), also cited on FairHomeCost. Angi Seattle kitchen renovation guide lists about $16,200\u2013$45,000 for many kitchen projects (often lighter scopes).",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -60,6 +75,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for kitchen remodel cost Seattle 2026?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $28,500, typical about $84,000, high planning band about $165,500. Public Seattle market midpoint used for comparison is about $95,542. Competitive GC kitchen ranges for Seattle & King County. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does a kitchen remodel cost in Seattle in 2026?",
         "a": "The 2025 Cost vs. Value Report (JLC/Zonda) puts a minor midrange kitchen remodel in Seattle at about $32,271, a major midrange at about $95,542, and an upscale remodel at about $188,401. These are modeled scopes, not bids. Real quotes depend on size, cabinets, layout changes, and sales tax."
@@ -80,16 +99,24 @@ export const guides: Guide[] =
       "crew at work"
     ],
     "sources": [
-      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794",
-      "https://fairhomecost.com/seattle/kitchen-remodel-cost/"
-    ]
+      "https://fairhomecost.com/seattle/kitchen-remodel-cost/",
+      "https://zondahome.com/2025-cost-vs-value-report/",
+      "https://www.angi.com/articles/complete-house-renovation-cost/wa/seattle"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 28500,
+    "mfTypical": 84000,
+    "mfHigh": 165500,
+    "mfNote": "Competitive GC kitchen ranges for Seattle & King County.",
+    "marketMid": 95542,
+    "pctBelowMid": 12.1
   },
   {
     "slug": "bathroom-remodel-cost-seattle",
     "keyword": "bathroom remodel cost Seattle 2026",
     "title": "Bathroom remodel cost Seattle 2026",
     "seoTitle": "Bathroom remodel cost Seattle 2026 | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for bathroom remodel cost Seattle 2026 in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for bathroom remodel cost Seattle 2026 in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/bathroom-remodels/",
     "relatedServices": [
       "/services/bathroom-remodels/",
@@ -100,10 +127,10 @@ export const guides: Guide[] =
     "low": 36146,
     "typical": 58151,
     "high": 107451,
-    "lowLabel": "Midrange bath remodel (CvV 2025 Seattle)",
-    "typicalLabel": "Universal-design bath (CvV 2025 Seattle)",
-    "highLabel": "Upscale bath remodel (CvV 2025 Seattle)",
-    "notes": "Cosmetic refreshes can land lower; layout moves and waterproofing drive cost up.",
+    "lowLabel": "Midrange bath (Cost vs. Value 2025 Seattle)",
+    "typicalLabel": "Universal-design bath (Cost vs. Value 2025 Seattle)",
+    "highLabel": "Upscale bath (Cost vs. Value 2025 Seattle)",
+    "notes": "CvV Seattle mid/universal/upscale scopes. Angi Seattle bathroom remodel average is $14,779 ($3,000\u2013$38,000), mixing many smaller jobs; Angi full remodel band about $31,190\u2013$123,270.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -112,6 +139,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for bathroom remodel cost Seattle 2026?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $12,900, typical about $31,800, high planning band about $94,500. Public Seattle market midpoint used for comparison is about $36,146. Starting suits partial/cosmetic; typical targets midrange full remodel scopes. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does a bathroom remodel cost in Seattle?",
         "a": "Per Cost vs. Value 2025 Seattle figures, a midrange bath remodel averages about $36,146, a universal-design bath about $58,151, and an upscale remodel about $107,451. These are report scopes \u2014 your quote will differ."
@@ -128,15 +159,24 @@ export const guides: Guide[] =
       "sliding glass shower door if available"
     ],
     "sources": [
+      "https://www.angi.com/articles/how-much-does-bathroom-remodel-cost/wa/seattle",
+      "https://zondahome.com/2025-cost-vs-value-report/",
       "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 12900,
+    "mfTypical": 31800,
+    "mfHigh": 94500,
+    "mfNote": "Starting suits partial/cosmetic; typical targets midrange full remodel scopes.",
+    "marketMid": 36146,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "bathroom-remodel-ballard",
     "keyword": "bathroom remodel Ballard",
     "title": "Bathroom remodel Ballard",
     "seoTitle": "Bathroom remodel Ballard | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for bathroom remodel Ballard in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for bathroom remodel Ballard in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/bathroom-remodels/",
     "relatedServices": [
       "/services/bathroom-remodels/",
@@ -147,10 +187,10 @@ export const guides: Guide[] =
     "low": 36146,
     "typical": 50000,
     "high": 107451,
-    "lowLabel": "CvV midrange Seattle (proxy)",
-    "typicalLabel": "Planning mid (between midrange & universal)",
-    "highLabel": "CvV upscale Seattle (proxy)",
-    "notes": "No Ballard-only public CvV split; use Seattle market figures as planning baseline.",
+    "lowLabel": "CvV midrange Seattle (Ballard proxy)",
+    "typicalLabel": "Planning mid between CvV midrange and universal (Seattle market)",
+    "highLabel": "CvV upscale Seattle (Ballard proxy)",
+    "notes": "No Ballard-only CvV split; Seattle market figures used. Angi Seattle average $14,779 for mixed scopes.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -159,6 +199,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for bathroom remodel Ballard?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $12,900, typical about $37,900, high planning band about $94,500. Public Seattle market midpoint used for comparison is about $43,073. Ballard Craftsman plumbing and tile often land near the typical band. Final price is after a free on-site estimate."
+      },
       {
         "q": "Who remodeled bathrooms in Ballard?",
         "a": "Seattle MasterFix Precision Craftsmanship is a Ballard-based WA-registered contractor (SEATTMP744NL) offering bathroom remodels and related tile work for Seattle & King County."
@@ -170,6 +214,10 @@ export const guides: Guide[] =
       {
         "q": "Do Ballard homes need special permits?",
         "a": "Ballard is inside Seattle city limits, so SDCI rules apply (building/electrical/plumbing as needed). Historic Landmark District parcels near Ballard Avenue may have extra design constraints \u2014 check SDCI before you demolish."
+      },
+      {
+        "q": "How long does a typical Ballard bathroom remodel take with MasterFix?",
+        "a": "Typical Seattle MasterFix Ballard bathroom timeline: 2\u20134 weeks on site after materials arrive (written contract sets the schedule). Permit reviews and long-lead materials can extend the calendar."
       }
     ],
     "photoSlots": [
@@ -178,15 +226,24 @@ export const guides: Guide[] =
       "older-home plumbing access"
     ],
     "sources": [
-      "https://www.unitedsignature.com/seattle-remodel-permit-checklist-building-electrical-plumbing-and-mechanical-permits-by-project-type/"
-    ]
+      "https://www.angi.com/articles/how-much-does-bathroom-remodel-cost/wa/seattle",
+      "https://zondahome.com/2025-cost-vs-value-report/"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 12900,
+    "mfTypical": 37900,
+    "mfHigh": 94500,
+    "mfNote": "Ballard Craftsman plumbing and tile often land near the typical band.",
+    "marketMid": 43073,
+    "pctBelowMid": 12.0,
+    "timelineWeeks": "2\u20134 weeks on site after materials arrive (written contract sets the schedule)"
   },
   {
     "slug": "adu-cost-seattle",
     "keyword": "ADU cost Seattle 2026",
     "title": "ADU cost Seattle 2026",
     "seoTitle": "ADU cost Seattle 2026 | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for ADU cost Seattle 2026 in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for ADU cost Seattle 2026 in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/",
     "relatedServices": [
       "/services/drywall/",
@@ -196,13 +253,13 @@ export const guides: Guide[] =
     ],
     "fitsCore": "Yes \u2014 full general contracting for ADU / DADU projects.",
     "unit": "project",
-    "low": 150000,
+    "low": 123069,
     "typical": 210944,
     "high": 350000,
-    "lowLabel": "Lower planning band",
-    "typicalLabel": "CvV 2025 Seattle Accessory Dwelling Unit",
-    "highLabel": "Larger / custom DADU planning band",
-    "notes": "CvV models one defined ADU scope. Pre-approved DADU plans can speed SDCI review (SDCI/OPCD ADUniverse).",
+    "lowLabel": "Seattle attached-ADU permit median 2023\u20132025 (city estimated project cost)",
+    "typicalLabel": "Cost vs. Value 2025 Seattle Accessory Dwelling Unit",
+    "highLabel": "Larger / custom DADU planning band (local ADU cost guides)",
+    "notes": "Seattle open-data DADU 2025 median estimated cost $196,326; AADU 2023\u20132025 median $123,069. CvV Seattle ADU $210,944.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -211,6 +268,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for ADU cost Seattle 2026?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $108,500, typical about $185,500, high planning band about $308,000. Public Seattle market midpoint used for comparison is about $210,944. Starting aligns with simpler attached/conversion scopes; typical near DADU mid less about 12%. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does an ADU cost in Seattle?",
         "a": "Cost vs. Value 2025 lists a Seattle Accessory Dwelling Unit at about $210,944 typical job cost with ~32.3% cost recouped at resale. Actual AADU/DADU prices vary widely by size, site work, and finish level."
@@ -231,16 +292,24 @@ export const guides: Guide[] =
       "exterior siding detail"
     ],
     "sources": [
-      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794",
-      "https://seattle.gov/construction-and-inspections/permits/common-projects/accessory-dwelling-units"
-    ]
+      "https://adunorth.com/seattle-adu-cost/",
+      "https://seattle.gov/construction-and-inspections/permits/common-projects/accessory-dwelling-units",
+      "https://zondahome.com/2025-cost-vs-value-report/"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 108500,
+    "mfTypical": 185500,
+    "mfHigh": 308000,
+    "mfNote": "Starting aligns with simpler attached/conversion scopes; typical near DADU mid less about 12%.",
+    "marketMid": 210944,
+    "pctBelowMid": 12.1
   },
   {
     "slug": "adu-builder-ballard",
     "keyword": "ADU builder Ballard",
     "title": "ADU builder Ballard",
     "seoTitle": "ADU builder Ballard | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for ADU builder Ballard in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for ADU builder Ballard in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/service-area/ballard/",
     "relatedServices": [
       "/service-area/ballard/",
@@ -248,13 +317,13 @@ export const guides: Guide[] =
     ],
     "fitsCore": "Yes \u2014 full general contracting for Ballard ADU / DADU projects.",
     "unit": "project",
-    "low": 150000,
+    "low": 123069,
     "typical": 210944,
     "high": 350000,
-    "lowLabel": "Planning low",
-    "typicalLabel": "CvV 2025 Seattle ADU",
-    "highLabel": "Planning high",
-    "notes": "Ballard often has compact lots; setbacks, lot coverage, and alley access matter.",
+    "lowLabel": "Seattle AADU permit median (Ballard uses city figures)",
+    "typicalLabel": "Cost vs. Value 2025 Seattle ADU",
+    "highLabel": "Larger / custom DADU planning band",
+    "notes": "Same Seattle market sources; Ballard lots often add access and setback complexity.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -263,6 +332,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for ADU builder Ballard?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $108,500, typical about $185,500, high planning band about $308,000. Public Seattle market midpoint used for comparison is about $210,944. Ballard DADU/AADU full GC ranges. Final price is after a free on-site estimate."
+      },
       {
         "q": "Who builds ADUs in Ballard?",
         "a": "Seattle MasterFix Precision Craftsmanship is a Ballard-based WA-registered general contractor (SEATTMP744NL, 5415 6th Ave NW) that provides full general contracting for ADU / DADU projects in Ballard and across Seattle & King County."
@@ -282,16 +355,24 @@ export const guides: Guide[] =
       "interior finish"
     ],
     "sources": [
-      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794",
-      "https://seattle.gov/construction-and-inspections/permits/common-projects/accessory-dwelling-units"
-    ]
+      "https://adunorth.com/seattle-adu-cost/",
+      "https://seattle.gov/construction-and-inspections/permits/common-projects/accessory-dwelling-units",
+      "https://zondahome.com/2025-cost-vs-value-report/"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 108500,
+    "mfTypical": 185500,
+    "mfHigh": 308000,
+    "mfNote": "Ballard DADU/AADU full GC ranges.",
+    "marketMid": 210944,
+    "pctBelowMid": 12.1
   },
   {
     "slug": "basement-finishing-cost-seattle",
     "keyword": "basement finishing Seattle cost",
     "title": "Basement finishing Seattle cost",
     "seoTitle": "Basement finishing Seattle cost | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for basement finishing Seattle cost in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for basement finishing Seattle cost in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/",
     "relatedServices": [
       "/services/drywall/",
@@ -304,10 +385,10 @@ export const guides: Guide[] =
     "low": 45000,
     "typical": 68358,
     "high": 120000,
-    "lowLabel": "Smaller finish planning band",
-    "typicalLabel": "CvV 2025 Seattle Basement Remodel",
-    "highLabel": "Guest suite / higher finish",
-    "notes": "CvV basement remodel ~$68,358 Seattle, ~68% cost recouped. Moisture and egress drive real scopes.",
+    "lowLabel": "Smaller finish planning band (below CvV Seattle basement remodel)",
+    "typicalLabel": "Cost vs. Value 2025 Seattle Basement Remodel",
+    "highLabel": "Guest-suite / higher-finish planning band",
+    "notes": "CvV Seattle basement remodel $68,358. Angi Seattle basement renovation guide lists about $13,400\u2013$38,900 for many renovation scopes (often lighter than a full finish).",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -316,6 +397,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for basement finishing Seattle cost?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $39,500, typical about $60,150, high planning band about $105,500. Public Seattle market midpoint used for comparison is about $68,358. Moisture and egress work can push above typical. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does basement finishing cost in Seattle?",
         "a": "Cost vs. Value 2025 lists a Seattle basement remodel at about $68,358 typical job cost with ~68% estimated cost recouped. Waterproofing, ceiling height, and egress can move the number a lot."
@@ -336,15 +421,24 @@ export const guides: Guide[] =
       "egress window if any"
     ],
     "sources": [
+      "https://zondahome.com/2025-cost-vs-value-report/",
+      "https://www.angi.com/articles/complete-house-renovation-cost/wa/seattle",
       "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 39500,
+    "mfTypical": 60150,
+    "mfHigh": 105500,
+    "mfNote": "Moisture and egress work can push above typical.",
+    "marketMid": 68358,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "siding-replacement-cost-seattle",
     "keyword": "siding replacement cost Seattle",
     "title": "Siding replacement cost Seattle",
     "seoTitle": "Siding replacement cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for siding replacement cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for siding replacement cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/siding/",
     "relatedServices": [
       "/services/siding/",
@@ -352,13 +446,13 @@ export const guides: Guide[] =
     ],
     "fitsCore": "Yes \u2014 /services/siding/",
     "unit": "project",
-    "low": 25656,
-    "typical": 29743,
-    "high": 55000,
-    "lowLabel": "CvV vinyl siding replacement Seattle",
-    "typicalLabel": "CvV fiber-cement siding replacement Seattle",
-    "highLabel": "Larger / complex elevations",
-    "notes": "CvV models whole-house defined scopes. Real $/sf and stories vary.",
+    "low": 12393,
+    "typical": 20370,
+    "high": 50000,
+    "lowLabel": "Angi Seattle fiber-cement install range low",
+    "typicalLabel": "Angi Seattle fiber-cement install average",
+    "highLabel": "Larger / multi-story / complex elevations (local planning high)",
+    "notes": "Angi Seattle fiber-cement average $20,370 ($12,393\u2013$30,160). Angi Seattle siding replacement average $17,867. Cost vs. Value 2025 Seattle fiber-cement replacement scope $29,743.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -367,6 +461,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for siding replacement cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $11,200, typical about $17,900, high planning band about $44,000. Public Seattle market midpoint used for comparison is about $20,370. Typical targets fiber-cement whole-house mid scopes; high end for complex elevations. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does siding replacement cost in Seattle?",
         "a": "Cost vs. Value 2025 Seattle lists about $25,656 for a vinyl siding replacement scope and about $29,743 for fiber-cement. Larger homes, stories, and repair of sheathing change the bid."
@@ -387,15 +485,24 @@ export const guides: Guide[] =
       "paint/finish"
     ],
     "sources": [
-      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
-    ]
+      "https://www.angi.com/articles/how-much-does-it-cost-replace-vinyl-fiber-cement-siding/wa/seattle",
+      "https://www.angi.com/articles/how-much-does-siding-cost-replace/wa/seattle",
+      "https://fairhomecost.com/seattle/siding-replacement-cost/"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 11200,
+    "mfTypical": 17900,
+    "mfHigh": 44000,
+    "mfNote": "Typical targets fiber-cement whole-house mid scopes; high end for complex elevations.",
+    "marketMid": 20370,
+    "pctBelowMid": 12.1
   },
   {
     "slug": "fence-installation-cost-seattle",
     "keyword": "fence installation cost Seattle",
     "title": "Fence installation cost Seattle",
     "seoTitle": "Fence installation cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for fence installation cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for fence installation cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/fencing/",
     "relatedServices": [
       "/services/fencing/"
@@ -406,9 +513,9 @@ export const guides: Guide[] =
     "typical": 40,
     "high": 85,
     "lowLabel": "Angi Seattle low $/lf (material-dependent)",
-    "typicalLabel": "Angi Seattle average ~$40/lf",
-    "highLabel": "Premium clear cedar / complex sites (local contractor blogs)",
-    "notes": "Angi Seattle: ~$24\u2013$56/lf depending on material; cedar often $25\u2013$50/lf in mid guides; some specialty shops quote $50\u2013$85/lf for premium privacy.",
+    "typicalLabel": "Angi Seattle average about $40/lf",
+    "highLabel": "Premium clear cedar / complex sites",
+    "notes": "Angi Seattle fence guide: about $24\u2013$56/lf depending on material, average near $40/lf.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -417,6 +524,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for fence installation cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $22 / per linear foot, typical about $35 / per linear foot, high planning band about $72 / per linear foot. Public Seattle market midpoint used for comparison is about $40 / per linear foot. Cedar privacy on accessible lots often near typical; slopes and gates push higher. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does fence installation cost in Seattle?",
         "a": "Angi's Seattle fence guide (2026 data page) puts typical installed costs around $24\u2013$56 per linear foot depending on material, with an average near $40/lf. A 150-ft project often lands roughly $3,500\u2013$8,200 in that dataset."
@@ -437,16 +548,22 @@ export const guides: Guide[] =
       "Ballard/compact-lot install"
     ],
     "sources": [
-      "https://www.angi.com/articles/how-much-does-fence-installation-cost/wa/seattle",
-      "https://seattle.gov/DPD/Publications/CAM/cam312.pdf"
-    ]
+      "https://www.angi.com/articles/how-much-does-fence-installation-cost/wa/seattle"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 22,
+    "mfTypical": 35,
+    "mfHigh": 72,
+    "mfNote": "Cedar privacy on accessible lots often near typical; slopes and gates push higher.",
+    "marketMid": 40,
+    "pctBelowMid": 12.5
   },
   {
     "slug": "laminate-flooring-cost-seattle",
     "keyword": "laminate flooring cost Seattle",
     "title": "Laminate flooring cost Seattle",
     "seoTitle": "Laminate flooring cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for laminate flooring cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for laminate flooring cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/laminate/",
     "relatedServices": [
       "/services/laminate/"
@@ -456,10 +573,10 @@ export const guides: Guide[] =
     "low": 3,
     "typical": 8,
     "high": 13,
-    "lowLabel": "Installed laminate low $/sf (BB Builders Seattle 2026 guide)",
+    "lowLabel": "Installed laminate low $/sf (Seattle 2026 flooring guide)",
     "typicalLabel": "Mid installed planning $/sf",
-    "highLabel": "Installed laminate high $/sf (same guide)",
-    "notes": "BB Builders Seattle 2026: laminate $3\u2013$13 installed. Going Rate King County lists LVP/laminate complete ~$8.75\u2013$9/sf (spot check).",
+    "highLabel": "Installed laminate high $/sf",
+    "notes": "BB Builders Seattle 2026 flooring guide: laminate about $3\u2013$13/sf installed. Going Rate King County LVP/laminate complete about $8.75\u2013$9/sf.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -468,6 +585,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for laminate flooring cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $3.25 / per sq ft, typical about $7 / per sq ft, high planning band about $11.5 / per sq ft. Public Seattle market midpoint used for comparison is about $8 / per sq ft. Wet rooms may need LVP instead of laminate. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does laminate flooring cost in Seattle?",
         "a": "A 2026 Seattle flooring guide lists laminate at about $3\u2013$13 per square foot installed. Room size, tear-out, underlayment, and transitions change the total."
@@ -490,14 +611,21 @@ export const guides: Guide[] =
     "sources": [
       "https://bb-builders.pro/flooring-replacement-cost-seattle/",
       "https://goingrate.co/rates/"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 3.25,
+    "mfTypical": 7.0,
+    "mfHigh": 11.5,
+    "mfNote": "Wet rooms may need LVP instead of laminate.",
+    "marketMid": 8,
+    "pctBelowMid": 12.5
   },
   {
     "slug": "drywall-repair-cost-seattle",
     "keyword": "drywall repair cost Seattle",
     "title": "Drywall repair cost Seattle",
     "seoTitle": "Drywall repair cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for drywall repair cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for drywall repair cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/drywall/",
     "relatedServices": [
       "/services/drywall/",
@@ -511,7 +639,7 @@ export const guides: Guide[] =
     "lowLabel": "Angi Seattle repair range low",
     "typicalLabel": "Angi Seattle average repair",
     "highLabel": "Angi Seattle repair range high",
-    "notes": "Angi Seattle: repair avg $834 ($392\u2013$1,349). Install ~$1.50\u2013$4/sf. Large replacements scale differently.",
+    "notes": "Angi Seattle drywall repair average about $834 ($392\u2013$1,349). New install often $1.50\u2013$4/sf.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -520,6 +648,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for drywall repair cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $350, typical about $735, high planning band about $1,185. Public Seattle market midpoint used for comparison is about $834. Texture match and water damage drive the high band. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does drywall repair cost in Seattle?",
         "a": "Angi's Seattle drywall repair page lists an average around $834, typically $392\u2013$1,349, depending on area, texture match, and access."
@@ -542,14 +674,21 @@ export const guides: Guide[] =
     "sources": [
       "https://www.angi.com/articles/how-much-does-drywall-repair-cost-small-holes/wa/seattle",
       "https://www.angi.com/articles/what-cost-install-drywall/wa/seattle"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 350,
+    "mfTypical": 735,
+    "mfHigh": 1185,
+    "mfNote": "Texture match and water damage drive the high band.",
+    "marketMid": 834,
+    "pctBelowMid": 11.9
   },
   {
     "slug": "seismic-retrofit-king-county",
     "keyword": "seismic retrofit King County",
     "title": "Seismic retrofit King County",
     "seoTitle": "Seismic retrofit King County | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for seismic retrofit King County in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for seismic retrofit King County in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/",
     "relatedServices": [
       "/services/"
@@ -561,8 +700,8 @@ export const guides: Guide[] =
     "high": 20000,
     "lowLabel": "Bolting-only / simple crawlspace (specialty firm ranges)",
     "typicalLabel": "Typical bolting + cripple-wall bracing",
-    "highLabel": "Engineered / finished basement access",
-    "notes": "CG Engineering / Stronghome-style guides: often $7k\u2013$12k typical. Sound Seismic: $5k\u2013$12k typical; finished basements $15k\u2013$20k+. ECD: $8k\u2013$20k engineered bracing band.",
+    "highLabel": "Engineered / finished-basement access",
+    "notes": "Seattle specialty guides often $7,000\u2013$12,000 typical. Sound Seismic about $5,000\u2013$12,000 typical; finished basements higher. ECD engineered bracing often $8,000\u2013$20,000.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -571,6 +710,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for seismic retrofit King County?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $5,500, typical about $8,800, high planning band about $17,600. Public Seattle market midpoint used for comparison is about $10,000. Prescriptive plan-set homes often near typical; finished basements need the high band. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does a seismic retrofit cost in King County?",
         "a": "Specialty Seattle-area firms commonly quote about $5,000\u2013$12,000 for a typical crawlspace/unfinished-basement bolting and bracing job, and $15,000\u2013$35,000 when finished walls must be opened. Get an on-site assessment."
@@ -594,14 +737,21 @@ export const guides: Guide[] =
       "https://www.soundseismic.com/earthquake-retrofit-contractor/earthquake-proofing-information",
       "https://engineering-contracting-design.com/seismic-retrofit",
       "https://www.seattle.gov/construction-and-inspections/permits/permits-we-issue-(a-z)/earthquake-home-retrofit-permit"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 5500,
+    "mfTypical": 8800,
+    "mfHigh": 17600,
+    "mfNote": "Prescriptive plan-set homes often near typical; finished basements need the high band.",
+    "marketMid": 10000,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "tile-installation-cost-seattle",
     "keyword": "tile installation cost Seattle",
     "title": "Tile installation cost Seattle",
     "seoTitle": "Tile installation cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for tile installation cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for tile installation cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/tile/",
     "relatedServices": [
       "/services/tile/",
@@ -612,10 +762,10 @@ export const guides: Guide[] =
     "low": 12,
     "typical": 25,
     "high": 50,
-    "lowLabel": "Installed tile low $/sf (BB Builders Seattle guide)",
-    "typicalLabel": "Going Rate King County tile floor complete ~$25\u2013$26/sf",
+    "lowLabel": "Installed tile low $/sf (Seattle flooring guide)",
+    "typicalLabel": "Going Rate King County tile floor complete about $25\u2013$26/sf",
     "highLabel": "Complex porcelain / pattern work high $/sf",
-    "notes": "Labor is a large share; showers and waterproofing are separate line items from field tile.",
+    "notes": "BB Builders Seattle guide: ceramic/porcelain about $12\u2013$50/sf installed. Going Rate King County complete tile floors about $25\u2013$26/sf.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -624,6 +774,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for tile installation cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $12 / per sq ft, typical about $22 / per sq ft, high planning band about $44 / per sq ft. Public Seattle market midpoint used for comparison is about $25 / per sq ft. Shower waterproofing is usually a separate line from flat floor tile. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does tile installation cost in Seattle?",
         "a": "Seattle flooring guides put ceramic/porcelain tile roughly $12\u2013$50 per square foot installed. A King County going-rate snapshot lists complete tile floors around $25\u2013$26/sf."
@@ -646,14 +800,21 @@ export const guides: Guide[] =
     "sources": [
       "https://bb-builders.pro/flooring-replacement-cost-seattle/",
       "https://goingrate.co/rates/"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 12,
+    "mfTypical": 22,
+    "mfHigh": 44,
+    "mfNote": "Shower waterproofing is usually a separate line from flat floor tile.",
+    "marketMid": 25,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "interior-painting-cost-seattle",
     "keyword": "interior painting cost Seattle",
     "title": "Interior painting cost Seattle",
     "seoTitle": "Interior painting cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for interior painting cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for interior painting cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/paint/",
     "relatedServices": [
       "/services/paint/",
@@ -662,12 +823,12 @@ export const guides: Guide[] =
     "fitsCore": "Yes",
     "unit": "per sq ft",
     "low": 2.5,
-    "typical": 6.5,
+    "typical": 6.65,
     "high": 8.75,
     "lowLabel": "Going Rate interior walls simple repaint $/sf",
-    "typicalLabel": "Walls + ceilings + trim standard $/sf",
+    "typicalLabel": "Walls + ceilings + trim standard $/sf (Going Rate King County)",
     "highLabel": "Premium/occupied walls+ceilings+trim $/sf",
-    "notes": "Going Rate King County 2026: simple repaint $2.5\u2013$3/sf; walls+ceilings+trim $6.5\u2013$6.8/sf; premium occupied $7.67\u2013$8.75/sf.",
+    "notes": "Going Rate King County 2026: simple repaint about $2.50\u2013$3.00/sf; walls+ceilings+trim about $6.50\u2013$6.80/sf; premium occupied about $7.67\u2013$8.75/sf.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -676,6 +837,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for interior painting cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $2.4 / per sq ft, typical about $5.85 / per sq ft, high planning band about $7.7 / per sq ft. Public Seattle market midpoint used for comparison is about $6.65 / per sq ft. Lead-safe practices on pre-1978 homes can add prep time. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does interior painting cost in Seattle / King County?",
         "a": "A 2026 King County contractor-rate snapshot lists about $2.50\u2013$3.00 per sq ft for a simple interior wall repaint, and about $6.50\u2013$6.80 per sq ft when walls, ceilings, and trim are included."
@@ -696,14 +861,21 @@ export const guides: Guide[] =
     ],
     "sources": [
       "https://goingrate.co/rates/"
-    ]
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 2.4,
+    "mfTypical": 5.85,
+    "mfHigh": 7.7,
+    "mfNote": "Lead-safe practices on pre-1978 homes can add prep time.",
+    "marketMid": 6.65,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "deck-addition-cost-seattle",
     "keyword": "deck addition cost Seattle",
     "title": "Deck addition cost Seattle",
     "seoTitle": "Deck addition cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for deck addition cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for deck addition cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/",
     "relatedServices": [
       "/services/fencing/",
@@ -714,10 +886,10 @@ export const guides: Guide[] =
     "low": 20294,
     "typical": 28639,
     "high": 45000,
-    "lowLabel": "CvV wood deck addition Seattle",
-    "typicalLabel": "CvV composite deck addition Seattle",
-    "highLabel": "Larger / covered decks",
-    "notes": "CvV models defined deck additions. Height above grade affects lot coverage and yard rules (SDCI Tip 312).",
+    "lowLabel": "Cost vs. Value 2025 Seattle wood deck addition",
+    "typicalLabel": "Cost vs. Value 2025 Seattle composite deck addition",
+    "highLabel": "Larger / elevated / covered decks (local planning high)",
+    "notes": "CvV Seattle wood $20,294 / composite $28,639. Angi Seattle deck guide: about $37\u2013$74/sf; average project about $10,133 for many smaller decks.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -726,6 +898,10 @@ export const guides: Guide[] =
       "Permits, inspections, and Washington sales tax"
     ],
     "faqs": [
+      {
+        "q": "What does Seattle MasterFix typically charge for deck addition cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $9,500, typical about $25,200, high planning band about $39,600. Public Seattle market midpoint used for comparison is about $28,639. High end for elevated/complex sites; starting for smaller ground-level wood decks. Final price is after a free on-site estimate."
+      },
       {
         "q": "How much does a deck cost in Seattle?",
         "a": "Cost vs. Value 2025 Seattle lists about $20,294 for a wood deck addition scope and about $28,639 for composite, with estimated cost recouped around 83% and 80% respectively."
@@ -745,16 +921,24 @@ export const guides: Guide[] =
       "ledger flashing"
     ],
     "sources": [
-      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794",
-      "https://seattle.gov/DPD/Publications/CAM/cam312.pdf"
-    ]
+      "https://zondahome.com/2025-cost-vs-value-report/",
+      "https://www.angi.com/articles/how-much-does-it-cost-build-deck/wa/seattle",
+      "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 9500,
+    "mfTypical": 25200,
+    "mfHigh": 39600,
+    "mfNote": "High end for elevated/complex sites; starting for smaller ground-level wood decks.",
+    "marketMid": 28639,
+    "pctBelowMid": 12.0
   },
   {
     "slug": "unit-turn-cost-seattle",
     "keyword": "apartment unit turn cost Seattle",
     "title": "Apartment unit turn cost Seattle",
     "seoTitle": "Apartment unit turn cost Seattle | Seattle MasterFix",
-    "seoDescription": "Public 2025\u201326 planning ranges for apartment unit turn cost Seattle in Seattle & King County, with cited sources. WA contractor #SEATTMP744NL. Not a MasterFix quote \u2014 request a written estimate.",
+    "seoDescription": "MasterFix and public market ranges for apartment unit turn cost Seattle in Seattle & King County. WA contractor #SEATTMP744NL. Free on-site estimate.",
     "serviceLink": "/services/unit-turns/",
     "relatedServices": [
       "/services/unit-turns/",
@@ -768,7 +952,7 @@ export const guides: Guide[] =
     "lowLabel": "Basic make-ready band (multifamily GC guide)",
     "typicalLabel": "Standard refresh mid band",
     "highLabel": "Full unit remodel band",
-    "notes": "United Green Builders PM guide cites roughly $1.2k\u2013$2.5k basic, $4k\u2013$8.5k standard refresh, $12k\u2013$28k+ full remodel \u2014 treat as planning bands, not MasterFix price list. actual packages.",
+    "notes": "Industry multifamily guides often group basic make-ready about $1,200\u2013$2,500, standard refresh about $4,000\u2013$8,500, and full remodel about $12,000\u2013$28,000+.",
     "costDrivers": [
       "Scope and whether layout, plumbing, or structure changes",
       "Material grade and lead times",
@@ -778,8 +962,16 @@ export const guides: Guide[] =
     ],
     "faqs": [
       {
+        "q": "What does Seattle MasterFix typically charge for apartment unit turn cost Seattle?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $1,100 / per unit, typical about $5,700 / per unit, high planning band about $17,600 / per unit. Public Seattle market midpoint used for comparison is about $6,500 / per unit. Package days assume vacant unit and materials in hand; written estimate confirms. Final price is after a free on-site estimate."
+      },
+      {
         "q": "How much does an apartment unit turn cost in Seattle?",
         "a": "Public multifamily guides often group turns as basic make-ready (about $1,200\u2013$2,500), standard refresh (about $4,000\u2013$8,500), and full remodel ($12,000\u2013$28,000+). These are industry planning bands \u2014 request a unit-specific bid."
+      },
+      {
+        "q": "What unit-turn packages does MasterFix offer?",
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate for vacant units: Basic make-ready starting $1,100 / typical $1,600 (3\u20135 business days); Standard refresh starting $3,500 / typical $5,700 (7\u201312 business days); Full unit remodel starting $10,500 / typical $17,600 (14\u201328 business days). Scope is confirmed in a written estimate."
       }
     ],
     "photoSlots": [
@@ -791,15 +983,46 @@ export const guides: Guide[] =
     "sources": [
       "https://unitedgreenbuilders.com/property-manager-guide",
       "https://propertymanagersseattle.com/cost-of-tenant-turnover/"
+    ],
+    "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
+    "mfStarting": 1100,
+    "mfTypical": 5700,
+    "mfHigh": 17600,
+    "mfNote": "Package days assume vacant unit and materials in hand; written estimate confirms.",
+    "marketMid": 6500,
+    "pctBelowMid": 12.3,
+    "packages": [
+      {
+        "name": "Basic make-ready",
+        "starting": 1100,
+        "typical": 1600,
+        "days": "3\u20135 business days"
+      },
+      {
+        "name": "Standard refresh",
+        "starting": 3500,
+        "typical": 5700,
+        "days": "7\u201312 business days"
+      },
+      {
+        "name": "Full unit remodel",
+        "starting": 10500,
+        "typical": 17600,
+        "days": "14\u201328 business days"
+      }
     ]
   }
 ]
-;
+
 
 export function getGuide(slug: string): Guide | undefined {
   return guides.find((g) => g.slug === slug);
 }
 
 export function formatGuideMoney(n: number): string {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: Number.isInteger(n) ? 0 : 2,
+  }).format(n);
 }

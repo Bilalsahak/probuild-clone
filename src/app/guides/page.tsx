@@ -24,8 +24,8 @@ export default function GuidesIndexPage() {
               Seattle &amp; King County remodeling cost guides
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-parchment/85">
-              Public 2025–26 planning estimates with cited sources. These are market benchmarks —
-              not {site.shortName} fixed quotes. Every job is priced as a written project estimate.
+              Seattle MasterFix project ranges next to cited public market benchmarks. Label on each
+              page: typical Seattle MasterFix project ranges, final price after free on-site estimate.
             </p>
           </Reveal>
         </Container>
@@ -49,8 +49,11 @@ export default function GuidesIndexPage() {
               >
                 <h2 className="font-display text-2xl text-ink">{g.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal/85">
-                  Typical public estimate: {formatGuideMoney(g.typical)}{" "}
+                  MasterFix typical: {formatGuideMoney(g.mfTypical)}{" "}
                   <span className="text-charcoal/60">/{g.unit}</span>
+                </p>
+                <p className="mt-1 text-xs text-charcoal/60">
+                  Market midpoint ~{formatGuideMoney(g.marketMid)} (public sources)
                 </p>
                 <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-deep transition group-hover:gap-3">
                   Open guide <span aria-hidden>→</span>
