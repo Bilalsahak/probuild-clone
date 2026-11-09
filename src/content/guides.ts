@@ -77,7 +77,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for kitchen remodel cost Seattle 2026?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $24,200, typical about $71,400, high planning band about $140,700. Public Seattle market midpoint used for comparison is about $95,542. Competitive GC kitchen ranges for Seattle & King County. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $19,400, typical about $57,100, high planning band about $112,600. Public Seattle market midpoint used for comparison is about $95,542. Competitive GC kitchen ranges for Seattle & King County. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does a kitchen remodel cost in Seattle in 2026?",
@@ -104,12 +104,12 @@ export const guides: Guide[] = [
       "https://www.angi.com/articles/complete-house-renovation-cost/wa/seattle"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 24200,
-    "mfTypical": 71400,
-    "mfHigh": 140700,
+    "mfStarting": 19400,
+    "mfTypical": 57100,
+    "mfHigh": 112600,
     "mfNote": "Competitive GC kitchen ranges for Seattle & King County.",
     "marketMid": 95542,
-    "pctBelowMid": 25.3
+    "pctBelowMid": 40.2
   },
   {
     "slug": "bathroom-remodel-cost-seattle",
@@ -141,7 +141,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for bathroom remodel cost Seattle 2026?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $11,000, typical about $27,000, high planning band about $80,300. Public Seattle market midpoint used for comparison is about $36,146. Starting suits partial/cosmetic; typical targets midrange full remodel scopes. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $8,800, typical about $21,600, high planning band about $64,200. Public Seattle market midpoint used for comparison is about $36,146. Starting suits partial/cosmetic; typical targets midrange full remodel scopes. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does a bathroom remodel cost in Seattle?",
@@ -164,12 +164,12 @@ export const guides: Guide[] = [
       "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 11000,
-    "mfTypical": 27000,
-    "mfHigh": 80300,
+    "mfStarting": 8800,
+    "mfTypical": 21600,
+    "mfHigh": 64200,
     "mfNote": "Starting suits partial/cosmetic; typical targets midrange full remodel scopes.",
     "marketMid": 36146,
-    "pctBelowMid": 25.3
+    "pctBelowMid": 40.2
   },
   {
     "slug": "bathroom-remodel-ballard",
@@ -201,7 +201,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for bathroom remodel Ballard?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $11,000, typical about $32,200, high planning band about $80,300. Public Seattle market midpoint used for comparison is about $43,073. Ballard Craftsman plumbing and tile often land near the typical band. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $8,800, typical about $25,800, high planning band about $64,200. Public Seattle market midpoint used for comparison is about $43,073. Ballard Craftsman plumbing and tile often land near the typical band. Final price is after a free on-site estimate."
       },
       {
         "q": "Who remodeled bathrooms in Ballard?",
@@ -230,12 +230,12 @@ export const guides: Guide[] = [
       "https://zondahome.com/2025-cost-vs-value-report/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 11000,
-    "mfTypical": 32200,
-    "mfHigh": 80300,
+    "mfStarting": 8800,
+    "mfTypical": 25800,
+    "mfHigh": 64200,
     "mfNote": "Ballard Craftsman plumbing and tile often land near the typical band.",
     "marketMid": 43073,
-    "pctBelowMid": 25.2,
+    "pctBelowMid": 40.1,
     "timelineWeeks": "2\u20134 weeks on site after materials arrive (written contract sets the schedule)"
   },
   {
@@ -270,7 +270,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for ADU cost Seattle 2026?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $92,200, typical about $157,700, high planning band about $261,800. Public Seattle market midpoint used for comparison is about $210,944. Starting aligns with simpler attached/conversion scopes; typical near DADU mid less about 20%. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $73,800, typical about $126,200, high planning band about $209,400. Public Seattle market midpoint used for comparison is about $210,944. Starting aligns with simpler attached/conversion scopes. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does an ADU cost in Seattle?",
@@ -297,12 +297,12 @@ export const guides: Guide[] = [
       "https://zondahome.com/2025-cost-vs-value-report/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 92200,
-    "mfTypical": 157700,
-    "mfHigh": 261800,
-    "mfNote": "Starting aligns with simpler attached/conversion scopes; typical near DADU mid less about 20%.",
+    "mfStarting": 73800,
+    "mfTypical": 126200,
+    "mfHigh": 209400,
+    "mfNote": "Starting aligns with simpler attached/conversion scopes.",
     "marketMid": 210944,
-    "pctBelowMid": 25.2
+    "pctBelowMid": 40.2
   },
   {
     "slug": "adu-builder-ballard",
@@ -334,7 +334,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for ADU builder Ballard?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $92,200, typical about $157,700, high planning band about $261,800. Public Seattle market midpoint used for comparison is about $210,944. Ballard DADU/AADU full GC ranges. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $73,800, typical about $126,200, high planning band about $209,400. Public Seattle market midpoint used for comparison is about $210,944. Ballard DADU/AADU full GC ranges. Final price is after a free on-site estimate."
       },
       {
         "q": "Who builds ADUs in Ballard?",
@@ -360,12 +360,12 @@ export const guides: Guide[] = [
       "https://zondahome.com/2025-cost-vs-value-report/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 92200,
-    "mfTypical": 157700,
-    "mfHigh": 261800,
+    "mfStarting": 73800,
+    "mfTypical": 126200,
+    "mfHigh": 209400,
     "mfNote": "Ballard DADU/AADU full GC ranges.",
     "marketMid": 210944,
-    "pctBelowMid": 25.2
+    "pctBelowMid": 40.2
   },
   {
     "slug": "basement-finishing-cost-seattle",
@@ -399,7 +399,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for basement finishing Seattle cost?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $33,600, typical about $51,100, high planning band about $89,700. Public Seattle market midpoint used for comparison is about $68,358. Moisture and egress work can push above typical. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $26,900, typical about $40,900, high planning band about $71,800. Public Seattle market midpoint used for comparison is about $68,358. Moisture and egress work can push above typical. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does basement finishing cost in Seattle?",
@@ -426,12 +426,12 @@ export const guides: Guide[] = [
       "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 33600,
-    "mfTypical": 51100,
-    "mfHigh": 89700,
+    "mfStarting": 26900,
+    "mfTypical": 40900,
+    "mfHigh": 71800,
     "mfNote": "Moisture and egress work can push above typical.",
     "marketMid": 68358,
-    "pctBelowMid": 25.2
+    "pctBelowMid": 40.2
   },
   {
     "slug": "siding-replacement-cost-seattle",
@@ -463,7 +463,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for siding replacement cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $9,500, typical about $15,200, high planning band about $37,400. Public Seattle market midpoint used for comparison is about $20,370. Typical targets fiber-cement whole-house mid scopes; high end for complex elevations. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $7,600, typical about $12,200, high planning band about $29,900. Public Seattle market midpoint used for comparison is about $20,370. Typical targets fiber-cement whole-house mid scopes; high end for complex elevations. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does siding replacement cost in Seattle?",
@@ -490,12 +490,12 @@ export const guides: Guide[] = [
       "https://fairhomecost.com/seattle/siding-replacement-cost/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 9500,
-    "mfTypical": 15200,
-    "mfHigh": 37400,
+    "mfStarting": 7600,
+    "mfTypical": 12200,
+    "mfHigh": 29900,
     "mfNote": "Typical targets fiber-cement whole-house mid scopes; high end for complex elevations.",
     "marketMid": 20370,
-    "pctBelowMid": 25.4
+    "pctBelowMid": 40.1
   },
   {
     "slug": "fence-installation-cost-seattle",
@@ -526,7 +526,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for fence installation cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $19 / per linear foot, typical about $30 / per linear foot, high planning band about $61 / per linear foot. Public Seattle market midpoint used for comparison is about $40 / per linear foot. Cedar privacy on accessible lots often near typical; slopes and gates push higher. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $15.20 / per linear foot, typical about $24 / per linear foot, high planning band about $48.80 / per linear foot. Public Seattle market midpoint used for comparison is about $40 / per linear foot. Cedar privacy on accessible lots often near typical; slopes and gates push higher. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does fence installation cost in Seattle?",
@@ -551,12 +551,12 @@ export const guides: Guide[] = [
       "https://www.angi.com/articles/how-much-does-fence-installation-cost/wa/seattle"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 19,
-    "mfTypical": 30,
-    "mfHigh": 61,
+    "mfStarting": 15.2,
+    "mfTypical": 24,
+    "mfHigh": 48.8,
     "mfNote": "Cedar privacy on accessible lots often near typical; slopes and gates push higher.",
     "marketMid": 40,
-    "pctBelowMid": 25.0
+    "pctBelowMid": 40.0
   },
   {
     "slug": "laminate-flooring-cost-seattle",
@@ -587,7 +587,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for laminate flooring cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $2.75 / per sq ft, typical about $5.95 / per sq ft, high planning band about $9.80 / per sq ft. Public Seattle market midpoint used for comparison is about $8 / per sq ft. Wet rooms may need LVP instead of laminate. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $2.20 / per sq ft, typical about $4.75 / per sq ft, high planning band about $7.85 / per sq ft. Public Seattle market midpoint used for comparison is about $8 / per sq ft. Wet rooms may need LVP instead of laminate. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does laminate flooring cost in Seattle?",
@@ -613,12 +613,12 @@ export const guides: Guide[] = [
       "https://goingrate.co/rates/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 2.75,
-    "mfTypical": 5.95,
-    "mfHigh": 9.8,
+    "mfStarting": 2.2,
+    "mfTypical": 4.75,
+    "mfHigh": 7.85,
     "mfNote": "Wet rooms may need LVP instead of laminate.",
     "marketMid": 8,
-    "pctBelowMid": 25.6
+    "pctBelowMid": 40.6
   },
   {
     "slug": "drywall-repair-cost-seattle",
@@ -650,7 +650,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for drywall repair cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $300, typical about $600, high planning band about $1,000. Public Seattle market midpoint used for comparison is about $834. Texture match and water damage drive the high band. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $240, typical about $480, high planning band about $800. Public Seattle market midpoint used for comparison is about $834. Texture match and water damage drive the high band. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does drywall repair cost in Seattle?",
@@ -676,12 +676,12 @@ export const guides: Guide[] = [
       "https://www.angi.com/articles/what-cost-install-drywall/wa/seattle"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 300,
-    "mfTypical": 600,
-    "mfHigh": 1000,
+    "mfStarting": 240,
+    "mfTypical": 480,
+    "mfHigh": 800,
     "mfNote": "Texture match and water damage drive the high band.",
     "marketMid": 834,
-    "pctBelowMid": 28.1
+    "pctBelowMid": 42.4
   },
   {
     "slug": "seismic-retrofit-king-county",
@@ -712,7 +712,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for seismic retrofit King County?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $4,700, typical about $7,500, high planning band about $15,000. Public Seattle market midpoint used for comparison is about $10,000. Prescriptive plan-set homes often near typical; finished basements need the high band. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $3,760, typical about $6,000, high planning band about $12,000. Public Seattle market midpoint used for comparison is about $10,000. Prescriptive plan-set homes often near typical; finished basements need the high band. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does a seismic retrofit cost in King County?",
@@ -739,12 +739,12 @@ export const guides: Guide[] = [
       "https://www.seattle.gov/construction-and-inspections/permits/permits-we-issue-(a-z)/earthquake-home-retrofit-permit"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 4700,
-    "mfTypical": 7500,
-    "mfHigh": 15000,
+    "mfStarting": 3760,
+    "mfTypical": 6000,
+    "mfHigh": 12000,
     "mfNote": "Prescriptive plan-set homes often near typical; finished basements need the high band.",
     "marketMid": 10000,
-    "pctBelowMid": 25.0
+    "pctBelowMid": 40.0
   },
   {
     "slug": "tile-installation-cost-seattle",
@@ -776,7 +776,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for tile installation cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $10 / per sq ft, typical about $19 / per sq ft, high planning band about $37 / per sq ft. Public Seattle market midpoint used for comparison is about $25 / per sq ft. Shower waterproofing is usually a separate line from flat floor tile. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $8 / per sq ft, typical about $15.20 / per sq ft, high planning band about $29.60 / per sq ft. Public Seattle market midpoint used for comparison is about $25 / per sq ft. Shower waterproofing is usually a separate line from flat floor tile. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does tile installation cost in Seattle?",
@@ -802,12 +802,12 @@ export const guides: Guide[] = [
       "https://goingrate.co/rates/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 10,
-    "mfTypical": 19,
-    "mfHigh": 37,
+    "mfStarting": 8,
+    "mfTypical": 15.2,
+    "mfHigh": 29.6,
     "mfNote": "Shower waterproofing is usually a separate line from flat floor tile.",
     "marketMid": 25,
-    "pctBelowMid": 24.0
+    "pctBelowMid": 39.2
   },
   {
     "slug": "interior-painting-cost-seattle",
@@ -839,7 +839,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for interior painting cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $2.05 / per sq ft, typical about $4.95 / per sq ft, high planning band about $6.55 / per sq ft. Public Seattle market midpoint used for comparison is about $6.65 / per sq ft. Lead-safe practices on pre-1978 homes can add prep time. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $1.65 / per sq ft, typical about $3.95 / per sq ft, high planning band about $5.25 / per sq ft. Public Seattle market midpoint used for comparison is about $6.65 / per sq ft. Lead-safe practices on pre-1978 homes can add prep time. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does interior painting cost in Seattle / King County?",
@@ -863,12 +863,12 @@ export const guides: Guide[] = [
       "https://goingrate.co/rates/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 2.05,
-    "mfTypical": 4.95,
-    "mfHigh": 6.55,
+    "mfStarting": 1.65,
+    "mfTypical": 3.95,
+    "mfHigh": 5.25,
     "mfNote": "Lead-safe practices on pre-1978 homes can add prep time.",
     "marketMid": 6.65,
-    "pctBelowMid": 25.6
+    "pctBelowMid": 40.6
   },
   {
     "slug": "deck-addition-cost-seattle",
@@ -900,7 +900,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for deck addition cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $8,100, typical about $21,400, high planning band about $33,700. Public Seattle market midpoint used for comparison is about $28,639. High end for elevated/complex sites; starting for smaller ground-level wood decks. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $6,480, typical about $17,100, high planning band about $27,000. Public Seattle market midpoint used for comparison is about $28,639. High end for elevated/complex sites; starting for smaller ground-level wood decks. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does a deck cost in Seattle?",
@@ -926,12 +926,12 @@ export const guides: Guide[] = [
       "https://myemail.constantcontact.com/Discover-Average-Costs-for-28-Different-Types-of-Projects---Finally--Construction-Starts.html?aid=jAR0Xu2bGeY&soid=1133778892794"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 8100,
-    "mfTypical": 21400,
-    "mfHigh": 33700,
+    "mfStarting": 6480,
+    "mfTypical": 17100,
+    "mfHigh": 27000,
     "mfNote": "High end for elevated/complex sites; starting for smaller ground-level wood decks.",
     "marketMid": 28639,
-    "pctBelowMid": 25.3
+    "pctBelowMid": 40.3
   },
   {
     "slug": "unit-turn-cost-seattle",
@@ -963,7 +963,7 @@ export const guides: Guide[] = [
     "faqs": [
       {
         "q": "What does Seattle MasterFix typically charge for apartment unit turn cost Seattle?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $950 / per unit, typical about $4,850 / per unit, high planning band about $15,000 / per unit. Public Seattle market midpoint used for comparison is about $6,500 / per unit. Package days assume vacant unit and materials in hand; written estimate confirms. Final price is after a free on-site estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate: starting about $760 / per unit, typical about $3,880 / per unit, high planning band about $12,000 / per unit. Public Seattle market midpoint used for comparison is about $6,500 / per unit. Package days assume vacant unit and materials in hand; written estimate confirms. Final price is after a free on-site estimate."
       },
       {
         "q": "How much does an apartment unit turn cost in Seattle?",
@@ -971,7 +971,7 @@ export const guides: Guide[] = [
       },
       {
         "q": "What unit-turn packages does MasterFix offer?",
-        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate for vacant units: Basic make-ready starting $950 / typical $1,350 (3\u20135 business days); Standard refresh starting $3,000 / typical $4,850 (7\u201312 business days); Full unit remodel starting $8,950 / typical $15,000 (14\u201328 business days). Scope is confirmed in a written estimate."
+        "a": "Typical Seattle MasterFix project ranges, final price after free on-site estimate for vacant units: Basic make-ready starting $760 / typical $1,080 (3\u20135 business days); Standard refresh starting $2,400 / typical $3,880 (7\u201312 business days); Full unit remodel starting $7,160 / typical $12,000 (14\u201328 business days). Scope is confirmed in a written estimate."
       }
     ],
     "photoSlots": [
@@ -985,29 +985,29 @@ export const guides: Guide[] = [
       "https://propertymanagersseattle.com/cost-of-tenant-turnover/"
     ],
     "mfLabel": "Typical Seattle MasterFix project ranges, final price after free on-site estimate",
-    "mfStarting": 950,
-    "mfTypical": 4850,
-    "mfHigh": 15000,
+    "mfStarting": 760,
+    "mfTypical": 3880,
+    "mfHigh": 12000,
     "mfNote": "Package days assume vacant unit and materials in hand; written estimate confirms.",
     "marketMid": 6500,
-    "pctBelowMid": 25.4,
+    "pctBelowMid": 40.3,
     "packages": [
       {
         "name": "Basic make-ready",
-        "starting": 950,
-        "typical": 1350,
+        "starting": 760,
+        "typical": 1080,
         "days": "3\u20135 business days"
       },
       {
         "name": "Standard refresh",
-        "starting": 3000,
-        "typical": 4850,
+        "starting": 2400,
+        "typical": 3880,
         "days": "7\u201312 business days"
       },
       {
         "name": "Full unit remodel",
-        "starting": 8950,
-        "typical": 15000,
+        "starting": 7160,
+        "typical": 12000,
         "days": "14\u201328 business days"
       }
     ]
