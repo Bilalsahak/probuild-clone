@@ -8,9 +8,10 @@ import { services } from "@/content/services";
 import {
   neighbourhoodsInRegion,
   regionLabels,
-  seattleAreaFeaturedJob,
   type AreaRegion,
 } from "@/content/neighbourhoods";
+import { projectStories } from "@/content/projectStories";
+import { ProjectStoryBlock } from "@/components/ProjectStory";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -114,30 +115,22 @@ export default function ServiceAreaPage() {
       </section>
 
       <section className="bg-parchment py-20 md:py-28">
-        <Container className="grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-7">
+        <Container>
+          <Reveal>
             <SectionHeading
-              eyebrow="Seattle-area work"
-              title={seattleAreaFeaturedJob.title}
-              body={seattleAreaFeaturedJob.summary}
+              eyebrow="Recent Seattle-area work"
+              title="Commercial ceiling and drywall"
+              body="A Seattle MasterFix commercial ceiling and drywall project in the Seattle area. The client is unnamed, and no street address is listed. Photos show before and during work only. This is not a job claimed in a specific neighborhood."
             />
-            <div className="mt-8">
-              <Button href={seattleAreaFeaturedJob.href} variant="dark">
-                {seattleAreaFeaturedJob.hrefLabel}
-              </Button>
-            </div>
           </Reveal>
-          <Reveal className="lg:col-span-5" delay={0.1}>
-            <aside className="rounded-[2px] border border-ink/10 bg-paper p-7 md:p-8">
-              <h2 className="font-display text-2xl text-ink">About this project</h2>
-              <p className="mt-3 text-sm leading-relaxed text-charcoal/85">
-                This is a confirmed Seattle MasterFix job in the Seattle area. We do not name the
-                client or publish the street address. Neighborhood pages only list a local job
-                when we have one we can confirm for that place; otherwise they leave the space
-                open rather than inventing a project.
-              </p>
-            </aside>
-          </Reveal>
+          <div className="mt-10">
+            <ProjectStoryBlock story={projectStories[0]} />
+          </div>
+          <div className="mt-8">
+            <Button href="/projects/" variant="dark">
+              See all project photos
+            </Button>
+          </div>
         </Container>
       </section>
 

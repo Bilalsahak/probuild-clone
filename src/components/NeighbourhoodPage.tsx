@@ -14,8 +14,11 @@ import { googleListing } from "@/content/reviews";
 import {
   areaServedLabel,
   getNearbyNeighbourhoods,
+  neighbourhoods,
   type Neighbourhood,
 } from "@/content/neighbourhoods";
+import { ProjectStoryBlock } from "@/components/ProjectStory";
+import { recentSeattleWorkFor } from "@/content/projectStories";
 
 /** Generic cost drivers for a neighbourhood page — the same drivers the
  * service pages use. No hourly rates; every job is priced as one written
@@ -69,40 +72,10 @@ function GuideRangeCard({ guide }: { guide: Guide }) {
   );
 }
 
-function JobBlock({ neighbourhood }: { neighbourhood: Neighbourhood }) {
-  if (neighbourhood.job.status === "published") {
-    const job = neighbourhood.job;
-    return (
-      <div className="rounded-[2px] border border-ink/10 bg-parchment p-7 md:p-8">
-        <h3 className="font-display text-2xl text-ink">{job.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-charcoal/85">{job.summary}</p>
-        {job.href ? (
-          <Link
-            href={job.href}
-            className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-deep"
-          >
-            {job.hrefLabel ?? "Learn more"} <span aria-hidden>→</span>
-          </Link>
-        ) : null}
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: "<!-- TODO Bill: add a real job here -->" }} />
-      <div className="rounded-[2px] border border-dashed border-ink/20 bg-parchment/60 p-7 md:p-8">
-        <p className="text-sm leading-relaxed text-charcoal/80">
-          A project we completed in {neighbourhood.name} will go here once we have photos the
-          client has approved. We do not invent job stories for these pages.
-        </p>
-      </div>
-    </div>
-  );
-}
-
 export function NeighbourhoodPageView({ neighbourhood }: { neighbourhood: Neighbourhood }) {
   const photos = neighbourhood.photoFiles.map((f) => photoByFile(f.trade, f.file));
+  const pageIndex = neighbourhoods.findIndex((n) => n.slug === neighbourhood.slug);
+  const recentWork = recentSeattleWorkFor(neighbourhood.slug, pageIndex);
   const nearby = getNearbyNeighbourhoods(neighbourhood);
   const focusGuides = neighbourhood.focusGuides
     .map((slug) => getGuide(slug))
@@ -272,28 +245,40 @@ export function NeighbourhoodPageView({ neighbourhood }: { neighbourhood: Neighb
       </section>
 
       <section className="bg-parchment py-20 md:py-28">
-        <Container className="grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-7">
+        <Container>
+          <Reveal>
             <SectionHeading
               eyebrow="Housing in this area"
               title={`What the houses in ${neighbourhood.name} are often like`}
               body="This is general context for the neighborhood or city, not a claim about a specific property we have already worked on."
             />
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-charcoal/90">
+            <p className="mt-8 max-w-3xl text-base leading-relaxed text-charcoal/90">
               {neighbourhood.housingStock}
             </p>
           </Reveal>
-          <Reveal className="self-start lg:col-span-5" delay={0.1}>
-            <div>
-              <h2 className="font-display text-2xl text-ink">A job in {neighbourhood.name}</h2>
-              <p className="mt-2 text-sm text-charcoal/80">
-                Only real Seattle MasterFix work, with the client unnamed, goes in this space.
-              </p>
-              <div className="mt-6">
-                <JobBlock neighbourhood={neighbourhood} />
-              </div>
-            </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-20 md:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Recent Seattle-area work"
+              title="Commercial ceiling and drywall"
+              body="A Seattle MasterFix commercial ceiling and drywall project in the Seattle area. These photos are not a job in this neighborhood or city. The client is unnamed, and no street address is listed. Photos show before and during work only."
+            />
           </Reveal>
+          <div className="mt-10">
+            <ProjectStoryBlock story={recentWork} />
+          </div>
+          <p className="mt-6">
+            <Link
+              href="/projects/"
+              className="inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-deep"
+            >
+              See all project photos <span aria-hidden>→</span>
+            </Link>
+          </p>
         </Container>
       </section>
 

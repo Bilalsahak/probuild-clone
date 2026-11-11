@@ -82,3 +82,28 @@ export const projectStories: ProjectStory[] = [
     awaitingAfter: true,
   },
 ];
+
+function rotate<T>(items: T[], start: number, count: number): T[] {
+  if (!items.length || count <= 0) return [];
+  return Array.from({ length: Math.min(count, items.length) }, (_, i) => items[(start + i) % items.length]);
+}
+
+/**
+ * A varied slice of the Seattle-area commercial ceiling & drywall story for
+ * location pages. Captions stay "Seattle-area" — never a job in that town.
+ */
+export function recentSeattleWorkFor(slug: string, pageIndex: number): ProjectStory {
+  const story = projectStories[0];
+  const pairStart = pageIndex % story.pairs.length;
+  const processStart = pageIndex % story.processShots.length;
+  const processCount = 2 + (pageIndex % 2);
+  // After the 12 unique 2-pair combinations, show all three before/during
+  // pairs so later pages are not repeats of earlier ones.
+  const pairCount = pageIndex < story.pairs.length * story.processShots.length ? 2 : story.pairs.length;
+  return {
+    ...story,
+    id: `${story.id}-${slug}`,
+    pairs: rotate(story.pairs, pairStart, pairCount),
+    processShots: rotate(story.processShots, processStart, processCount),
+  };
+}

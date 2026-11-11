@@ -8,11 +8,11 @@
  *
  * Copy rules:
  * - No invented jobs, reviews, quotes, or statistics.
- * - Photos are crew work from the existing library and are never labelled as
- *   jobs in that neighbourhood.
- * - A published job block is allowed only for a confirmed Seattle MasterFix
- *   project. Otherwise the page carries an HTML comment
- *   `<!-- TODO Bill: add a real job here -->` and no fake project.
+ * - Trade-gallery photos are crew work from the existing library and are never
+ *   labelled as jobs in that neighbourhood.
+ * - Location pages also show a "Recent Seattle-area work" section using the
+ *   confirmed commercial ceiling & drywall photos, captioned as Seattle-area
+ *   work only — never as a job in that town.
  * - Edmonds, Lynnwood, Puyallup and Tacoma are intentionally omitted: they sit
  *   outside the confirmed Seattle & King County service area, and the Puyallup
  *   seismic ceiling-grid lead was not confirmed as a completed job.
@@ -44,16 +44,6 @@ export type PermitNotes = {
   extra?: { name: string; href: string }[];
 };
 
-export type LocalJob =
-  | {
-      status: "published";
-      title: string;
-      summary: string;
-      href?: string;
-      hrefLabel?: string;
-    }
-  | { status: "todo" };
-
 export type Neighbourhood = {
   slug: string;
   name: string;
@@ -72,21 +62,8 @@ export type Neighbourhood = {
   focusGuides: GuideSlug[];
   focusServices: ServiceSlug[];
   nearbySlugs: string[];
-  job: LocalJob;
   photoFiles: { trade: PhotoTrade; file: string }[];
 };
-
-/**
- * Confirmed Seattle MasterFix job, paid in full. Do not name the client or
- * publish the street address. Photos on /projects/ are before and during only.
- */
-export const seattleAreaFeaturedJob = {
-  title: "Commercial ceiling and drywall",
-  summary:
-    "A Seattle-area commercial ceiling and drywall project: open ceiling cavities were closed in with new board, then taped and mudded. Photos on the projects page show before and during work only. Finished shots will be added when we have them. The client is unnamed.",
-  href: "/projects/",
-  hrefLabel: "See project photos",
-} as const;
 
 export const neighbourhoods: Neighbourhood[] = [
   {
@@ -149,7 +126,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["paint", "siding", "bathroom-remodels", "tile", "drywall"],
     nearbySlugs: ["north-seattle", "ballard", "fremont", "wallingford", "ravenna", "shoreline"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding2.webp" },
       { trade: "fencing", file: "fencing3.webp" },
@@ -217,7 +193,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "tile", "siding", "paint", "drywall"],
     nearbySlugs: ["greenwood", "fremont", "magnolia", "queen-anne", "north-seattle", "wallingford"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding6.webp" },
       { trade: "fencing", file: "fencing.webp" },
@@ -285,7 +260,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["drywall", "bathroom-remodels", "laminate", "paint", "tile"],
     nearbySlugs: ["north-seattle", "wallingford", "greenwood", "lake-forest-park", "capitol-hill", "fremont"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding3.webp" },
       { trade: "fencing", file: "fencing6.webp" },
@@ -354,7 +328,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["drywall", "paint", "siding", "bathroom-remodels", "laminate"],
     nearbySlugs: ["greenwood", "ravenna", "ballard", "shoreline", "lake-forest-park", "wallingford"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding7.webp" },
       { trade: "fencing", file: "fencing1.webp" },
@@ -423,7 +396,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "paint", "tile", "bathroom-remodels", "fencing"],
     nearbySlugs: ["ballard", "wallingford", "greenwood", "queen-anne", "north-seattle", "magnolia"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding4.webp" },
       { trade: "fencing", file: "fencing2.webp" },
@@ -492,7 +464,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "tile", "paint", "drywall", "fencing"],
     nearbySlugs: ["fremont", "greenwood", "ravenna", "queen-anne", "north-seattle", "ballard"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding5.webp" },
       { trade: "fencing", file: "fencing4.webp" },
@@ -561,7 +532,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "paint", "bathroom-remodels", "drywall", "tile"],
     nearbySlugs: ["magnolia", "ballard", "fremont", "capitol-hill", "west-seattle", "wallingford"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding1.webp" },
       { trade: "fencing", file: "fencing5.webp" },
@@ -630,7 +600,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["unit-turns", "bathroom-remodels", "tile", "paint", "laminate"],
     nearbySlugs: ["queen-anne", "wallingford", "ravenna", "west-seattle", "ballard", "fremont"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding6.webp" },
       { trade: "fencing", file: "fencing.webp" },
@@ -698,7 +667,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["paint", "siding", "bathroom-remodels", "fencing", "drywall"],
     nearbySlugs: ["ballard", "queen-anne", "fremont", "west-seattle", "greenwood", "wallingford"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding7.webp" },
       { trade: "fencing", file: "fencing1.webp" },
@@ -767,7 +735,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "tile", "paint", "unit-turns", "siding"],
     nearbySlugs: ["burien", "queen-anne", "magnolia", "capitol-hill", "ballard", "renton"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding2.webp" },
       { trade: "fencing", file: "fencing3.webp" },
@@ -830,7 +797,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "bathroom-remodels", "drywall", "paint", "laminate"],
     nearbySlugs: ["north-seattle", "lake-forest-park", "greenwood", "bothell", "ravenna", "ballard"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding3.webp" },
       { trade: "fencing", file: "fencing6.webp" },
@@ -893,7 +859,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "fencing", "drywall", "bathroom-remodels", "paint"],
     nearbySlugs: ["shoreline", "north-seattle", "bothell", "kirkland", "ravenna", "greenwood"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding5.webp" },
       { trade: "fencing", file: "fencing4.webp" },
@@ -959,7 +924,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "siding", "laminate", "paint", "fencing"],
     nearbySlugs: ["kirkland", "lake-forest-park", "shoreline", "redmond", "bellevue", "north-seattle"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding4.webp" },
       { trade: "fencing", file: "fencing2.webp" },
@@ -1025,7 +989,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "tile", "siding", "paint", "laminate"],
     nearbySlugs: ["bellevue", "redmond", "bothell", "lake-forest-park", "ravenna", "capitol-hill"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding6.webp" },
       { trade: "fencing", file: "fencing5.webp" },
@@ -1091,7 +1054,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "tile", "siding", "paint", "drywall"],
     nearbySlugs: ["kirkland", "redmond", "renton", "west-seattle", "capitol-hill", "bothell"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding1.webp" },
       { trade: "fencing", file: "fencing.webp" },
@@ -1157,7 +1119,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "siding", "fencing", "laminate", "paint"],
     nearbySlugs: ["kirkland", "bellevue", "bothell", "renton", "lake-forest-park", "capitol-hill"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding7.webp" },
       { trade: "fencing", file: "fencing1.webp" },
@@ -1223,7 +1184,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "bathroom-remodels", "laminate", "paint", "fencing"],
     nearbySlugs: ["bellevue", "kent", "burien", "west-seattle", "redmond", "kirkland"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding2.webp" },
       { trade: "fencing", file: "fencing3.webp" },
@@ -1286,7 +1246,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["siding", "bathroom-remodels", "tile", "laminate", "paint"],
     nearbySlugs: ["west-seattle", "kent", "renton", "queen-anne", "ballard", "bellevue"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding3.webp" },
       { trade: "fencing", file: "fencing6.webp" },
@@ -1349,7 +1308,6 @@ export const neighbourhoods: Neighbourhood[] = [
     ],
     focusServices: ["bathroom-remodels", "siding", "laminate", "paint", "fencing"],
     nearbySlugs: ["renton", "burien", "bellevue", "west-seattle", "redmond", "kirkland"],
-    job: { status: "todo" },
     photoFiles: [
       { trade: "siding", file: "siding5.webp" },
       { trade: "fencing", file: "fencing2.webp" },
