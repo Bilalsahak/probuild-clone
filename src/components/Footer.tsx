@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { nav, site } from "@/config/site";
 import { services } from "@/content/services";
-import { neighbourhoods } from "@/content/neighbourhoods";
+import { homeTurfNeighbourhoods } from "@/content/neighbourhoods";
 import { LicenseLine } from "@/components/legal/LicenseLine";
 import { TrustLine } from "@/components/legal/TrustLine";
 import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
@@ -65,13 +65,18 @@ export function Footer() {
                     Seattle &amp; King County
                   </Link>
                 </li>
-                {neighbourhoods.map((n) => (
+                {homeTurfNeighbourhoods().map((n) => (
                   <li key={n.slug}>
                     <Link href={`/service-area/${n.slug}/`} className={link}>
                       {n.name}
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link href="/service-area/" className={link}>
+                    All neighborhoods &amp; cities
+                  </Link>
+                </li>
               </ul>
             </nav>
 

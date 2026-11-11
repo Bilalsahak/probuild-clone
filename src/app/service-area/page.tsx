@@ -5,15 +5,29 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { LicenseLine } from "@/components/legal/LicenseLine";
 import { services } from "@/content/services";
-import { neighbourhoods } from "@/content/neighbourhoods";
+import {
+  neighbourhoodsInRegion,
+  regionLabels,
+  type AreaRegion,
+} from "@/content/neighbourhoods";
+import { projectStories } from "@/content/projectStories";
+import { ProjectStoryBlock } from "@/components/ProjectStory";
 import { site } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Service area",
   description:
-    "Seattle MasterFix works in Seattle and King County, WA — siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns.",
+    "Seattle MasterFix works in Seattle and King County, WA — siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns. Neighborhood and city pages for Greenwood, Ballard, and more.",
   alternates: { canonical: "/service-area/" },
 };
+
+const regionOrder: AreaRegion[] = [
+  "home-turf",
+  "seattle",
+  "north-king",
+  "eastside",
+  "south-king",
+];
 
 export default function ServiceAreaPage() {
   return (
@@ -27,6 +41,8 @@ export default function ServiceAreaPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-parchment/85">
               We work in Seattle and King County, WA, for homes and light-commercial spaces.
+              Pages below cover our home turf and other neighborhoods and cities in that service
+              area. Your written quote confirms the service area for your job.
             </p>
           </Reveal>
         </Container>
@@ -38,7 +54,7 @@ export default function ServiceAreaPage() {
             <SectionHeading
               eyebrow="Where we work"
               title="One service area, confirmed in your quote"
-              body="Seattle and King County, WA. Our home turf is Ballard, Greenwood, Ravenna and North Seattle — tell us your property address when you request an estimate and your written quote confirms the service area for your job."
+              body="Seattle and King County, WA. Our home turf is Ballard, Greenwood, Ravenna and North Seattle. The other pages are for places we also serve in that area — they are not labelled as home turf. Tell us your property address when you request an estimate."
             />
           </Reveal>
           <Reveal className="mt-10">
@@ -56,30 +72,77 @@ export default function ServiceAreaPage() {
               ))}
             </ul>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-charcoal/85">
-              Elsewhere in Seattle or King County? Tell us where the property is when you
-              request an estimate — if we cannot take the job on, we will say so early rather
-              than after a visit. King County towns beyond these neighbourhoods are served on a
-              per-project basis; your written quote confirms the service area for your job.
+              Elsewhere in Seattle or King County? Tell us where the property is when you request
+              an estimate — if we cannot take the job on, we will say so early rather than after a
+              visit. King County cities beyond these neighbourhoods are served on a per-project
+              basis; your written quote confirms the service area for your job.
             </p>
           </Reveal>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {neighbourhoods.map((n) => (
-              <Link
-                key={n.slug}
-                href={`/service-area/${n.slug}/`}
-                className="group rounded-[2px] border border-ink/10 bg-ink p-7 text-parchment transition hover:ring-1 hover:ring-ink/30"
-              >
-                <h2 className="font-display text-2xl">{n.name}</h2>
-                <p className="mt-3 text-sm leading-relaxed text-parchment/85">
-                  Remodeling and repair in {n.name}, Seattle — all eight trades, priced per
-                  written project quote.
-                </p>
-                <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-light transition group-hover:gap-3">
-                  Visit page <span aria-hidden>→</span>
-                </span>
-              </Link>
-            ))}
+
+          <div className="mt-16 space-y-14">
+            {regionOrder.map((region) => {
+              const items = neighbourhoodsInRegion(region);
+              if (!items.length) return null;
+              return (
+                <div key={region}>
+                  <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-deep">
+                    {regionLabels[region]}
+                  </h2>
+                  <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    {items.map((n) => (
+                      <Link
+                        key={n.slug}
+                        href={`/service-area/${n.slug}/`}
+                        className="group rounded-[2px] border border-ink/10 bg-ink p-7 text-parchment transition hover:ring-1 hover:ring-ink/30"
+                      >
+                        <h3 className="font-display text-2xl">{n.name}</h3>
+                        <p className="mt-3 text-sm leading-relaxed text-parchment/85">
+                          {n.placeKind === "neighborhood"
+                            ? `Remodeling and repair in ${n.name}, Seattle.`
+                            : `Remodeling and repair in ${n.name}, WA.`}
+                        </p>
+                        <span className="mt-4 inline-flex items-center gap-2 text-eyebrow font-semibold uppercase tracking-[0.18em] text-bronze-light transition group-hover:gap-3">
+                          Visit page <span aria-hidden>→</span>
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
+        </Container>
+      </section>
+
+      <section className="bg-parchment py-20 md:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Recent Seattle-area work"
+              title="Commercial ceiling and drywall"
+              body="A Seattle MasterFix commercial ceiling and drywall project in the Seattle area. The client is unnamed, and no street address is listed. Photos show before and during work only. This is not a job claimed in a specific neighborhood."
+            />
+          </Reveal>
+          <div className="mt-10">
+            <ProjectStoryBlock story={projectStories[0]} />
+          </div>
+          <div className="mt-8">
+            <Button href="/projects/" variant="dark">
+              See all project photos
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-paper py-20 md:py-28">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              eyebrow="Eight trades"
+              title="The same trades across the service area"
+              body="Siding, fencing, tile, laminate flooring, drywall, paint, bathroom remodels and unit turns."
+            />
+          </Reveal>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <Link
@@ -118,8 +181,18 @@ export default function ServiceAreaPage() {
           <Reveal className="lg:col-span-5" delay={0.1}>
             <aside className="rounded-[2px] bg-ink p-7 text-parchment md:p-8">
               <h2 className="text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
-                Registration
+                Seattle MasterFix Precision Craftsmanship
               </h2>
+              <p className="mt-4 text-sm leading-relaxed text-parchment/90">
+                {site.address.full}
+                <br />
+                <a href={site.phoneHref} className="underline underline-offset-2">
+                  {site.phone}
+                </a>
+              </p>
+              <h3 className="mt-6 text-eyebrow font-semibold uppercase tracking-[0.22em] text-bronze-light">
+                Registration
+              </h3>
               <LicenseLine
                 className="mt-4 text-sm leading-relaxed text-parchment/90"
                 linkClassName="underline underline-offset-2 hover:text-bronze-light"

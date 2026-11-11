@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { site } from "@/config/site";
 import { services } from "@/content/services";
 import { guides } from "@/content/guides";
+import { neighbourhoods } from "@/content/neighbourhoods";
 
 export const dynamic = "force-static";
 
@@ -17,10 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/how-we-work/",
     "/faq/",
     "/service-area/",
-    "/service-area/ballard/",
-    "/service-area/greenwood/",
-    "/service-area/ravenna/",
-    "/service-area/north-seattle/",
+    ...neighbourhoods.map((n) => `/service-area/${n.slug}/`),
     "/about/",
     "/contact/",
     "/privacy/",
